@@ -394,6 +394,11 @@ def render_section_header(title: str):
     )
 
 
+def _navigate_to_module(key: str):
+    st.session_state["selected_module"] = key
+    st.session_state["_quick_jump_val"] = key
+
+
 def render_home_dashboard():
     """Clean white professional home dashboard."""
     st.markdown("""
@@ -435,10 +440,18 @@ def render_home_dashboard():
             if idx < len(modules):
                 icon, title, desc, key = modules[idx]
                 with col:
-                    st.markdown(f"""
-                        <div class="mod-card">
-                            <div class="icon">{icon}</div>
-                            <h4>{title}</h4>
-                            <p>{desc}</p>
-                        </div>
-                    """, unsafe_allow_html=True)
+                    with st.container(border=True):
+                        st.markdown(f"""
+                            <div style="min-height: 120px; display: flex; flex-direction: column; justify-content: flex-start;">
+                                <div style="font-size: 1.4rem; margin-bottom: 8px;">{icon}</div>
+                                <h4 style="margin: 0 0 6px 0; color: #111827; font-size: 0.88rem; font-weight: 600;">{title}</h4>
+                                <p style="margin: 0 0 12px 0; color: #6B7280; font-size: 0.76rem; line-height: 1.5;">{desc}</p>
+                            </div>
+                        """, unsafe_allow_html=True)
+                        st.button(
+                            "Open →",
+                            key=f"dash_btn_{idx}",
+                            use_container_width=True,
+                            on_click=_navigate_to_module,
+                            args=(key,)
+                        )
