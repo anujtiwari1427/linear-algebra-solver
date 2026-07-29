@@ -153,5 +153,5 @@ def render_vector_spaces_module():
                 # Orthonormal
                 fig_gs.add_trace(go.Scatter3d(x=[0, e_vecs[i][0]], y=[0, e_vecs[i][1]], z=[0, e_vecs[i][2]], mode='lines+markers', name=f'Orthonormal e_{i+1}', line=dict(color=colors_ortho[i], width=6)))
 
-            fig_gs.update_layout(template="plotly_dark", title="Original vs Orthonormal Basis Vectors", height=500)
+            fig_gs.update_layout(template="plotly_white", title="Original vs Orthonormal Basis Vectors", height=500)
             st.plotly_chart(fig_gs, use_container_width=True)

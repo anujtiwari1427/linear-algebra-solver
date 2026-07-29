@@ -88,7 +88,7 @@ def render_determinants_inverses_module():
             fig_p.add_trace(go.Scatter(x=[0, c1[0]], y=[0, c1[1]], mode='lines+text', name='Vector c₁', line=dict(color='#EC4899', width=4), text=["", "c1"]))
             fig_p.add_trace(go.Scatter(x=[0, c2[0]], y=[0, c2[1]], mode='lines+text', name='Vector c₂', line=dict(color='#10B981', width=4), text=["", "c2"]))
 
-            fig_p.update_layout(template="plotly_dark", title="2D Parallelogram Area", xaxis=dict(range=[-8, 8]), yaxis=dict(range=[-8, 8]), height=500)
+            fig_p.update_layout(template="plotly_white", title="2D Parallelogram Area", xaxis=dict(range=[-8, 8]), yaxis=dict(range=[-8, 8]), height=500)
             st.plotly_chart(fig_p, use_container_width=True)
 
         elif dim == 3:
@@ -117,5 +117,5 @@ def render_determinants_inverses_module():
             fig_v.add_trace(go.Scatter3d(x=[0, c2[0]], y=[0, c2[1]], z=[0, c2[2]], mode='lines+markers', name='c₂', line=dict(color='#EC4899', width=6)))
             fig_v.add_trace(go.Scatter3d(x=[0, c3[0]], y=[0, c3[1]], z=[0, c3[2]], mode='lines+markers', name='c₃', line=dict(color='#10B981', width=6)))
 
-            fig_v.update_layout(template="plotly_dark", title="3D Parallelepiped Volume Visualizer", height=550)
+            fig_v.update_layout(template="plotly_white", title="3D Parallelepiped Volume Visualizer", height=550)
             st.plotly_chart(fig_v, use_container_width=True)

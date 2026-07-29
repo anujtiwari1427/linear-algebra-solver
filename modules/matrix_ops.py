@@ -241,7 +241,7 @@ def render_matrix_ops_module():
                     color=S,
                     color_continuous_scale="Viridis"
                 )
-                fig.update_layout(template="plotly_dark", height=300)
+                fig.update_layout(template="plotly_white", height=300)
                 st.plotly_chart(fig, use_container_width=True)
             except Exception as e:
                 st.error(f"SVD error: {e}")

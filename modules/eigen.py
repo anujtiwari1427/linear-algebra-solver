@@ -139,5 +139,5 @@ def render_eigen_module():
                 fig_e.add_trace(go.Scatter(x=[0, v2[0]], y=[0, v2[1]], mode='lines+markers', name=f'Eigenvector v₂ (λ₂={evals[1]:.2f})', line=dict(color='#10B981', width=5)))
                 fig_e.add_trace(go.Scatter(x=[0, v2_t[0]], y=[0, v2_t[1]], mode='lines+markers', name=f'Transformed A v₂', line=dict(color='#F59E0B', width=5, dash='dash')))
 
-            fig_e.update_layout(template="plotly_dark", title="Eigenvectors Directional Invariance under A", xaxis=dict(range=[-5, 5]), yaxis=dict(range=[-5, 5]), height=550)
+            fig_e.update_layout(template="plotly_white", title="Eigenvectors Directional Invariance under A", xaxis=dict(range=[-5, 5]), yaxis=dict(range=[-5, 5]), height=550)
             st.plotly_chart(fig_e, use_container_width=True)

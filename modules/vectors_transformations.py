@@ -73,7 +73,7 @@ def render_vectors_transformations_module():
             if norm_v > 1e-7:
                 fig.add_trace(go.Scatter(x=[0, proj_uv[0]], y=[0, proj_uv[1]], mode='lines+markers+text', name='proj_v(u)', line=dict(color='#F59E0B', width=3), text=["", "proj"]))
 
-            fig.update_layout(template="plotly_dark", title="2D Vector Plot", xaxis=dict(range=[-10, 10]), yaxis=dict(range=[-10, 10]), height=500)
+            fig.update_layout(template="plotly_white", title="2D Vector Plot", xaxis=dict(range=[-10, 10]), yaxis=dict(range=[-10, 10]), height=500)
             st.plotly_chart(fig, use_container_width=True)
 
         elif dim == 3:
@@ -83,7 +83,7 @@ def render_vectors_transformations_module():
             cross_uv = np.cross(u, v)
             fig.add_trace(go.Scatter3d(x=[0, cross_uv[0]], y=[0, cross_uv[1]], z=[0, cross_uv[2]], mode='lines+markers+text', name='u × v', line=dict(color='#10B981', width=5), text=["", "u×v"]))
 
-            fig.update_layout(template="plotly_dark", title="3D Vector Plot", height=550)
+            fig.update_layout(template="plotly_white", title="3D Vector Plot", height=550)
             st.plotly_chart(fig, use_container_width=True)
 
     # ---------------- TAB 2: LINEAR TRANSFORMATIONS ----------------
@@ -142,5 +142,5 @@ def render_vectors_transformations_module():
         fig_t.add_trace(go.Scatter(x=circle_orig[0], y=circle_orig[1], mode='lines', name='Original Unit Circle', line=dict(color='#6B7280', dash='dot')))
         fig_t.add_trace(go.Scatter(x=circle_trans[0], y=circle_trans[1], mode='lines', name='Transformed Shape', line=dict(color='#EC4899', width=2)))
 
-        fig_t.update_layout(template="plotly_dark", title="2D Plane Grid Morphing", xaxis=dict(range=[-5, 5]), yaxis=dict(range=[-5, 5]), height=550)
+        fig_t.update_layout(template="plotly_white", title="2D Plane Grid Morphing", xaxis=dict(range=[-5, 5]), yaxis=dict(range=[-5, 5]), height=550)
         st.plotly_chart(fig_t, use_container_width=True)

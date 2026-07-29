@@ -119,7 +119,7 @@ def render_linear_equations_module():
                 sol = np.linalg.solve(mat_a, vec_b)
                 fig.add_trace(go.Scatter(x=[sol[0]], y=[sol[1]], mode='markers', marker=dict(size=12, color='red', symbol='cross'), name=f'Intersection ({sol[0]:.2f}, {sol[1]:.2f})'))
 
-            fig.update_layout(template="plotly_dark", title="2D Linear System Lines", xaxis_title="x₁", yaxis_title="x₂", height=450)
+            fig.update_layout(template="plotly_white", title="2D Linear System Lines", xaxis_title="x₁", yaxis_title="x₂", height=450)
             st.plotly_chart(fig, use_container_width=True)
 
         elif n == 3:
@@ -148,7 +148,7 @@ def render_linear_equations_module():
                     name="Intersection Point"
                 ))
 
-            fig.update_layout(template="plotly_dark", scene=dict(xaxis_title='x₁', yaxis_title='x₂', zaxis_title='x₃'), height=550)
+            fig.update_layout(template="plotly_white", scene=dict(xaxis_title='x₁', yaxis_title='x₂', zaxis_title='x₃'), height=550)
             st.plotly_chart(fig, use_container_width=True)
         else:
             st.info("Geometric graph visualizer is available for 2D and 3D systems.")
