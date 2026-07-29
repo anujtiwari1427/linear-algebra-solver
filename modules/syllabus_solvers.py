@@ -4,6 +4,7 @@ import sympy as sp
 import plotly.graph_objects as go
 from utils.style import render_banner
 from utils.helpers import render_matrix_input, render_vector_input, to_sympy_matrix, display_matrix_latex
+from utils.min_poly import matrix_minimal_poly
 
 def render_syllabus_solvers_module():
     render_banner(
@@ -168,22 +169,33 @@ def render_syllabus_solvers_module():
         sp_j = to_sympy_matrix(mat_jordan)
         lam = sp.Symbol('\\lambda')
 
-        char_poly = sp_a_poly = sp_j.charpoly(lam).as_expr()
-        min_poly = sp_j.minpoly(lam)
+        char_poly_expr = sp_j.charpoly(lam).as_expr()
+        deg_char = int(sp.degree(char_poly_expr, lam))
+
+        try:
+            min_poly_expr = matrix_minimal_poly(sp_j, lam)
+            deg_min = int(sp.degree(min_poly_expr, lam))
+            has_min_poly = True
+        except Exception:
+            has_min_poly = False
 
         st.divider()
         st.write("#### 1. Polynomial Comparison:")
-        st.latex(f"\\text{{Characteristic Polynomial }} P(\\lambda) = {sp.latex(char_poly)}")
-        st.latex(f"\\text{{Minimal Polynomial }} m(\\lambda) = {sp.latex(min_poly)}")
-
-        deg_char = sp.degree(char_poly, lam)
-        deg_min = sp.degree(min_poly, lam)
+        st.latex(f"\\text{{Characteristic Polynomial }} P(\\lambda) = {sp.latex(char_poly_expr)}")
+        if has_min_poly:
+            st.latex(f"\\text{{Minimal Polynomial }} m(\\lambda) = {sp.latex(min_poly_expr)}")
+        else:
+            st.info("Minimal polynomial could not be computed for this matrix.")
 
         st.write("#### 2. Derogatory Matrix Classification:")
-        if deg_min < deg_char:
-            st.error(f"⚠️ **Derogatory Matrix**: $\\deg(m(\\lambda)) = {deg_min} < \\deg(P(\\lambda)) = {deg_char}$. Multiple Jordan blocks exist for the same eigenvalue!")
+        if has_min_poly:
+            if deg_min < deg_char:
+                st.error(f"⚠️ **Derogatory Matrix**: $\\deg(m(\\lambda)) = {deg_min} < \\deg(P(\\lambda)) = {deg_char}$. Multiple Jordan blocks exist for the same eigenvalue!")
+            else:
+                st.success(f"✅ **Non-Derogatory Matrix**: $\\deg(m(\\lambda)) = \\deg(P(\\lambda)) = {deg_char}$.")
         else:
-            st.success(f"✅ **Non-Derogatory Matrix**: $\\deg(m(\\lambda)) = \\deg(P(\\lambda)) = {deg_char}$.")
+            st.warning("Classification skipped — minimal polynomial unavailable.")
+
 
         st.divider()
         st.write("#### 3. Jordan Normal Form Computation $A = P J P^{-1}$:")

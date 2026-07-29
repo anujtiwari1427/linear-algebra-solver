@@ -4,6 +4,7 @@ import sympy as sp
 import plotly.graph_objects as go
 from utils.style import render_banner
 from utils.helpers import render_matrix_input, to_sympy_matrix, display_matrix_latex
+from utils.min_poly import matrix_minimal_poly
 
 def render_eigen_module():
     render_banner(
@@ -96,9 +97,12 @@ def render_eigen_module():
 
         st.divider()
         st.write("#### Minimal Polynomial $m(\\lambda)$:")
-        min_poly = sp_a.minpoly(lam)
-        st.latex(f"m(\\lambda) = {sp.latex(min_poly)}")
-        st.caption("The minimal polynomial is the monic polynomial of lowest degree such that m(A) = 0.")
+        try:
+            min_poly_expr = matrix_minimal_poly(sp_a, lam)
+            st.latex(f"m(\\lambda) = {sp.latex(min_poly_expr)}")
+            st.caption("The minimal polynomial is the monic polynomial of lowest degree such that m(A) = 0.")
+        except Exception as e:
+            st.warning(f"Minimal polynomial could not be computed: {e}")
 
     # ---------------- TAB 4: EIGENVECTOR TRANSFORMATION PLOT ----------------
     with tab4:
