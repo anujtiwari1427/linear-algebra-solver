@@ -443,5 +443,7 @@ def render_home_dashboard():
                         </div>
                     """, unsafe_allow_html=True)
                     if st.button("Open →", key=f"dash_{idx}", use_container_width=True):
+                        # Write BOTH keys so the Quick Jump selectbox stays in sync
                         st.session_state["selected_module"] = key
+                        st.session_state["_quick_jump_val"] = key
                         st.rerun()
