@@ -1,485 +1,382 @@
 import streamlit as st
 
 def apply_custom_css():
-    """Applies premium dark glassmorphism theme with animations and polished UI."""
+    """Applies a clean, minimal, professional dark theme."""
     st.markdown("""
         <style>
-        /* ── Google Fonts ── */
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Fira+Code:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
 
-        /* ── Global Reset & Typography ── */
+        /* ── Base ── */
         html, body, [class*="css"], .stApp {
             font-family: 'Inter', sans-serif;
-            background: #080C18;
+            background: #0F1117;
+            color: #E2E8F0;
         }
 
-        /* ── Animated Gradient Background ── */
-        .stApp {
-            background: radial-gradient(ellipse at 20% 10%, rgba(99,102,241,0.08) 0%, transparent 50%),
-                        radial-gradient(ellipse at 80% 80%, rgba(168,85,247,0.06) 0%, transparent 50%),
-                        radial-gradient(ellipse at 50% 50%, rgba(16,185,129,0.03) 0%, transparent 70%),
-                        #080C18;
-        }
-
-        /* ── Sidebar Overhaul ── */
+        /* ── Sidebar ── */
         section[data-testid="stSidebar"] {
-            background: rgba(10, 14, 28, 0.95) !important;
-            border-right: 1px solid rgba(99, 102, 241, 0.2) !important;
-            backdrop-filter: blur(20px);
+            background: #0A0D14 !important;
+            border-right: 1px solid #1E2330 !important;
         }
         section[data-testid="stSidebar"] > div {
             padding-top: 0 !important;
         }
 
-        /* ── Sidebar Brand Header ── */
+        /* ── Sidebar brand ── */
         .sidebar-brand {
-            background: linear-gradient(135deg, rgba(99,102,241,0.2) 0%, rgba(168,85,247,0.15) 50%, rgba(236,72,153,0.1) 100%);
-            border-bottom: 1px solid rgba(99,102,241,0.25);
-            padding: 20px 16px 16px 16px;
-            margin-bottom: 8px;
-            position: relative;
-            overflow: hidden;
+            padding: 24px 20px 18px;
+            border-bottom: 1px solid #1E2330;
+            margin-bottom: 4px;
         }
-        .sidebar-brand::before {
-            content: '';
-            position: absolute;
-            top: -30px; left: -20px;
-            width: 120px; height: 120px;
-            background: radial-gradient(circle, rgba(99,102,241,0.3), transparent 70%);
-            pointer-events: none;
+        .sidebar-brand .logo-row {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 4px;
+        }
+        .sidebar-brand .logo-icon {
+            width: 30px; height: 30px;
+            background: #4F46E5;
+            border-radius: 7px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 0.95rem;
+            flex-shrink: 0;
         }
         .sidebar-brand h1 {
             margin: 0;
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 1.5rem;
-            font-weight: 800;
-            background: linear-gradient(135deg, #6366F1 0%, #A855F7 50%, #EC4899 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            letter-spacing: -0.5px;
-        }
-        .sidebar-brand p {
-            margin: 4px 0 0 0;
-            color: #6B7280;
-            font-size: 0.72rem;
-            font-weight: 500;
-            letter-spacing: 0.5px;
-            text-transform: uppercase;
-        }
-        .sidebar-brand .version-badge {
-            display: inline-block;
-            background: rgba(99,102,241,0.15);
-            color: #818CF8;
-            border: 1px solid rgba(129,140,248,0.3);
-            border-radius: 12px;
-            padding: 2px 8px;
-            font-size: 0.65rem;
-            font-weight: 600;
-            margin-top: 6px;
-        }
-
-        /* ── Sidebar Nav Groups ── */
-        .nav-group-label {
-            padding: 10px 16px 4px 16px;
-            font-size: 0.65rem;
-            font-weight: 700;
-            color: #4B5563;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        /* ── Sidebar selectbox styling ── */
-        .stSelectbox > div > div {
-            background: rgba(255,255,255,0.04) !important;
-            border: 1px solid rgba(99,102,241,0.2) !important;
-            border-radius: 10px !important;
-            color: #E5E7EB !important;
-            font-size: 0.88rem !important;
-            transition: border-color 0.2s ease !important;
-        }
-        .stSelectbox > div > div:hover {
-            border-color: rgba(99,102,241,0.5) !important;
-        }
-        .stSelectbox > div > div:focus-within {
-            border-color: #6366F1 !important;
-            box-shadow: 0 0 0 2px rgba(99,102,241,0.15) !important;
-        }
-
-        /* ── Module Landing Dashboard ── */
-        .dashboard-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 16px;
-            margin-top: 12px;
-        }
-        .module-card {
-            background: rgba(255,255,255,0.03);
-            border: 1px solid rgba(255,255,255,0.07);
-            border-radius: 16px;
-            padding: 20px 22px;
-            cursor: pointer;
-            transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
-            position: relative;
-            overflow: hidden;
-        }
-        .module-card::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(135deg, rgba(99,102,241,0.05) 0%, transparent 60%);
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-        .module-card:hover {
-            border-color: rgba(99,102,241,0.4);
-            transform: translateY(-3px);
-            box-shadow: 0 12px 40px rgba(99,102,241,0.15);
-        }
-        .module-card:hover::before { opacity: 1; }
-        .module-card .card-icon {
-            font-size: 2rem;
-            margin-bottom: 12px;
-            display: block;
-        }
-        .module-card h3 {
-            margin: 0 0 6px 0;
-            color: #F3F4F6;
             font-size: 1rem;
             font-weight: 700;
+            color: #F1F5F9;
+            letter-spacing: -0.3px;
         }
-        .module-card p {
+        .sidebar-brand p {
             margin: 0;
-            color: #6B7280;
-            font-size: 0.8rem;
-            line-height: 1.5;
-        }
-        .module-card .card-tags {
-            margin-top: 12px;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 5px;
-        }
-        .card-tag {
-            background: rgba(99,102,241,0.1);
-            color: #818CF8;
-            border: 1px solid rgba(129,140,248,0.2);
-            border-radius: 6px;
-            padding: 2px 8px;
-            font-size: 0.68rem;
-            font-weight: 600;
+            font-size: 0.72rem;
+            color: #475569;
+            font-weight: 400;
         }
 
-        /* ── Module Header Banner (enhanced) ── */
-        .module-banner {
-            background: linear-gradient(135deg, rgba(99,102,241,0.12) 0%, rgba(168,85,247,0.08) 100%);
-            border: 1px solid rgba(99,102,241,0.2);
-            border-left: 5px solid #6366F1;
-            border-radius: 14px;
-            padding: 18px 22px;
-            margin-bottom: 22px;
-            position: relative;
-            overflow: hidden;
+        /* ── Nav group labels ── */
+        .nav-label {
+            padding: 14px 20px 5px;
+            font-size: 0.65rem;
+            font-weight: 600;
+            color: #374151;
+            text-transform: uppercase;
+            letter-spacing: 0.9px;
         }
-        .module-banner::after {
-            content: '';
-            position: absolute;
-            right: -30px; top: -30px;
-            width: 120px; height: 120px;
-            background: radial-gradient(circle, rgba(99,102,241,0.15), transparent 70%);
-            pointer-events: none;
+
+        /* ── Sidebar buttons ── */
+        .stButton > button {
+            background: transparent !important;
+            border: none !important;
+            border-radius: 7px !important;
+            color: #64748B !important;
+            font-weight: 500 !important;
+            font-size: 0.82rem !important;
+            text-align: left !important;
+            padding: 7px 12px !important;
+            width: 100% !important;
+            transition: all 0.15s ease !important;
+            box-shadow: none !important;
+        }
+        .stButton > button:hover {
+            background: #1E2330 !important;
+            color: #CBD5E1 !important;
+            transform: none !important;
+        }
+
+        /* ── Active nav button ── */
+        .active-nav button {
+            background: #1E2330 !important;
+            color: #818CF8 !important;
+            border-left: 2px solid #4F46E5 !important;
+            border-radius: 0 7px 7px 0 !important;
+        }
+
+        /* ── Selectbox ── */
+        .stSelectbox > div > div {
+            background: #161B27 !important;
+            border: 1px solid #1E2330 !important;
+            border-radius: 8px !important;
+            color: #CBD5E1 !important;
+            font-size: 0.84rem !important;
+        }
+        .stSelectbox > div > div:hover {
+            border-color: #4F46E5 !important;
+        }
+
+        /* ── Module banner ── */
+        .module-banner {
+            padding: 0 0 20px 0;
+            border-bottom: 1px solid #1E2330;
+            margin-bottom: 24px;
+        }
+        .module-banner .breadcrumb {
+            font-size: 0.72rem;
+            color: #475569;
+            font-weight: 500;
+            letter-spacing: 0.3px;
+            margin-bottom: 6px;
+            text-transform: uppercase;
         }
         .module-banner h2 {
             margin: 0 0 4px 0;
-            color: #F3F4F6;
-            font-size: 1.5rem;
-            font-weight: 800;
-            font-family: 'Space Grotesk', sans-serif;
+            color: #F1F5F9;
+            font-size: 1.55rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
         }
         .module-banner p {
             margin: 0;
-            color: #9CA3AF;
-            font-size: 0.88rem;
-            line-height: 1.5;
+            color: #64748B;
+            font-size: 0.875rem;
+            line-height: 1.55;
         }
 
-        /* ── Tabs (enhanced) ── */
+        /* ── Tabs ── */
         .stTabs [data-baseweb="tab-list"] {
-            background: rgba(255,255,255,0.03) !important;
-            border-radius: 12px !important;
-            padding: 4px !important;
-            border: 1px solid rgba(255,255,255,0.07) !important;
-            gap: 2px !important;
+            background: transparent !important;
+            border-bottom: 1px solid #1E2330 !important;
+            border-radius: 0 !important;
+            padding: 0 !important;
+            gap: 0 !important;
         }
         .stTabs [data-baseweb="tab"] {
-            border-radius: 8px !important;
-            font-size: 0.83rem !important;
-            font-weight: 600 !important;
-            padding: 7px 16px !important;
-            color: #9CA3AF !important;
-            transition: all 0.2s ease !important;
+            border-radius: 0 !important;
+            font-size: 0.82rem !important;
+            font-weight: 500 !important;
+            padding: 8px 18px !important;
+            color: #475569 !important;
+            background: transparent !important;
+            border-bottom: 2px solid transparent !important;
+            margin-bottom: -1px !important;
+            transition: color 0.15s ease !important;
+        }
+        .stTabs [data-baseweb="tab"]:hover {
+            color: #94A3B8 !important;
         }
         .stTabs [aria-selected="true"] {
-            background: linear-gradient(135deg, #6366F1, #7C3AED) !important;
-            color: #FFFFFF !important;
-            box-shadow: 0 4px 12px rgba(99,102,241,0.4) !important;
+            color: #818CF8 !important;
+            border-bottom: 2px solid #4F46E5 !important;
+            background: transparent !important;
+            box-shadow: none !important;
         }
         .stTabs [data-baseweb="tab-panel"] {
-            padding-top: 20px !important;
+            padding-top: 22px !important;
         }
 
-        /* ── Metric Cards ── */
+        /* ── Metrics ── */
         .stMetric {
-            background: rgba(255,255,255,0.03) !important;
-            border: 1px solid rgba(255,255,255,0.07) !important;
-            border-radius: 12px !important;
-            padding: 12px 16px !important;
+            background: #161B27 !important;
+            border: 1px solid #1E2330 !important;
+            border-radius: 8px !important;
+            padding: 14px 16px !important;
         }
         .stMetric label {
-            color: #6B7280 !important;
-            font-size: 0.75rem !important;
+            color: #475569 !important;
+            font-size: 0.72rem !important;
             font-weight: 600 !important;
             text-transform: uppercase !important;
-            letter-spacing: 0.5px !important;
+            letter-spacing: 0.6px !important;
         }
-        .stMetric [data-testid="stMetricValue"] {
-            color: #F3F4F6 !important;
-            font-family: 'Fira Code', monospace !important;
-            font-size: 1.3rem !important;
-            font-weight: 700 !important;
-        }
-
-        /* ── Metric Badge (pill) ── */
-        .metric-badge {
-            display: inline-block;
-            background: rgba(99,102,241,0.12);
-            color: #818CF8;
-            border: 1px solid rgba(129,140,248,0.3);
-            border-radius: 20px;
-            padding: 4px 12px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            margin: 3px 4px 3px 0;
-            transition: all 0.2s ease;
-        }
-
-        /* ── Info / Success / Error boxes ── */
-        .stAlert {
-            border-radius: 10px !important;
-            border-width: 1px !important;
-        }
-
-        /* ── Buttons ── */
-        .stButton > button {
-            background: linear-gradient(135deg, rgba(99,102,241,0.15), rgba(168,85,247,0.1)) !important;
-            border: 1px solid rgba(99,102,241,0.3) !important;
-            border-radius: 8px !important;
-            color: #C7D2FE !important;
+        [data-testid="stMetricValue"] {
+            color: #F1F5F9 !important;
+            font-family: 'JetBrains Mono', monospace !important;
+            font-size: 1.2rem !important;
             font-weight: 600 !important;
-            font-size: 0.8rem !important;
-            transition: all 0.25s cubic-bezier(0.4,0,0.2,1) !important;
         }
-        .stButton > button:hover {
-            background: linear-gradient(135deg, rgba(99,102,241,0.3), rgba(168,85,247,0.2)) !important;
-            border-color: #6366F1 !important;
-            box-shadow: 0 4px 16px rgba(99,102,241,0.3) !important;
-            transform: translateY(-1px) !important;
-            color: #FFFFFF !important;
-        }
-        .stButton > button:active { transform: translateY(0) !important; }
 
-        /* ── Data Editor ── */
+        /* ── Badge / pill ── */
+        .badge {
+            display: inline-block;
+            background: #1E2330;
+            color: #94A3B8;
+            border: 1px solid #2D3748;
+            border-radius: 4px;
+            padding: 2px 9px;
+            font-size: 0.73rem;
+            font-weight: 500;
+            margin: 2px 3px 2px 0;
+        }
+        .badge-accent {
+            background: rgba(79,70,229,0.12);
+            color: #818CF8;
+            border-color: rgba(79,70,229,0.25);
+        }
+
+        /* ── Data editor ── */
         .stDataEditor [data-testid="stDataFrameResizable"] {
-            border: 1px solid rgba(99,102,241,0.2) !important;
-            border-radius: 10px !important;
-            overflow: hidden;
+            border: 1px solid #1E2330 !important;
+            border-radius: 8px !important;
+        }
+
+        /* ── Number input ── */
+        .stNumberInput input {
+            background: #161B27 !important;
+            border: 1px solid #1E2330 !important;
+            border-radius: 7px !important;
+            color: #E2E8F0 !important;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.88rem;
+            text-align: center;
+        }
+        .stNumberInput input:focus {
+            border-color: #4F46E5 !important;
+            box-shadow: 0 0 0 2px rgba(79,70,229,0.12) !important;
         }
 
         /* ── Divider ── */
         hr {
-            border-color: rgba(255,255,255,0.06) !important;
-            margin: 20px 0 !important;
+            border-color: #1E2330 !important;
+            margin: 18px 0 !important;
         }
 
-        /* ── Number inputs ── */
-        .stNumberInput input {
-            text-align: center;
-            font-family: 'Fira Code', monospace;
-            font-weight: 600;
-            background: rgba(255,255,255,0.04) !important;
-            border-color: rgba(99,102,241,0.25) !important;
+        /* ── Alerts ── */
+        .stAlert {
             border-radius: 8px !important;
-            color: #F3F4F6 !important;
+            border-width: 1px !important;
+        }
+
+        /* ── Expandable (sidebar) ── */
+        .streamlit-expanderHeader {
+            background: transparent !important;
+            border: none !important;
+            font-size: 0.82rem !important;
+            font-weight: 500 !important;
+            color: #64748B !important;
+            padding: 6px 20px !important;
+        }
+        .streamlit-expanderHeader:hover { color: #94A3B8 !important; }
+        .streamlit-expanderContent {
+            border: none !important;
+            padding: 0 8px !important;
         }
 
         /* ── Scrollbar ── */
-        ::-webkit-scrollbar { width: 4px; height: 4px; }
+        ::-webkit-scrollbar { width: 3px; height: 3px; }
         ::-webkit-scrollbar-track { background: transparent; }
-        ::-webkit-scrollbar-thumb { background: rgba(99,102,241,0.4); border-radius: 4px; }
+        ::-webkit-scrollbar-thumb { background: #2D3748; border-radius: 3px; }
 
-        /* ── Gradient accent text ── */
-        .gradient-text {
-            background: linear-gradient(135deg, #6366F1 0%, #A855F7 50%, #EC4899 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            font-weight: 800;
+        /* ── Dashboard cards ── */
+        .mod-card {
+            background: #161B27;
+            border: 1px solid #1E2330;
+            border-radius: 10px;
+            padding: 18px 20px;
+            transition: border-color 0.2s ease;
+            height: 100%;
+        }
+        .mod-card:hover { border-color: #4F46E5; }
+        .mod-card .icon { font-size: 1.4rem; margin-bottom: 10px; }
+        .mod-card h4 {
+            margin: 0 0 5px;
+            color: #E2E8F0;
+            font-size: 0.88rem;
+            font-weight: 600;
+        }
+        .mod-card p {
+            margin: 0;
+            color: #475569;
+            font-size: 0.76rem;
+            line-height: 1.5;
         }
 
-        /* ── Section header divider ── */
-        .section-header {
+        /* ── Step box ── */
+        .step-box {
+            background: #161B27;
+            border: 1px solid #1E2330;
+            border-radius: 8px;
+            padding: 12px 16px;
+            margin: 10px 0;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.82rem;
+        }
+
+        /* ── Active status chip ── */
+        .status-chip {
             display: flex;
             align-items: center;
-            gap: 10px;
-            margin: 18px 0 12px 0;
+            gap: 7px;
+            padding: 7px 12px;
+            background: #161B27;
+            border: 1px solid #1E2330;
+            border-radius: 7px;
+            font-size: 0.74rem;
+            color: #64748B;
         }
-        .section-header h4 {
-            margin: 0;
-            font-size: 0.85rem;
-            font-weight: 700;
-            color: #9CA3AF;
-            text-transform: uppercase;
-            letter-spacing: 0.8px;
-            white-space: nowrap;
+        .status-chip .dot {
+            width: 6px; height: 6px;
+            background: #4F46E5;
+            border-radius: 50%;
+            flex-shrink: 0;
         }
-        .section-header .divider-line {
-            flex: 1;
-            height: 1px;
-            background: rgba(255,255,255,0.07);
-        }
-
-        /* ── Step box for step-by-step math ── */
-        .step-box {
-            background: rgba(15,23,42,0.6);
-            border: 1px solid rgba(51,65,85,0.8);
-            border-radius: 10px;
-            padding: 14px 18px;
-            margin: 12px 0;
-            font-family: 'Fira Code', monospace;
-        }
-
-        /* ── Popover content ── */
-        .stPopover [data-testid="stPopoverBody"] {
-            background: rgba(15,20,40,0.98) !important;
-            border: 1px solid rgba(99,102,241,0.25) !important;
-            border-radius: 12px !important;
-        }
+        .status-chip span { color: #94A3B8; font-weight: 500; }
         </style>
     """, unsafe_allow_html=True)
 
 
-def render_banner(title: str, description: str, icon: str = "📐"):
-    """Renders an enhanced top banner for each module."""
+def render_banner(title: str, description: str, icon: str = ""):
+    """Renders a clean minimal module header."""
     st.markdown(f"""
         <div class="module-banner">
-            <h2>{icon} {title}</h2>
+            <div class="breadcrumb">Linear Algebra Suite</div>
+            <h2>{icon}&nbsp; {title}</h2>
             <p>{description}</p>
         </div>
     """, unsafe_allow_html=True)
 
 
 def render_section_header(title: str):
-    """Renders a styled section divider with heading."""
-    st.markdown(f"""
-        <div class="section-header">
-            <h4>{title}</h4>
-            <div class="divider-line"></div>
-        </div>
-    """, unsafe_allow_html=True)
+    """Renders a minimal section label."""
+    st.markdown(f'<p style="font-size:0.72rem;font-weight:600;color:#475569;text-transform:uppercase;letter-spacing:0.8px;margin:18px 0 8px 0;">{title}</p>', unsafe_allow_html=True)
 
 
 def render_home_dashboard():
-    """Renders the main dashboard with module cards."""
+    """Minimal professional home dashboard."""
     st.markdown("""
-        <div style="text-align:center; padding: 30px 0 10px 0;">
-            <h1 style="font-family:'Space Grotesk',sans-serif; font-size:2.8rem; font-weight:900;
-                       background:linear-gradient(135deg,#6366F1,#A855F7,#EC4899);
-                       -webkit-background-clip:text; -webkit-text-fill-color:transparent; margin:0;">
+        <div style="padding: 36px 0 28px 0; max-width: 720px;">
+            <p style="font-size:0.72rem;font-weight:600;color:#475569;text-transform:uppercase;letter-spacing:0.9px;margin:0 0 10px 0;">
                 Linear Algebra Suite
+            </p>
+            <h1 style="font-size:2.1rem;font-weight:700;color:#F1F5F9;margin:0 0 12px 0;letter-spacing:-0.8px;line-height:1.2;">
+                Interactive Solver &amp; Visualizer
             </h1>
-            <p style="color:#6B7280; font-size:1rem; margin-top:8px; font-weight:400;">
-                Interactive Python solver & visualizer for university-level linear algebra
+            <p style="font-size:0.9rem;color:#64748B;margin:0;line-height:1.6;max-width:580px;">
+                A comprehensive Python toolkit for matrix algebra, linear systems, vector spaces,
+                eigenvalues, and advanced university syllabus topics — with step-by-step solutions
+                and interactive 2D/3D plots.
             </p>
         </div>
     """, unsafe_allow_html=True)
 
-    st.markdown("---")
+    st.markdown('<div style="height:1px;background:#1E2330;margin-bottom:28px;"></div>', unsafe_allow_html=True)
 
     modules = [
-        {
-            "icon": "📷",
-            "title": "Image Question Solver (OCR)",
-            "desc": "Upload textbook photos or screenshots. ML-powered OCR extracts and solves matrix problems automatically.",
-            "tags": ["OCR", "EasyOCR", "Auto-Solve"],
-            "key": "📷 Image Question Solver (OCR)"
-        },
-        {
-            "icon": "🧮",
-            "title": "Matrix Operations & Properties",
-            "desc": "Arithmetic, transpose, power, LU / QR / SVD / Cholesky decompositions, and structural classification.",
-            "tags": ["LU", "QR", "SVD", "Cholesky"],
-            "key": "🧮 Matrix Operations & Properties"
-        },
-        {
-            "icon": "⚖️",
-            "title": "Systems of Linear Equations",
-            "desc": "Gauss-Jordan RREF, Cramer's Rule, and Inverse method with 2D/3D intersection visualizer.",
-            "tags": ["Gauss-Jordan", "Cramer's Rule", "2D/3D"],
-            "key": "⚖️ Systems of Linear Equations"
-        },
-        {
-            "icon": "🏹",
-            "title": "Vectors & Transformations",
-            "desc": "Dot/cross products, projections, norms, and 2D grid morphing animation under transformation matrix.",
-            "tags": ["Dot Product", "Cross Product", "Animation"],
-            "key": "🏹 Vectors & Transformations"
-        },
-        {
-            "icon": "🌌",
-            "title": "Vector Spaces & Subspaces",
-            "desc": "Linear independence, four fundamental subspaces, Rank-Nullity theorem, and Gram-Schmidt process.",
-            "tags": ["Null Space", "Rank-Nullity", "Gram-Schmidt"],
-            "key": "🌌 Vector Spaces & Subspaces"
-        },
-        {
-            "icon": "💎",
-            "title": "Determinants & Inverses",
-            "desc": "Cofactor expansion, adjugate matrix, and geometric area/volume interpretation of determinants.",
-            "tags": ["Cofactor", "Adjugate", "Area/Volume"],
-            "key": "💎 Determinants & Inverses"
-        },
-        {
-            "icon": "⚡",
-            "title": "Eigenvalues & Eigenvectors",
-            "desc": "Characteristic polynomials, diagonalization, Cayley-Hamilton theorem, and minimal polynomial.",
-            "tags": ["Eigenvalues", "Diagonalization", "Cayley-Hamilton"],
-            "key": "⚡ Eigenvalues & Eigenvectors"
-        },
-        {
-            "icon": "🎓",
-            "title": "Advanced Syllabus Solvers",
-            "desc": "GF(2) field, Change of Basis, General Inner Product Spaces, and Jordan Canonical Form.",
-            "tags": ["GF(2)", "Jordan Form", "Cauchy-Schwarz"],
-            "key": "🎓 Advanced Syllabus Solvers"
-        },
+        ("📷", "Image Solver (OCR)", "Upload photos of math problems. OCR extracts and solves matrices automatically.", "📷 Image Question Solver (OCR)"),
+        ("🧮", "Matrix Operations", "Arithmetic, power, decompositions: LU, QR, SVD, Cholesky.", "🧮 Matrix Operations & Properties"),
+        ("⚖️", "Linear Equations", "Gauss-Jordan, Cramer's Rule, Inverse method with 2D/3D plots.", "⚖️ Systems of Linear Equations"),
+        ("🏹", "Vectors & Transforms", "Dot/cross products, projections, and 2D transformation animator.", "🏹 Vectors & Transformations"),
+        ("🌌", "Vector Spaces", "Subspaces, Rank-Nullity theorem, Gram-Schmidt orthonormalization.", "🌌 Vector Spaces & Subspaces"),
+        ("💎", "Determinants", "Cofactor expansion, adjugate, and parallelogram/volume visualizer.", "💎 Determinants & Inverses"),
+        ("⚡", "Eigenvalues", "Characteristic polynomial, diagonalization, Cayley-Hamilton theorem.", "⚡ Eigenvalues & Eigenvectors"),
+        ("🎓", "Syllabus Solvers", "GF(2), Change of Basis, Inner Products, Jordan Canonical Form.", "🎓 Advanced Syllabus Solvers"),
     ]
 
-    # 4-column grid
-    cols_per_row = 4
-    for i in range(0, len(modules), cols_per_row):
-        row_cols = st.columns(cols_per_row)
-        for j, col in enumerate(row_cols):
+    for i in range(0, len(modules), 4):
+        cols = st.columns(4, gap="small")
+        for j, col in enumerate(cols):
             idx = i + j
             if idx < len(modules):
-                m = modules[idx]
-                tags_html = "".join([f'<span class="card-tag">{t}</span>' for t in m["tags"]])
+                icon, title, desc, key = modules[idx]
                 with col:
                     st.markdown(f"""
-                        <div class="module-card">
-                            <span class="card-icon">{m["icon"]}</span>
-                            <h3>{m["title"]}</h3>
-                            <p>{m["desc"]}</p>
-                            <div class="card-tags">{tags_html}</div>
+                        <div class="mod-card">
+                            <div class="icon">{icon}</div>
+                            <h4>{title}</h4>
+                            <p>{desc}</p>
                         </div>
                     """, unsafe_allow_html=True)
-                    if st.button(f"Open {m['icon']}", key=f"home_btn_{idx}", use_container_width=True):
-                        st.session_state["selected_module"] = m["key"]
+                    if st.button("Open →", key=f"dash_{idx}", use_container_width=True):
+                        st.session_state["selected_module"] = key
                         st.rerun()
