@@ -1,6 +1,6 @@
 import numpy as np
 import sympy as sp
-from typing import Dict, Any
+from typing import Dict, Any, Optional
 from services.validation_service import validate_square_matrix, validate_non_zero_vector
 from services.matrix_service import format_number, matrix_to_latex, matrix_to_list
 
