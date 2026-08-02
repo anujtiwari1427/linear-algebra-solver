@@ -1,43 +1,86 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div class="row mb-5 py-3">
-    <div class="col-lg-9 col-xl-8 mx-auto text-center">
-        <div class="d-inline-flex align-items-center gap-2 px-3 py-1 mb-3 rounded-pill" style="background: rgba(99, 102, 241, 0.12); border: 1px solid rgba(99, 102, 241, 0.3);">
-            <span class="text-gradient-accent fw-bold small">⚡ Production Quality Academic Suite</span>
-        </div>
-        <h1 class="display-4 fw-extrabold text-gradient mb-3">High-Precision Linear Algebra Solver</h1>
-        <p class="lead text-muted max-w-2xl mx-auto mb-4" style="font-size: 1.1rem; line-height: 1.6;">
-            Perform matrix arithmetic, vector space projections, step-by-step Gaussian row eliminations, eigenvalue decompositions, and advanced Galois field solvers.
-        </p>
+<!-- Hero Section -->
+<div class="row mb-5">
+    <div class="col-12">
+        <div class="hero-glow-container text-center">
+            <div class="hero-pill-badge mb-3">
+                <span class="dot-pulse"></span>
+                <span>Next-Gen Mathematical Intelligence Suite</span>
+            </div>
+            
+            <h1 class="hero-title mb-3">
+                Linear Algebra Solver <br>
+                <span style="background: linear-gradient(135deg, var(--accent-purple), var(--primary-light), var(--accent-cyan)); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+                    &amp; Educational Platform
+                </span>
+            </h1>
+            
+            <p class="hero-subtitle mb-4">
+                High-precision numerical and symbolic linear algebra solver powered by Python, Flask, NumPy, SciPy, and SymPy. Engineered for college presentation, academic coursework, and portfolio demonstration.
+            </p>
 
-        <!-- Feature Badges -->
-        <div class="d-flex flex-wrap justify-content-center gap-2">
-            <span class="badge-tech">✓ Step-by-Step Disclosure</span>
-            <span class="badge-tech">✓ LaTeX Math Typesetting</span>
-            <span class="badge-tech">✓ Interactive 2D/3D Plotter</span>
-            <span class="badge-tech">✓ NumPy & SciPy Powered</span>
-            <span class="badge-tech">✓ Exact SymPy Symbolic Algebra</span>
+            <div class="d-flex flex-wrap justify-content-center gap-2 mb-4">
+                <a href="/matrix" class="btn btn-action px-4 py-3 fs-6">Launch Matrix Solver &rarr;</a>
+                <a href="/system" class="btn btn-preset px-4 py-3 fs-6">Try Systems of Equations</a>
+            </div>
+
+            <!-- Stats Strip -->
+            <div class="stats-strip">
+                <div class="row g-3 justify-content-center align-items-center">
+                    <div class="col-6 col-md-3 border-end border-secondary-subtle">
+                        <div class="stat-item">
+                            <div class="stat-number">100%</div>
+                            <div class="stat-label">Math Precision</div>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-3 border-end border-secondary-subtle">
+                        <div class="stat-item">
+                            <div class="stat-number">NumPy</div>
+                            <div class="stat-label">SciPy Accelerated</div>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-3 border-end border-secondary-subtle">
+                        <div class="stat-item">
+                            <div class="stat-number">SymPy</div>
+                            <div class="stat-label">Symbolic Engine</div>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-3">
+                        <div class="stat-item">
+                            <div class="stat-number">15+</div>
+                            <div class="stat-label">Advanced Solvers</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
 
-<div class="row g-4">
+<!-- Module Cards Section -->
+<div class="row g-4 mb-4">
     <!-- Matrix Operations Card -->
     <div class="col-md-6 col-lg-4">
         <div class="card card-custom h-100 p-2">
             <div class="card-body d-flex flex-column">
                 <div class="d-flex align-items-center gap-3 mb-3">
-                    <div class="fs-2 p-2 rounded-3" style="background: rgba(99, 102, 241, 0.15); color: var(--primary);">🧮</div>
+                    <div class="fs-2 p-2 rounded-3" style="background: rgba(99, 102, 241, 0.2); color: #ffffff;">🧮</div>
                     <div>
                         <h4 class="card-title fw-bold mb-0">Matrix Module</h4>
-                        <span class="small text-muted">Arithmetic & Properties</span>
+                        <span class="small opacity-75">Arithmetic &amp; Properties</span>
                     </div>
                 </div>
-                <p class="card-text text-muted flex-grow-1 small" style="line-height: 1.6;">
-                    Addition, Subtraction, Multiplication ($A \times B$), Scalar scaling, Transpose ($A^T$), Trace, Rank with linear dependency breakdown, Determinant, and Adjugate Inverse ($A^{-1}$).
+                <p class="card-text flex-grow-1 small" style="line-height: 1.6; opacity: 0.95;">
+                    Addition, Subtraction, Multiplication ($A \times B$), Scalar scaling, Transpose ($A^T$), Trace, Rank with linear dependency breakdown, Determinant, and Inverse ($A^{-1}$).
                 </p>
-                <a href="/matrix" class="btn btn-action w-100 mt-3">Explore Matrix Solver &rarr;</a>
+                <div class="d-flex flex-column gap-1 mb-3 small">
+                    <div>✓ Step-by-step element arithmetic</div>
+                    <div>✓ Square matrix validation &amp; Trace</div>
+                    <div>✓ Rank linear dependence reasoning</div>
+                </div>
+                <a href="/matrix" class="btn btn-action w-100">Open Matrix Module &rarr;</a>
             </div>
         </div>
     </div>
@@ -47,16 +90,21 @@
         <div class="card card-custom h-100 p-2">
             <div class="card-body d-flex flex-column">
                 <div class="d-flex align-items-center gap-3 mb-3">
-                    <div class="fs-2 p-2 rounded-3" style="background: rgba(236, 72, 153, 0.15); color: var(--accent-pink);">🏹</div>
+                    <div class="fs-2 p-2 rounded-3" style="background: rgba(244, 114, 182, 0.2); color: #ffffff;">🏹</div>
                     <div>
                         <h4 class="card-title fw-bold mb-0">Vector Module</h4>
-                        <span class="small text-muted">Geometric & Metric Space</span>
+                        <span class="small opacity-75">Geometric &amp; Metric Space</span>
                     </div>
                 </div>
-                <p class="card-text text-muted flex-grow-1 small" style="line-height: 1.6;">
+                <p class="card-text flex-grow-1 small" style="line-height: 1.6; opacity: 0.95;">
                     Dot Product ($\vec{u} \cdot \vec{v}$), 3D Cross Product ($\vec{u} \times \vec{v}$), Euclidean Norm $\|\vec{v}\|$, Unit Vector normalization, Vector Projection ($\text{proj}_{\vec{v}}\vec{u}$), Angles, and Distances.
                 </p>
-                <a href="/vector" class="btn btn-action w-100 mt-3">Explore Vector Suite &rarr;</a>
+                <div class="d-flex flex-column gap-1 mb-3 small">
+                    <div>✓ Interactive 2D &amp; 3D Plotly Visualizer</div>
+                    <div>✓ Angle in Degrees and Radians</div>
+                    <div>✓ Zero-vector projection validation</div>
+                </div>
+                <a href="/vector" class="btn btn-action w-100">Open Vector Module &rarr;</a>
             </div>
         </div>
     </div>
@@ -66,16 +114,21 @@
         <div class="card card-custom h-100 p-2">
             <div class="card-body d-flex flex-column">
                 <div class="d-flex align-items-center gap-3 mb-3">
-                    <div class="fs-2 p-2 rounded-3" style="background: rgba(16, 185, 129, 0.15); color: var(--accent-emerald);">⚖️</div>
+                    <div class="fs-2 p-2 rounded-3" style="background: rgba(52, 211, 153, 0.2); color: #ffffff;">⚖️</div>
                     <div>
                         <h4 class="card-title fw-bold mb-0">Linear Systems</h4>
-                        <span class="small text-muted">Ax = b Elimination</span>
+                        <span class="small opacity-75">Ax = b Elimination</span>
                     </div>
                 </div>
-                <p class="card-text text-muted flex-grow-1 small" style="line-height: 1.6;">
+                <p class="card-text flex-grow-1 small" style="line-height: 1.6; opacity: 0.95;">
                     Gaussian Elimination with partial pivoting, Gauss-Jordan RREF, LU System Solver, and Cramer's Rule with complete step-by-step row operation logs and consistency checks.
                 </p>
-                <a href="/system" class="btn btn-action w-100 mt-3">Explore Systems Solver &rarr;</a>
+                <div class="d-flex flex-column gap-1 mb-3 small">
+                    <div>✓ Intermediate matrix step logs</div>
+                    <div>✓ Consistency Rouché–Capelli rank check</div>
+                    <div>✓ Cramer's determinant ratio method</div>
+                </div>
+                <a href="/system" class="btn btn-action w-100">Open Systems Solver &rarr;</a>
             </div>
         </div>
     </div>
@@ -85,16 +138,21 @@
         <div class="card card-custom h-100 p-2">
             <div class="card-body d-flex flex-column">
                 <div class="d-flex align-items-center gap-3 mb-3">
-                    <div class="fs-2 p-2 rounded-3" style="background: rgba(245, 158, 11, 0.15); color: var(--accent-amber);">⚡</div>
+                    <div class="fs-2 p-2 rounded-3" style="background: rgba(251, 191, 36, 0.2); color: #ffffff;">⚡</div>
                     <div>
                         <h4 class="card-title fw-bold mb-0">Eigenvalues</h4>
-                        <span class="small text-muted">Spectral & Diagonalization</span>
+                        <span class="small opacity-75">Spectral &amp; Diagonalization</span>
                     </div>
                 </div>
-                <p class="card-text text-muted flex-grow-1 small" style="line-height: 1.6;">
+                <p class="card-text flex-grow-1 small" style="line-height: 1.6; opacity: 0.95;">
                     Characteristic Polynomial $\det(A - \lambda I) = 0$, Eigenspaces, Modal Matrix $P$ and Diagonal Matrix $D$ ($A = PDP^{-1}$), Matrix Powers ($A^k$), and Cayley-Hamilton verification.
                 </p>
-                <a href="/eigen" class="btn btn-action w-100 mt-3">Explore Eigen Suite &rarr;</a>
+                <div class="d-flex flex-column gap-1 mb-3 small">
+                    <div>✓ Symbolic characteristic equation</div>
+                    <div>✓ Diagonalization check &amp; matrix powers</div>
+                    <div>✓ Cayley-Hamilton P(A) = 0 proof</div>
+                </div>
+                <a href="/eigen" class="btn btn-action w-100">Open Eigen Module &rarr;</a>
             </div>
         </div>
     </div>
@@ -104,16 +162,21 @@
         <div class="card card-custom h-100 p-2">
             <div class="card-body d-flex flex-column">
                 <div class="d-flex align-items-center gap-3 mb-3">
-                    <div class="fs-2 p-2 rounded-3" style="background: rgba(6, 182, 212, 0.15); color: var(--accent-cyan);">🧱</div>
+                    <div class="fs-2 p-2 rounded-3" style="background: rgba(56, 189, 248, 0.2); color: #ffffff;">🧱</div>
                     <div>
                         <h4 class="card-title fw-bold mb-0">Decompositions</h4>
-                        <span class="small text-muted">Factorization Canonical Forms</span>
+                        <span class="small opacity-75">Factorization Canonical Forms</span>
                     </div>
                 </div>
-                <p class="card-text text-muted flex-grow-1 small" style="line-height: 1.6;">
+                <p class="card-text flex-grow-1 small" style="line-height: 1.6; opacity: 0.95;">
                     LU Factorization ($PLU = A$), QR Orthogonal Factorization ($QR = A$), Singular Value Decomposition (SVD: $U\Sigma V^T$), and Cholesky Factorization ($LL^T = A$).
                 </p>
-                <a href="/decomposition" class="btn btn-action w-100 mt-3">Explore Decompositions &rarr;</a>
+                <div class="d-flex flex-column gap-1 mb-3 small">
+                    <div>✓ scipy.linalg.lu verification</div>
+                    <div>✓ SVD singular values spectrum</div>
+                    <div>✓ Cholesky positive-definite check</div>
+                </div>
+                <a href="/decomposition" class="btn btn-action w-100">Open Decompositions &rarr;</a>
             </div>
         </div>
     </div>
@@ -123,16 +186,21 @@
         <div class="card card-custom h-100 p-2">
             <div class="card-body d-flex flex-column">
                 <div class="d-flex align-items-center gap-3 mb-3">
-                    <div class="fs-2 p-2 rounded-3" style="background: rgba(168, 85, 247, 0.15); color: var(--accent-purple);">🎓</div>
+                    <div class="fs-2 p-2 rounded-3" style="background: rgba(192, 132, 252, 0.2); color: #ffffff;">🎓</div>
                     <div>
                         <h4 class="card-title fw-bold mb-0">Advanced Solvers</h4>
-                        <span class="small text-muted">Syllabus & Special Topics</span>
+                        <span class="small opacity-75">Syllabus &amp; Special Topics</span>
                     </div>
                 </div>
-                <p class="card-text text-muted flex-grow-1 small" style="line-height: 1.6;">
+                <p class="card-text flex-grow-1 small" style="line-height: 1.6; opacity: 0.95;">
                     Galois Field GF(2) binary arithmetic mod 2, Change of Basis transition matrices ($P_{B \to B'}$), and Weighted Inner Product Spaces ($\langle u, v \rangle_W$).
                 </p>
-                <a href="/advanced" class="btn btn-action w-100 mt-3">Explore Advanced Topics &rarr;</a>
+                <div class="d-flex flex-column gap-1 mb-3 small">
+                    <div>✓ GF(2) XOR/AND binary matrix rank</div>
+                    <div>✓ Transition matrix P_{B->B'} solver</div>
+                    <div>✓ Weighted norm &amp; inner product</div>
+                </div>
+                <a href="/advanced" class="btn btn-action w-100">Open Advanced Solvers &rarr;</a>
             </div>
         </div>
     </div>
