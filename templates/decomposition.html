@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="row mb-3">
+    <div class="col-12">
+        <h2 class="fw-bold">🧱 Matrix Decompositions</h2>
+        <p class="text-muted">Factorize matrices into canonical forms: LU ($PLU = A$), QR ($QR = A$), SVD ($U\Sigma V^T = A$), and Cholesky ($LL^T = A$).</p>
+    </div>
+</div>
+
+<div class="card card-custom mb-4">
+    <div class="card-body d-flex flex-wrap align-items-center justify-content-between gap-3">
+        <div class="form-check form-switch">
+            <input class="form-check-input" type="checkbox" id="decompShowSteps" checked>
+            <label class="form-check-label fw-semibold" for="decompShowSteps">Show Step-by-Step Solution</label>
+        </div>
+        <div class="d-flex align-items-center gap-2">
+            <label class="fw-semibold">Rows:</label>
+            <input type="number" id="decompRows" min="1" max="6" value="3" class="form-control text-center" style="width: 70px;" onchange="initDecompMatrix()">
+            <label class="fw-semibold ms-2">Cols:</label>
+            <input type="number" id="decompCols" min="1" max="6" value="3" class="form-control text-center" style="width: 70px;" onchange="initDecompMatrix()">
+        </div>
+    </div>
+</div>
+
+<div class="row g-4 mb-4">
+    <div class="col-lg-6 mx-auto">
+        <div class="card card-custom">
+            <div class="card-header card-header-custom">Target Matrix A</div>
+            <div class="card-body text-center" id="decompMatContainer"></div>
+        </div>
+    </div>
+</div>
+
+<div class="card card-custom mb-4">
+    <div class="card-header card-header-custom">Select Decomposition Method</div>
+    <div class="card-body">
+        <div class="d-flex flex-wrap gap-2 mb-3">
+            <button class="btn btn-action" onclick="runDecompOp('/api/decomposition/lu')">LU Decomposition (P·L·U)</button>
+            <button class="btn btn-action" onclick="runDecompOp('/api/decomposition/qr')">QR Decomposition (Q·R)</button>
+            <button class="btn btn-action" onclick="runDecompOp('/api/decomposition/svd')">SVD (U·Σ·Vᵀ)</button>
+            <button class="btn btn-action" onclick="runDecompOp('/api/decomposition/cholesky')">Cholesky (L·Lᵀ)</button>
+        </div>
+
+        <div id="errorAlert" class="alert alert-danger d-none" role="alert"></div>
+
+        <div id="resultCard" class="result-card p-3 rounded border border-secondary mt-3">
+            <h5 class="fw-bold mb-3">Decomposition Output:</h5>
+            <div id="resultLatex" class="fs-4 text-center my-3 overflow-auto"></div>
+            <div id="resultExplanation" class="text-muted small mb-3"></div>
+            <div id="resultComplexity" class="mb-3"></div>
+            <div id="resultSteps"></div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    function initDecompMatrix() {
+        const r = parseInt(document.getElementById('decompRows').value) || 3;
+        const c = parseInt(document.getElementById('decompCols').value) || 3;
+        generateMatrixGrid('decompMatContainer', r, c, 'decm');
+    }
+
+    function runDecompOp(endpoint) {
+        const r = parseInt(document.getElementById('decompRows').value) || 3;
+        const c = parseInt(document.getElementById('decompCols').value) || 3;
+        const matA = getMatrixValues('decompMatContainer', r, c, 'decm');
+        const showSteps = document.getElementById('decompShowSteps').checked;
+
+        submitCalculation(endpoint, {
+            matrix_a: matA,
+            show_steps: showSteps
+        }, 'resultCard');
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        initDecompMatrix();
+    });
+</script>
+{% endblock %}

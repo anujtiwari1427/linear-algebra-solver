@@ -1,0 +1,98 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="row mb-4">
+    <div class="col-12 text-center py-4">
+        <h1 class="display-5 fw-bold text-gradient">Linear Algebra Solver & Educational Suite</h1>
+        <p class="lead text-muted max-w-2xl mx-auto">
+            High-precision numerical and symbolic linear algebra solver powered by Python, Flask, NumPy, SciPy, and SymPy. Formulated for college presentation and portfolio demonstration.
+        </p>
+    </div>
+</div>
+
+<div class="row g-4">
+    <!-- Matrix Operations Card -->
+    <div class="col-md-6 col-lg-4">
+        <div class="card card-custom h-100 p-3">
+            <div class="card-body">
+                <div class="fs-1 text-primary mb-3">🧮</div>
+                <h4 class="card-title fw-bold">Matrix Operations</h4>
+                <p class="card-text text-muted">
+                    Addition, Subtraction, Multiplication, Scalar Scaling, Transpose, Trace, Rank with linear dependency explanation, Determinant, Inverse.
+                </p>
+                <a href="/matrix" class="btn btn-action w-100 mt-2">Open Matrix Module</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Vector Module Card -->
+    <div class="col-md-6 col-lg-4">
+        <div class="card card-custom h-100 p-3">
+            <div class="card-body">
+                <div class="fs-1 text-danger mb-3">🏹</div>
+                <h4 class="card-title fw-bold">Vector Operations</h4>
+                <p class="card-text text-muted">
+                    Dot Product, 3D Cross Product, Magnitude (Norm), Unit Vector normalization, Vector Projection, Angles (Degrees/Radians), Distance.
+                </p>
+                <a href="/vector" class="btn btn-action w-100 mt-2">Open Vector Module</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Systems of Linear Equations Card -->
+    <div class="col-md-6 col-lg-4">
+        <div class="card card-custom h-100 p-3">
+            <div class="card-body">
+                <div class="fs-1 text-success mb-3">⚖️</div>
+                <h4 class="card-title fw-bold">Linear Systems Solver</h4>
+                <p class="card-text text-muted">
+                    Gaussian Elimination, Gauss-Jordan RREF, LU Factorization Method, Cramer's Rule with complete intermediate row operation steps.
+                </p>
+                <a href="/system" class="btn btn-action w-100 mt-2">Open Systems Solver</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Eigenvalues & Eigenvectors Card -->
+    <div class="col-md-6 col-lg-4">
+        <div class="card card-custom h-100 p-3">
+            <div class="card-body">
+                <div class="fs-1 text-warning mb-3">⚡</div>
+                <h4 class="card-title fw-bold">Eigenvalues & Eigenspaces</h4>
+                <p class="card-text text-muted">
+                    Characteristic Polynomial $\det(A - \lambda I) = 0$, Eigenspaces, Matrix Diagonalization ($A = PDP^{-1}$), Cayley-Hamilton Theorem.
+                </p>
+                <a href="/eigen" class="btn btn-action w-100 mt-2">Open Eigen Module</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Matrix Decompositions Card -->
+    <div class="col-md-6 col-lg-4">
+        <div class="card card-custom h-100 p-3">
+            <div class="card-body">
+                <div class="fs-1 text-info mb-3">🧱</div>
+                <h4 class="card-title fw-bold">Matrix Decompositions</h4>
+                <p class="card-text text-muted">
+                    LU Factorization ($PLU = A$), QR Decomposition ($QR = A$), Singular Value Decomposition (SVD), Cholesky Decomposition ($LL^T = A$).
+                </p>
+                <a href="/decomposition" class="btn btn-action w-100 mt-2">Open Decompositions</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Advanced Syllabus Solvers Card -->
+    <div class="col-md-6 col-lg-4">
+        <div class="card card-custom h-100 p-3">
+            <div class="card-body">
+                <div class="fs-1 text-secondary mb-3">🎓</div>
+                <h4 class="card-title fw-bold">Advanced Syllabus Topics</h4>
+                <p class="card-text text-muted">
+                    Galois Field GF(2) Binary Arithmetic, Change of Basis ($P_{B \to B'}$), Weighted Inner Product Spaces $\langle u, v \rangle_W$.
+                </p>
+                <a href="/advanced" class="btn btn-action w-100 mt-2">Open Advanced Solvers</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title if title else "Linear Algebra Suite" }}</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- MathJax 3 -->
+    <script>
+        MathJax = {
+            tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] },
+            svg: { fontCache: 'global' }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <!-- Plotly.js -->
+    <script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom sticky-top">
+        <div class="container-fluid px-4">
+            <a class="navbar-brand d-flex align-items-center gap-2" href="/">
+                <span class="fs-4">∑</span> Linear Algebra Suite
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link {{ 'active' if request.path == '/' }}" href="/">Dashboard</a></li>
+                    <li class="nav-item"><a class="nav-link {{ 'active' if request.path == '/matrix' }}" href="/matrix">Matrix Module</a></li>
+                    <li class="nav-item"><a class="nav-link {{ 'active' if request.path == '/vector' }}" href="/vector">Vector Module</a></li>
+                    <li class="nav-item"><a class="nav-link {{ 'active' if request.path == '/system' }}" href="/system">Linear Systems</a></li>
+                    <li class="nav-item"><a class="nav-link {{ 'active' if request.path == '/eigen' }}" href="/eigen">Eigenvalues</a></li>
+                    <li class="nav-item"><a class="nav-link {{ 'active' if request.path == '/decomposition' }}" href="/decomposition">Decompositions</a></li>
+                    <li class="nav-item"><a class="nav-link {{ 'active' if request.path == '/advanced' }}" href="/advanced">Advanced Solvers</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content Area -->
+    <main class="container-fluid px-4 py-4 flex-grow-1">
+        {% block content %}{% endblock %}
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-3 text-center text-muted border-top border-secondary-subtle fs-7">
+        <div class="container">
+            Linear Algebra Educational Suite &bull; Flask &bull; NumPy &bull; SciPy &bull; SymPy &bull; Bootstrap 5
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Application Scripts -->
+    <script src="{{ url_for('static', filename='js/matrix_builder.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/vector_builder.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/solver_api.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/visualizer.js') }}"></script>
+    {% block scripts %}{% endblock %}
+</body>
+</html>

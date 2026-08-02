@@ -1,0 +1,192 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="row mb-3">
+    <div class="col-12">
+        <h2 class="fw-bold">🎓 Advanced Syllabus Solvers</h2>
+        <p class="text-muted">Explore Galois Field GF(2) binary field arithmetic, Change of Basis transition matrices ($P_{B \to B'}$), and Weighted Inner Product Spaces.</p>
+    </div>
+</div>
+
+<div class="card card-custom mb-4">
+    <div class="card-body">
+        <div class="form-check form-switch">
+            <input class="form-check-input" type="checkbox" id="advShowSteps" checked>
+            <label class="form-check-label fw-semibold" for="advShowSteps">Show Step-by-Step Solution</label>
+        </div>
+    </div>
+</div>
+
+<ul class="nav nav-tabs mb-4" id="advTab" role="tablist">
+    <li class="nav-item">
+        <button class="nav-link active fw-semibold" id="gf2-tab" data-bs-toggle="tab" data-bs-target="#gf2-pane">Galois Field GF(2)</button>
+    </li>
+    <li class="nav-item">
+        <button class="nav-link fw-semibold" id="cob-tab" data-bs-toggle="tab" data-bs-target="#cob-pane">Change of Basis</button>
+    </li>
+    <li class="nav-item">
+        <button class="nav-link fw-semibold" id="inner-tab" data-bs-toggle="tab" data-bs-target="#inner-pane">Weighted Inner Product</button>
+    </li>
+</ul>
+
+<div class="tab-content" id="advTabContent">
+    <!-- GF2 Pane -->
+    <div class="tab-pane fade show active" id="gf2-pane">
+        <div class="row g-4 mb-4">
+            <div class="col-lg-6 mx-auto">
+                <div class="card card-custom">
+                    <div class="card-header card-header-custom">Binary Matrix A (mod 2)</div>
+                    <div class="card-body text-center" id="gf2MatContainer"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card card-custom">
+            <div class="card-body">
+                <div class="d-flex flex-wrap gap-2 mb-3">
+                    <button class="btn btn-action" onclick="runGF2('rank')">Rank over GF(2)</button>
+                    <button class="btn btn-action" onclick="runGF2('power')">A × A (Matrix Power mod 2)</button>
+                </div>
+                <div id="gf2ResultCard" class="result-card p-3 rounded border border-secondary mt-3">
+                    <h5 class="fw-bold mb-3">GF(2) Output:</h5>
+                    <div id="gf2ResultLatex" class="fs-4 text-center my-3 overflow-auto"></div>
+                    <div id="gf2ResultExplanation" class="text-muted small mb-3"></div>
+                    <div id="gf2ResultComplexity" class="mb-3"></div>
+                    <div id="gf2ResultSteps"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Change of Basis Pane -->
+    <div class="tab-pane fade" id="cob-pane">
+        <div class="row g-4 mb-4">
+            <div class="col-md-4">
+                <div class="card card-custom">
+                    <div class="card-header card-header-custom">Old Basis B</div>
+                    <div class="card-body text-center" id="basisBContainer"></div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card card-custom">
+                    <div class="card-header card-header-custom">New Basis B'</div>
+                    <div class="card-body text-center" id="basisBPrimeContainer"></div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card card-custom">
+                    <div class="card-header card-header-custom">Transform [T]_B</div>
+                    <div class="card-body text-center" id="transTBContainer"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card card-custom">
+            <div class="card-body text-center">
+                <button class="btn btn-action" onclick="runChangeOfBasis()">Compute Transition Matrix & [T]_B'</button>
+                <div id="cobResultCard" class="result-card p-3 rounded border border-secondary mt-3 text-start">
+                    <h5 class="fw-bold mb-3">Change of Basis Result:</h5>
+                    <div id="cobResultLatex" class="fs-4 text-center my-3 overflow-auto"></div>
+                    <div id="cobResultExplanation" class="text-muted small mb-3"></div>
+                    <div id="cobResultComplexity" class="mb-3"></div>
+                    <div id="cobResultSteps"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Inner Product Pane -->
+    <div class="tab-pane fade" id="inner-pane">
+        <div class="row g-4 mb-4">
+            <div class="col-md-4">
+                <div class="card card-custom">
+                    <div class="card-header card-header-custom">Vector u</div>
+                    <div class="card-body text-center" id="ipUContainer"></div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card card-custom">
+                    <div class="card-header card-header-custom">Vector v</div>
+                    <div class="card-body text-center" id="ipVContainer"></div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card card-custom">
+                    <div class="card-header card-header-custom">Weight Matrix W</div>
+                    <div class="card-body text-center" id="ipWContainer"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card card-custom">
+            <div class="card-body text-center">
+                <button class="btn btn-action" onclick="runInnerProduct()">Compute ⟨u, v⟩_W</button>
+                <div id="ipResultCard" class="result-card p-3 rounded border border-secondary mt-3 text-start">
+                    <h5 class="fw-bold mb-3">Weighted Inner Product Result:</h5>
+                    <div id="ipResultLatex" class="fs-4 text-center my-3 overflow-auto"></div>
+                    <div id="ipResultExplanation" class="text-muted small mb-3"></div>
+                    <div id="ipResultComplexity" class="mb-3"></div>
+                    <div id="ipResultSteps"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    function initAdvancedInputs() {
+        generateMatrixGrid('gf2MatContainer', 3, 3, 'gf2m');
+        generateMatrixGrid('basisBContainer', 2, 2, 'bb');
+        generateMatrixGrid('basisBPrimeContainer', 2, 2, 'bbp');
+        generateMatrixGrid('transTBContainer', 2, 2, 'tb');
+        generateVectorGrid('ipUContainer', 2, 'ipu', [3, 4]);
+        generateVectorGrid('ipVContainer', 2, 'ipv', [1, 2]);
+        generateMatrixGrid('ipWContainer', 2, 2, 'ipw');
+    }
+
+    function runGF2(op) {
+        const matA = getMatrixValues('gf2MatContainer', 3, 3, 'gf2m');
+        const showSteps = document.getElementById('advShowSteps').checked;
+
+        submitCalculation('/api/advanced/gf2', {
+            matrix_a: matA,
+            operation: op,
+            show_steps: showSteps
+        }, 'gf2ResultCard');
+    }
+
+    function runChangeOfBasis() {
+        const basisB = getMatrixValues('basisBContainer', 2, 2, 'bb');
+        const basisBPrime = getMatrixValues('basisBPrimeContainer', 2, 2, 'bbp');
+        const transTB = getMatrixValues('transTBContainer', 2, 2, 'tb');
+        const showSteps = document.getElementById('advShowSteps').checked;
+
+        submitCalculation('/api/advanced/change_of_basis', {
+            basis_b: basisB,
+            basis_b_prime: basisBPrime,
+            mat_t_b: transTB,
+            show_steps: showSteps
+        }, 'cobResultCard');
+    }
+
+    function runInnerProduct() {
+        const u = getVectorValues('ipUContainer', 2, 'ipu');
+        const v = getVectorValues('ipVContainer', 2, 'ipv');
+        const w = getMatrixValues('ipWContainer', 2, 2, 'ipw');
+        const showSteps = document.getElementById('advShowSteps').checked;
+
+        submitCalculation('/api/advanced/inner_product', {
+            vector_u: u,
+            vector_v: v,
+            weight_matrix: w,
+            show_steps: showSteps
+        }, 'ipResultCard');
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        initAdvancedInputs();
+    });
+</script>
+{% endblock %}
