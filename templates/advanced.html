@@ -1,56 +1,69 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div class="row mb-3">
-    <div class="col-12">
-        <h2 class="fw-bold">🎓 Advanced Syllabus Solvers</h2>
-        <p class="text-muted">Explore Galois Field GF(2) binary field arithmetic, Change of Basis transition matrices ($P_{B \to B'}$), and Weighted Inner Product Spaces.</p>
+<div class="row mb-4">
+    <div class="col-12 d-flex flex-wrap align-items-center justify-content-between gap-3">
+        <div>
+            <h2 class="fw-bold mb-1" style="font-size: 2rem;">🎓 Advanced Syllabus &amp; Special Solvers</h2>
+            <p class="text-secondary mb-0">Explore Galois Field GF(2) binary field arithmetic, Change of Basis transition matrices ($P_{B \to B'}$), and Weighted Inner Product Spaces.</p>
+        </div>
+        <span class="badge-online">
+            <span class="dot-pulse"></span>
+            Special Topics Engine
+        </span>
     </div>
 </div>
 
 <div class="card card-custom mb-4">
-    <div class="card-body">
-        <div class="form-check form-switch">
+    <div class="card-body py-3">
+        <div class="form-check form-switch mb-0">
             <input class="form-check-input" type="checkbox" id="advShowSteps" checked>
-            <label class="form-check-label fw-semibold" for="advShowSteps">Show Step-by-Step Solution</label>
+            <label class="form-check-label fw-bold text-primary ms-2" for="advShowSteps">Show Detailed Step-by-Step Solution</label>
         </div>
     </div>
 </div>
 
-<ul class="nav nav-tabs mb-4" id="advTab" role="tablist">
-    <li class="nav-item">
-        <button class="nav-link active fw-semibold" id="gf2-tab" data-bs-toggle="tab" data-bs-target="#gf2-pane">Galois Field GF(2)</button>
+<ul class="nav nav-pills mb-4 gap-2" id="advTab" role="tablist">
+    <li class="nav-item" role="presentation">
+        <button class="nav-link active fw-bold" id="gf2-tab" data-bs-toggle="tab" data-bs-target="#gf2-pane" type="button" role="tab">Galois Field GF(2)</button>
     </li>
-    <li class="nav-item">
-        <button class="nav-link fw-semibold" id="cob-tab" data-bs-toggle="tab" data-bs-target="#cob-pane">Change of Basis</button>
+    <li class="nav-item" role="presentation">
+        <button class="nav-link fw-bold" id="cob-tab" data-bs-toggle="tab" data-bs-target="#cob-pane" type="button" role="tab">Change of Basis</button>
     </li>
-    <li class="nav-item">
-        <button class="nav-link fw-semibold" id="inner-tab" data-bs-toggle="tab" data-bs-target="#inner-pane">Weighted Inner Product</button>
+    <li class="nav-item" role="presentation">
+        <button class="nav-link fw-bold" id="inner-tab" data-bs-toggle="tab" data-bs-target="#inner-pane" type="button" role="tab">Weighted Inner Product</button>
     </li>
 </ul>
 
 <div class="tab-content" id="advTabContent">
     <!-- GF2 Pane -->
-    <div class="tab-pane fade show active" id="gf2-pane">
+    <div class="tab-pane fade show active" id="gf2-pane" role="tabpanel">
         <div class="row g-4 mb-4">
             <div class="col-lg-6 mx-auto">
                 <div class="card card-custom">
-                    <div class="card-header card-header-custom">Binary Matrix A (mod 2)</div>
-                    <div class="card-body text-center" id="gf2MatContainer"></div>
+                    <div class="card-header card-header-custom">
+                        <span>Binary Matrix A (mod 2)</span>
+                        <span class="badge-tech">GF(2) Matrix</span>
+                    </div>
+                    <div class="card-body text-center overflow-auto" id="gf2MatContainer"></div>
                 </div>
             </div>
         </div>
 
         <div class="card card-custom">
+            <div class="card-header card-header-custom">
+                <span>GF(2) Operations</span>
+                <span class="badge-tech">API Action</span>
+            </div>
             <div class="card-body">
                 <div class="d-flex flex-wrap gap-2 mb-3">
                     <button class="btn btn-action" onclick="runGF2('rank')">Rank over GF(2)</button>
                     <button class="btn btn-action" onclick="runGF2('power')">A × A (Matrix Power mod 2)</button>
                 </div>
-                <div id="gf2ResultCard" class="result-card p-3 rounded border border-secondary mt-3">
-                    <h5 class="fw-bold mb-3">GF(2) Output:</h5>
+                <div id="gf2ResultCard" class="result-card p-4 mt-3">
+                    <h5 class="fw-bold mb-3">GF(2) Output</h5>
                     <div id="gf2ResultLatex" class="fs-4 text-center my-3 overflow-auto"></div>
-                    <div id="gf2ResultExplanation" class="text-muted small mb-3"></div>
+                    <div id="gf2ResultExplanation" class="text-secondary small mb-3"></div>
                     <div id="gf2ResultComplexity" class="mb-3"></div>
                     <div id="gf2ResultSteps"></div>
                 </div>
@@ -59,35 +72,44 @@
     </div>
 
     <!-- Change of Basis Pane -->
-    <div class="tab-pane fade" id="cob-pane">
+    <div class="tab-pane fade" id="cob-pane" role="tabpanel">
         <div class="row g-4 mb-4">
             <div class="col-md-4">
-                <div class="card card-custom">
-                    <div class="card-header card-header-custom">Old Basis B</div>
-                    <div class="card-body text-center" id="basisBContainer"></div>
+                <div class="card card-custom h-100">
+                    <div class="card-header card-header-custom">
+                        <span>Old Basis B</span>
+                        <span class="badge-tech">Basis 1</span>
+                    </div>
+                    <div class="card-body text-center overflow-auto" id="basisBContainer"></div>
                 </div>
             </div>
             <div class="col-md-4">
-                <div class="card card-custom">
-                    <div class="card-header card-header-custom">New Basis B'</div>
-                    <div class="card-body text-center" id="basisBPrimeContainer"></div>
+                <div class="card card-custom h-100">
+                    <div class="card-header card-header-custom">
+                        <span>New Basis B'</span>
+                        <span class="badge-tech">Basis 2</span>
+                    </div>
+                    <div class="card-body text-center overflow-auto" id="basisBPrimeContainer"></div>
                 </div>
             </div>
             <div class="col-md-4">
-                <div class="card card-custom">
-                    <div class="card-header card-header-custom">Transform [T]_B</div>
-                    <div class="card-body text-center" id="transTBContainer"></div>
+                <div class="card card-custom h-100">
+                    <div class="card-header card-header-custom">
+                        <span>Transform [T]_B</span>
+                        <span class="badge-tech">Operator</span>
+                    </div>
+                    <div class="card-body text-center overflow-auto" id="transTBContainer"></div>
                 </div>
             </div>
         </div>
 
         <div class="card card-custom">
             <div class="card-body text-center">
-                <button class="btn btn-action" onclick="runChangeOfBasis()">Compute Transition Matrix & [T]_B'</button>
-                <div id="cobResultCard" class="result-card p-3 rounded border border-secondary mt-3 text-start">
-                    <h5 class="fw-bold mb-3">Change of Basis Result:</h5>
+                <button class="btn btn-action" onclick="runChangeOfBasis()">Compute Transition Matrix &amp; [T]_B'</button>
+                <div id="cobResultCard" class="result-card p-4 mt-3 text-start">
+                    <h5 class="fw-bold mb-3">Change of Basis Result</h5>
                     <div id="cobResultLatex" class="fs-4 text-center my-3 overflow-auto"></div>
-                    <div id="cobResultExplanation" class="text-muted small mb-3"></div>
+                    <div id="cobResultExplanation" class="text-secondary small mb-3"></div>
                     <div id="cobResultComplexity" class="mb-3"></div>
                     <div id="cobResultSteps"></div>
                 </div>
@@ -96,24 +118,33 @@
     </div>
 
     <!-- Inner Product Pane -->
-    <div class="tab-pane fade" id="inner-pane">
+    <div class="tab-pane fade" id="inner-pane" role="tabpanel">
         <div class="row g-4 mb-4">
             <div class="col-md-4">
-                <div class="card card-custom">
-                    <div class="card-header card-header-custom">Vector u</div>
-                    <div class="card-body text-center" id="ipUContainer"></div>
+                <div class="card card-custom h-100">
+                    <div class="card-header card-header-custom">
+                        <span>Vector u</span>
+                        <span class="badge-tech">First Vector</span>
+                    </div>
+                    <div class="card-body text-center overflow-auto" id="ipUContainer"></div>
                 </div>
             </div>
             <div class="col-md-4">
-                <div class="card card-custom">
-                    <div class="card-header card-header-custom">Vector v</div>
-                    <div class="card-body text-center" id="ipVContainer"></div>
+                <div class="card card-custom h-100">
+                    <div class="card-header card-header-custom">
+                        <span>Vector v</span>
+                        <span class="badge-tech">Second Vector</span>
+                    </div>
+                    <div class="card-body text-center overflow-auto" id="ipVContainer"></div>
                 </div>
             </div>
             <div class="col-md-4">
-                <div class="card card-custom">
-                    <div class="card-header card-header-custom">Weight Matrix W</div>
-                    <div class="card-body text-center" id="ipWContainer"></div>
+                <div class="card card-custom h-100">
+                    <div class="card-header card-header-custom">
+                        <span>Weight Matrix W</span>
+                        <span class="badge-tech">Metric Tensor</span>
+                    </div>
+                    <div class="card-body text-center overflow-auto" id="ipWContainer"></div>
                 </div>
             </div>
         </div>
@@ -121,10 +152,10 @@
         <div class="card card-custom">
             <div class="card-body text-center">
                 <button class="btn btn-action" onclick="runInnerProduct()">Compute ⟨u, v⟩_W</button>
-                <div id="ipResultCard" class="result-card p-3 rounded border border-secondary mt-3 text-start">
-                    <h5 class="fw-bold mb-3">Weighted Inner Product Result:</h5>
+                <div id="ipResultCard" class="result-card p-4 mt-3 text-start">
+                    <h5 class="fw-bold mb-3">Weighted Inner Product Result</h5>
                     <div id="ipResultLatex" class="fs-4 text-center my-3 overflow-auto"></div>
-                    <div id="ipResultExplanation" class="text-muted small mb-3"></div>
+                    <div id="ipResultExplanation" class="text-secondary small mb-3"></div>
                     <div id="ipResultComplexity" class="mb-3"></div>
                     <div id="ipResultSteps"></div>
                 </div>

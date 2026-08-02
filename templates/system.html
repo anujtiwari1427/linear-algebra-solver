@@ -1,21 +1,27 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div class="row mb-3">
-    <div class="col-12">
-        <h2 class="fw-bold">⚖️ Systems of Linear Equations ($Ax = b$)</h2>
-        <p class="text-white opacity-90">Solve systems of $n$ linear equations with step-by-step row elimination, Gaussian, Gauss-Jordan RREF, LU Method, and Cramer's Rule.</p>
+<div class="row mb-4">
+    <div class="col-12 d-flex flex-wrap align-items-center justify-content-between gap-3">
+        <div>
+            <h2 class="fw-bold mb-1" style="font-size: 2rem;">⚖️ Systems of Linear Equations ($Ax = b$)</h2>
+            <p class="text-secondary mb-0">Solve systems of $n$ linear equations with step-by-step row elimination, Gaussian, Gauss-Jordan RREF, LU Method, and Cramer's Rule.</p>
+        </div>
+        <span class="badge-online">
+            <span class="dot-pulse"></span>
+            Symbolic &amp; Numerical Solver
+        </span>
     </div>
 </div>
 
 <div class="card card-custom mb-4">
-    <div class="card-body d-flex flex-wrap align-items-center justify-content-between gap-3">
-        <div class="form-check form-switch">
+    <div class="card-body d-flex flex-wrap align-items-center justify-content-between gap-3 py-3">
+        <div class="form-check form-switch mb-0">
             <input class="form-check-input" type="checkbox" id="systemShowSteps" checked>
-            <label class="form-check-label fw-bold text-white" for="systemShowSteps">Show Step-by-Step Solution</label>
+            <label class="form-check-label fw-bold text-primary ms-2" for="systemShowSteps">Show Step-by-Step Row Elimination Steps</label>
         </div>
         <div class="d-flex align-items-center gap-2">
-            <label class="fw-bold text-white mb-0">Number of Unknowns (n):</label>
+            <label class="fw-bold text-secondary mb-0">Number of Unknowns (n):</label>
             <input type="number" id="systemN" min="2" max="6" value="3" class="form-control text-center" style="width: 85px;" onchange="initSystemInputs()">
         </div>
     </div>
@@ -24,20 +30,29 @@
 <div class="row g-4 mb-4">
     <div class="col-lg-8">
         <div class="card card-custom h-100">
-            <div class="card-header card-header-custom">Coefficient Matrix A</div>
-            <div class="card-body text-center" id="systemMatAContainer"></div>
+            <div class="card-header card-header-custom">
+                <span>Coefficient Matrix A</span>
+                <span class="badge-tech">System Matrix</span>
+            </div>
+            <div class="card-body text-center overflow-auto" id="systemMatAContainer"></div>
         </div>
     </div>
     <div class="col-lg-4">
         <div class="card card-custom h-100">
-            <div class="card-header card-header-custom">Constants Vector b</div>
-            <div class="card-body text-center" id="systemVecBContainer"></div>
+            <div class="card-header card-header-custom">
+                <span>Constants Vector b</span>
+                <span class="badge-tech">Right Hand Side</span>
+            </div>
+            <div class="card-body text-center overflow-auto" id="systemVecBContainer"></div>
         </div>
     </div>
 </div>
 
 <div class="card card-custom mb-4">
-    <div class="card-header card-header-custom">Choose Solution Method</div>
+    <div class="card-header card-header-custom">
+        <span>Choose Solution Method</span>
+        <span class="badge-tech">API Action</span>
+    </div>
     <div class="card-body">
         <div class="d-flex flex-wrap gap-2 mb-3">
             <button class="btn btn-action" onclick="runSystemSolver('/api/system/gaussian')">Gaussian Elimination</button>
@@ -48,10 +63,10 @@
 
         <div id="errorAlert" class="alert alert-danger d-none" role="alert"></div>
 
-        <div id="resultCard" class="result-card p-3 rounded border border-secondary mt-3">
-            <h5 class="fw-bold mb-3 text-white">Solution Result:</h5>
+        <div id="resultCard" class="result-card p-4 mt-3">
+            <h5 class="fw-bold mb-3">Solution Result</h5>
             <div id="resultLatex" class="fs-4 text-center my-3 overflow-auto"></div>
-            <div id="resultExplanation" class="text-white opacity-90 small mb-3"></div>
+            <div id="resultExplanation" class="text-secondary small mb-3"></div>
             <div id="resultComplexity" class="mb-3"></div>
             <div id="resultSteps"></div>
         </div>

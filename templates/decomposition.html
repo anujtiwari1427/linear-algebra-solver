@@ -1,23 +1,29 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div class="row mb-3">
-    <div class="col-12">
-        <h2 class="fw-bold">🧱 Matrix Decompositions</h2>
-        <p class="text-white opacity-90">Factorize matrices into canonical forms: LU ($PLU = A$), QR ($QR = A$), SVD ($U\Sigma V^T = A$), and Cholesky ($LL^T = A$).</p>
+<div class="row mb-4">
+    <div class="col-12 d-flex flex-wrap align-items-center justify-content-between gap-3">
+        <div>
+            <h2 class="fw-bold mb-1" style="font-size: 2rem;">🧱 Matrix Decompositions &amp; Factorization</h2>
+            <p class="text-secondary mb-0">Factorize matrices into canonical forms: LU ($PLU = A$), QR ($QR = A$), SVD ($U\Sigma V^T = A$), and Cholesky ($LL^T = A$).</p>
+        </div>
+        <span class="badge-online">
+            <span class="dot-pulse"></span>
+            SciPy Factorization Engine
+        </span>
     </div>
 </div>
 
 <div class="card card-custom mb-4">
-    <div class="card-body d-flex flex-wrap align-items-center justify-content-between gap-3">
-        <div class="form-check form-switch">
+    <div class="card-body d-flex flex-wrap align-items-center justify-content-between gap-3 py-3">
+        <div class="form-check form-switch mb-0">
             <input class="form-check-input" type="checkbox" id="decompShowSteps" checked>
-            <label class="form-check-label fw-bold text-white" for="decompShowSteps">Show Step-by-Step Solution</label>
+            <label class="form-check-label fw-bold text-primary ms-2" for="decompShowSteps">Show Detailed Step-by-Step Solution</label>
         </div>
         <div class="d-flex align-items-center gap-2">
-            <label class="fw-bold text-white mb-0">Rows:</label>
+            <label class="fw-bold text-secondary mb-0">Rows:</label>
             <input type="number" id="decompRows" min="1" max="6" value="3" class="form-control text-center" style="width: 80px;" onchange="initDecompMatrix()">
-            <label class="fw-bold text-white mb-0 ms-2">Cols:</label>
+            <label class="fw-bold text-secondary mb-0 ms-2">Cols:</label>
             <input type="number" id="decompCols" min="1" max="6" value="3" class="form-control text-center" style="width: 80px;" onchange="initDecompMatrix()">
         </div>
     </div>
@@ -26,14 +32,20 @@
 <div class="row g-4 mb-4">
     <div class="col-lg-6 mx-auto">
         <div class="card card-custom">
-            <div class="card-header card-header-custom">Target Matrix A</div>
-            <div class="card-body text-center" id="decompMatContainer"></div>
+            <div class="card-header card-header-custom">
+                <span>Target Matrix A</span>
+                <span class="badge-tech">Input Matrix</span>
+            </div>
+            <div class="card-body text-center overflow-auto" id="decompMatContainer"></div>
         </div>
     </div>
 </div>
 
 <div class="card card-custom mb-4">
-    <div class="card-header card-header-custom">Select Decomposition Method</div>
+    <div class="card-header card-header-custom">
+        <span>Select Factorization Method</span>
+        <span class="badge-tech">API Action</span>
+    </div>
     <div class="card-body">
         <div class="d-flex flex-wrap gap-2 mb-3">
             <button class="btn btn-action" onclick="runDecompOp('/api/decomposition/lu')">LU Decomposition (P·L·U)</button>
@@ -44,10 +56,10 @@
 
         <div id="errorAlert" class="alert alert-danger d-none" role="alert"></div>
 
-        <div id="resultCard" class="result-card p-3 rounded border border-secondary mt-3">
-            <h5 class="fw-bold mb-3 text-white">Decomposition Output:</h5>
+        <div id="resultCard" class="result-card p-4 mt-3">
+            <h5 class="fw-bold mb-3">Decomposition Output</h5>
             <div id="resultLatex" class="fs-4 text-center my-3 overflow-auto"></div>
-            <div id="resultExplanation" class="text-white opacity-90 small mb-3"></div>
+            <div id="resultExplanation" class="text-secondary small mb-3"></div>
             <div id="resultComplexity" class="mb-3"></div>
             <div id="resultSteps"></div>
         </div>
