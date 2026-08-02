@@ -110,14 +110,31 @@ label, .form-label {
     outline: none !important;
 }
 
-/* Navbar */
-.navbar-custom {
-    background: rgba(7, 9, 19, 0.85) !important;
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border-bottom: 1px solid var(--glass-border);
-    padding: 0.85rem 1.5rem;
-    transition: all 0.3s ease;
+/* ==========================================================================
+   Left Sidebar Layout Architecture
+   ========================================================================== */
+.app-layout {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* Persistent Desktop Left Sidebar */
+.app-sidebar {
+    width: 280px;
+    min-width: 280px;
+    background: rgba(8, 12, 23, 0.96);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border-right: 1px solid var(--glass-border);
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1040;
+    padding: 1.5rem 1.2rem;
+    overflow-y: auto;
 }
 
 .brand-icon-glow {
@@ -134,25 +151,128 @@ label, .form-label {
     box-shadow: 0 0 20px var(--primary-glow);
 }
 
-.nav-link {
+/* Sidebar Section Titles */
+.sidebar-section-title {
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-dim);
+    margin-top: 1.5rem;
+    margin-bottom: 0.6rem;
+    padding-left: 0.75rem;
+}
+
+/* Sidebar Nav Items */
+.sidebar-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar-nav-link {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 0.65rem 0.95rem;
     color: var(--text-secondary) !important;
     font-weight: 600;
     font-size: 0.95rem;
-    padding: 0.5rem 0.9rem !important;
     border-radius: var(--radius-sm);
+    text-decoration: none;
+    transition: all 0.2s ease;
+    border-left: 3px solid transparent;
+}
+
+.sidebar-nav-link:hover {
+    color: #ffffff !important;
+    background: rgba(255, 255, 255, 0.07);
+    transform: translateX(3px);
+}
+
+.sidebar-nav-link.active {
+    color: #ffffff !important;
+    background: rgba(99, 102, 241, 0.22) !important;
+    border-left-color: var(--primary-light);
+    box-shadow: 0 0 16px rgba(99, 102, 241, 0.2);
+}
+
+.sidebar-nav-icon {
+    font-size: 1.2rem;
+    line-height: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+}
+
+/* Quick Shortcut Pills in Sidebar */
+.sidebar-shortcut-pill {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.45rem 0.85rem;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-sm);
+    color: var(--text-secondary) !important;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-decoration: none;
     transition: all 0.2s ease;
 }
 
-.nav-link:hover {
+.sidebar-shortcut-pill:hover {
+    background: rgba(99, 102, 241, 0.15);
+    border-color: rgba(129, 140, 248, 0.3);
     color: #ffffff !important;
-    background: rgba(255, 255, 255, 0.08);
 }
 
-.nav-link.active {
-    color: #ffffff !important;
-    background: rgba(99, 102, 241, 0.25) !important;
-    border: 1px solid rgba(129, 140, 248, 0.3);
-    box-shadow: 0 0 16px rgba(99, 102, 241, 0.25);
+/* Main Content Area */
+.app-main-content {
+    flex: 1;
+    margin-left: 280px;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Mobile Header Bar (< 992px) */
+.mobile-top-header {
+    display: none;
+    background: rgba(7, 9, 19, 0.95);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--glass-border);
+    padding: 0.85rem 1.25rem;
+    position: sticky;
+    top: 0;
+    z-index: 1030;
+}
+
+/* Offcanvas Drawer Custom Styling */
+.offcanvas-sidebar {
+    background: rgba(8, 12, 23, 0.98) !important;
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border-right: 1px solid var(--glass-border) !important;
+    color: var(--text-primary);
+}
+
+@media (max-width: 991.98px) {
+    .app-sidebar {
+        display: none !important;
+    }
+    .app-main-content {
+        margin-left: 0 !important;
+    }
+    .mobile-top-header {
+        display: flex !important;
+    }
 }
 
 /* Hero Section */
