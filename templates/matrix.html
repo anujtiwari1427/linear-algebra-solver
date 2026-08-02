@@ -4,7 +4,7 @@
 <div class="row mb-3">
     <div class="col-12">
         <h2 class="fw-bold">🧮 Matrix Module</h2>
-        <p class="text-muted">Perform element-wise arithmetic, scalar scaling, linear property evaluations, determinants, inverses, and ranks.</p>
+        <p class="text-white opacity-90">Perform element-wise arithmetic, scalar scaling, linear property evaluations, determinants, inverses, and ranks.</p>
     </div>
 </div>
 
@@ -13,11 +13,11 @@
     <div class="card-body d-flex flex-wrap align-items-center justify-content-between gap-3">
         <div class="form-check form-switch">
             <input class="form-check-input" type="checkbox" id="showStepsToggle" checked>
-            <label class="form-check-label fw-semibold" for="showStepsToggle">Show Step-by-Step Solution</label>
+            <label class="form-check-label fw-bold text-white" for="showStepsToggle">Show Step-by-Step Solution</label>
         </div>
         <div>
-            <span class="badge bg-secondary">Precise Floating Point (4 Decimals)</span>
-            <span class="badge bg-primary">NumPy & SciPy Acceleration</span>
+            <span class="badge-tech">Precise Floating Point (4 Decimals)</span>
+            <span class="badge-tech">NumPy &amp; SciPy Acceleration</span>
         </div>
     </div>
 </div>
@@ -25,10 +25,10 @@
 <!-- Nav Tabs for Single vs Dual Matrix -->
 <ul class="nav nav-tabs mb-4" id="matrixTab" role="tablist">
     <li class="nav-item">
-        <button class="nav-link active fw-semibold" id="single-tab" data-bs-toggle="tab" data-bs-target="#single-pane">Single Matrix Operations</button>
+        <button class="nav-link active fw-bold" id="single-tab" data-bs-toggle="tab" data-bs-target="#single-pane">Single Matrix Operations</button>
     </li>
     <li class="nav-item">
-        <button class="nav-link fw-semibold" id="dual-tab" data-bs-toggle="tab" data-bs-target="#dual-pane">Dual Matrix Arithmetic (A & B)</button>
+        <button class="nav-link fw-bold" id="dual-tab" data-bs-toggle="tab" data-bs-target="#dual-pane">Dual Matrix Arithmetic (A &amp; B)</button>
     </li>
 </ul>
 
@@ -42,11 +42,11 @@
                     <div class="card-body text-center">
                         <div class="row g-2 mb-3 justify-content-center">
                             <div class="col-5">
-                                <label class="small text-muted">Rows</label>
+                                <label class="form-label fw-bold text-white mb-1">Rows</label>
                                 <input type="number" id="s_rows_a" min="1" max="6" value="3" class="form-control text-center" onchange="initSingleMatrix()">
                             </div>
                             <div class="col-5">
-                                <label class="small text-muted">Columns</label>
+                                <label class="form-label fw-bold text-white mb-1">Columns</label>
                                 <input type="number" id="s_cols_a" min="1" max="6" value="3" class="form-control text-center" onchange="initSingleMatrix()">
                             </div>
                         </div>
@@ -70,8 +70,8 @@
                     <div class="card-header card-header-custom">Select Operation</div>
                     <div class="card-body">
                         <div class="mb-3">
-                            <label class="form-label fw-semibold">Scalar Multiplier Constant (c)</label>
-                            <input type="number" step="any" id="scalarConstant" value="2.5" class="form-control" style="max-width: 150px;">
+                            <label class="form-label fw-bold text-white mb-1">Scalar Multiplier Constant (c)</label>
+                            <input type="number" step="any" id="scalarConstant" value="2.5" class="form-control" style="max-width: 160px;">
                         </div>
 
                         <div class="d-flex flex-wrap gap-2 mb-4">
@@ -87,9 +87,9 @@
 
                         <!-- Result Section -->
                         <div id="resultCard" class="result-card p-3 rounded border border-secondary mt-3">
-                            <h5 class="fw-bold mb-3">Result:</h5>
+                            <h5 class="fw-bold mb-3 text-white">Result:</h5>
                             <div id="resultLatex" class="fs-4 text-center my-3 overflow-auto"></div>
-                            <div id="resultExplanation" class="text-muted small mb-3"></div>
+                            <div id="resultExplanation" class="text-white opacity-90 small mb-3"></div>
                             <div id="resultComplexity" class="mb-3"></div>
                             <div id="resultSteps"></div>
                         </div>
@@ -107,8 +107,14 @@
                     <div class="card-header card-header-custom">Matrix A Setup</div>
                     <div class="card-body text-center">
                         <div class="row g-2 mb-3 justify-content-center">
-                            <div class="col-5"><label class="small text-muted">Rows</label><input type="number" id="d_rows_a" min="1" max="6" value="3" class="form-control text-center" onchange="initDualMatrices()"></div>
-                            <div class="col-5"><label class="small text-muted">Cols</label><input type="number" id="d_cols_a" min="1" max="6" value="3" class="form-control text-center" onchange="initDualMatrices()"></div>
+                            <div class="col-5">
+                                <label class="form-label fw-bold text-white mb-1">Rows</label>
+                                <input type="number" id="d_rows_a" min="1" max="6" value="3" class="form-control text-center" onchange="initDualMatrices()">
+                            </div>
+                            <div class="col-5">
+                                <label class="form-label fw-bold text-white mb-1">Columns</label>
+                                <input type="number" id="d_cols_a" min="1" max="6" value="3" class="form-control text-center" onchange="initDualMatrices()">
+                            </div>
                         </div>
                         <div id="dualMatrixAContainer" class="my-3"></div>
                     </div>
@@ -120,8 +126,14 @@
                     <div class="card-header card-header-custom">Matrix B Setup</div>
                     <div class="card-body text-center">
                         <div class="row g-2 mb-3 justify-content-center">
-                            <div class="col-5"><label class="small text-muted">Rows</label><input type="number" id="d_rows_b" min="1" max="6" value="3" class="form-control text-center" onchange="initDualMatrices()"></div>
-                            <div class="col-5"><label class="small text-muted">Cols</label><input type="number" id="d_cols_b" min="1" max="6" value="3" class="form-control text-center" onchange="initDualMatrices()"></div>
+                            <div class="col-5">
+                                <label class="form-label fw-bold text-white mb-1">Rows</label>
+                                <input type="number" id="d_rows_b" min="1" max="6" value="3" class="form-control text-center" onchange="initDualMatrices()">
+                            </div>
+                            <div class="col-5">
+                                <label class="form-label fw-bold text-white mb-1">Columns</label>
+                                <input type="number" id="d_cols_b" min="1" max="6" value="3" class="form-control text-center" onchange="initDualMatrices()">
+                            </div>
                         </div>
                         <div id="dualMatrixBContainer" class="my-3"></div>
                     </div>
@@ -140,9 +152,9 @@
                 <div id="dualErrorAlert" class="alert alert-danger d-none" role="alert"></div>
 
                 <div id="dualResultCard" class="result-card p-3 rounded border border-secondary mt-3">
-                    <h5 class="fw-bold mb-3">Result:</h5>
+                    <h5 class="fw-bold mb-3 text-white">Result:</h5>
                     <div id="dualResultLatex" class="fs-4 text-center my-3 overflow-auto"></div>
-                    <div id="dualResultExplanation" class="text-muted small mb-3"></div>
+                    <div id="dualResultExplanation" class="text-white opacity-90 small mb-3"></div>
                     <div id="dualResultComplexity" class="mb-3"></div>
                     <div id="dualResultSteps"></div>
                 </div>

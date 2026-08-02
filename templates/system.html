@@ -4,7 +4,7 @@
 <div class="row mb-3">
     <div class="col-12">
         <h2 class="fw-bold">⚖️ Systems of Linear Equations ($Ax = b$)</h2>
-        <p class="text-muted">Solve systems of $n$ linear equations with step-by-step row elimination, Gaussian, Gauss-Jordan RREF, LU Method, and Cramer's Rule.</p>
+        <p class="text-white opacity-90">Solve systems of $n$ linear equations with step-by-step row elimination, Gaussian, Gauss-Jordan RREF, LU Method, and Cramer's Rule.</p>
     </div>
 </div>
 
@@ -12,11 +12,11 @@
     <div class="card-body d-flex flex-wrap align-items-center justify-content-between gap-3">
         <div class="form-check form-switch">
             <input class="form-check-input" type="checkbox" id="systemShowSteps" checked>
-            <label class="form-check-label fw-semibold" for="systemShowSteps">Show Step-by-Step Solution</label>
+            <label class="form-check-label fw-bold text-white" for="systemShowSteps">Show Step-by-Step Solution</label>
         </div>
         <div class="d-flex align-items-center gap-2">
-            <label class="fw-semibold">Number of Unknowns (n):</label>
-            <input type="number" id="systemN" min="2" max="6" value="3" class="form-control text-center" style="width: 80px;" onchange="initSystemInputs()">
+            <label class="fw-bold text-white mb-0">Number of Unknowns (n):</label>
+            <input type="number" id="systemN" min="2" max="6" value="3" class="form-control text-center" style="width: 85px;" onchange="initSystemInputs()">
         </div>
     </div>
 </div>
@@ -49,9 +49,9 @@
         <div id="errorAlert" class="alert alert-danger d-none" role="alert"></div>
 
         <div id="resultCard" class="result-card p-3 rounded border border-secondary mt-3">
-            <h5 class="fw-bold mb-3">Solution Result:</h5>
+            <h5 class="fw-bold mb-3 text-white">Solution Result:</h5>
             <div id="resultLatex" class="fs-4 text-center my-3 overflow-auto"></div>
-            <div id="resultExplanation" class="text-muted small mb-3"></div>
+            <div id="resultExplanation" class="text-white opacity-90 small mb-3"></div>
             <div id="resultComplexity" class="mb-3"></div>
             <div id="resultSteps"></div>
         </div>

@@ -3,8 +3,8 @@
 {% block content %}
 <div class="row mb-3">
     <div class="col-12">
-        <h2 class="fw-bold">⚡ Eigenvalues & Eigenspaces</h2>
-        <p class="text-muted">Compute characteristic polynomials, real/complex eigenvalues, eigenspaces, matrix diagonalization ($A = P D P^{-1}$), and Cayley-Hamilton verification.</p>
+        <h2 class="fw-bold">⚡ Eigenvalues &amp; Eigenspaces</h2>
+        <p class="text-white opacity-90">Compute characteristic polynomials, real/complex eigenvalues, eigenspaces, matrix diagonalization ($A = P D P^{-1}$), and Cayley-Hamilton verification.</p>
     </div>
 </div>
 
@@ -12,11 +12,11 @@
     <div class="card-body d-flex flex-wrap align-items-center justify-content-between gap-3">
         <div class="form-check form-switch">
             <input class="form-check-input" type="checkbox" id="eigenShowSteps" checked>
-            <label class="form-check-label fw-semibold" for="eigenShowSteps">Show Step-by-Step Solution</label>
+            <label class="form-check-label fw-bold text-white" for="eigenShowSteps">Show Step-by-Step Solution</label>
         </div>
         <div class="d-flex align-items-center gap-2">
-            <label class="fw-semibold">Matrix Size (n × n):</label>
-            <input type="number" id="eigenN" min="2" max="5" value="2" class="form-control text-center" style="width: 80px;" onchange="initEigenMatrix()">
+            <label class="fw-bold text-white mb-0">Matrix Size (n × n):</label>
+            <input type="number" id="eigenN" min="2" max="5" value="2" class="form-control text-center" style="width: 85px;" onchange="initEigenMatrix()">
         </div>
     </div>
 </div>
@@ -34,12 +34,12 @@
     <div class="card-header card-header-custom">Eigen Operations</div>
     <div class="card-body">
         <div class="mb-3">
-            <label class="form-label fw-semibold">Matrix Power Exponent (k)</label>
-            <input type="number" id="diagonalExponent" value="5" min="1" max="20" class="form-control" style="max-width: 150px;">
+            <label class="form-label fw-bold text-white mb-1">Matrix Power Exponent (k)</label>
+            <input type="number" id="diagonalExponent" value="5" min="1" max="20" class="form-control" style="max-width: 160px;">
         </div>
 
         <div class="d-flex flex-wrap gap-2 mb-3">
-            <button class="btn btn-action" onclick="runEigenOp('/api/eigen/analysis')">Eigenvalues & Eigenspaces</button>
+            <button class="btn btn-action" onclick="runEigenOp('/api/eigen/analysis')">Eigenvalues &amp; Eigenspaces</button>
             <button class="btn btn-action" onclick="runEigenOp('/api/eigen/diagonalization')">Diagonalization (A = PDP⁻¹)</button>
             <button class="btn btn-action" onclick="runEigenOp('/api/eigen/cayley_hamilton')">Cayley-Hamilton Theorem</button>
         </div>
@@ -47,9 +47,9 @@
         <div id="errorAlert" class="alert alert-danger d-none" role="alert"></div>
 
         <div id="resultCard" class="result-card p-3 rounded border border-secondary mt-3">
-            <h5 class="fw-bold mb-3">Analysis Result:</h5>
+            <h5 class="fw-bold mb-3 text-white">Analysis Result:</h5>
             <div id="resultLatex" class="fs-4 text-center my-3 overflow-auto"></div>
-            <div id="resultExplanation" class="text-muted small mb-3"></div>
+            <div id="resultExplanation" class="text-white opacity-90 small mb-3"></div>
             <div id="resultComplexity" class="mb-3"></div>
             <div id="resultSteps"></div>
         </div>

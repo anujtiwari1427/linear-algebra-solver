@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Linear Algebra Educational Suite - Premium Theme & Animated Hero UI
+   Linear Algebra Educational Suite - High Readability & Dark Theme UI
    ========================================================================== */
 
 @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@500;600;700&family=Inter:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700;800;900&display=swap');
@@ -20,7 +20,7 @@
     --accent-emerald: #34d399;
     --accent-amber: #fbbf24;
 
-    /* ALL TEXT WHITE */
+    /* ALL TEXT PURE WHITE */
     --text-primary: #ffffff;
     --text-secondary: #ffffff;
     --text-muted: #ffffff;
@@ -34,8 +34,39 @@
 }
 
 /* Force All Text Elements to Pure White */
-*, *::before, *::after, body, p, span, div, h1, h2, h3, h4, h5, h6, label, td, th, input, button, select, a, small, code, pre {
+*, *::before, *::after, body, p, span, div, h1, h2, h3, h4, h5, h6, label, td, th, button, select, a, small, code, pre {
     color: #ffffff !important;
+}
+
+/* Form Labels Readability Override */
+label, .form-label, .small, .text-muted, .text-secondary, small {
+    color: #ffffff !important;
+    font-weight: 700 !important;
+    font-size: 0.92rem !important;
+    opacity: 1 !important;
+    letter-spacing: 0.3px;
+    display: inline-block;
+    margin-bottom: 4px;
+}
+
+/* Input Control Box Styling & Readability */
+.form-control, .form-select, input[type="number"], input[type="text"], input[type="password"] {
+    background-color: rgba(9, 13, 22, 0.95) !important;
+    border: 1.5px solid rgba(99, 102, 241, 0.6) !important;
+    color: #ffffff !important;
+    font-weight: 700 !important;
+    font-size: 1.05rem !important;
+    font-family: var(--font-mono) !important;
+    border-radius: var(--radius-sm) !important;
+    padding: 0.45rem 0.75rem !important;
+}
+
+.form-control:focus, .form-select:focus, input[type="number"]:focus {
+    background-color: rgba(18, 25, 42, 1) !important;
+    border-color: #ffffff !important;
+    box-shadow: 0 0 16px var(--primary-glow) !important;
+    color: #ffffff !important;
+    outline: none !important;
 }
 
 body {
@@ -138,15 +169,6 @@ body {
     font-size: 0.85rem;
     font-weight: 600;
     opacity: 0.9;
-}
-
-/* Quick Math Demo Widget */
-.demo-widget-card {
-    background: rgba(11, 15, 25, 0.95);
-    border: 1.5px solid rgba(255, 255, 255, 0.25);
-    border-radius: var(--radius-md);
-    padding: 1.5rem;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
 }
 
 /* Navbar */
@@ -267,21 +289,21 @@ body {
     width: 78px;
     height: 50px;
     text-align: center;
-    background-color: rgba(7, 10, 19, 0.98);
-    border: 1.5px solid #64748b;
+    background-color: rgba(7, 10, 19, 0.98) !important;
+    border: 1.5px solid #64748b !important;
     color: #ffffff !important;
-    font-family: var(--font-mono);
-    font-size: 1.1rem;
-    font-weight: 700;
-    border-radius: var(--radius-sm);
+    font-family: var(--font-mono) !important;
+    font-size: 1.1rem !important;
+    font-weight: 700 !important;
+    border-radius: var(--radius-sm) !important;
     transition: all 0.2s ease;
 }
 
 .matrix-cell-input:focus {
-    border-color: #ffffff;
-    background-color: rgba(30, 41, 66, 1);
-    box-shadow: 0 0 16px rgba(255, 255, 255, 0.4);
-    outline: none;
+    border-color: #ffffff !important;
+    background-color: rgba(30, 41, 66, 1) !important;
+    box-shadow: 0 0 16px rgba(255, 255, 255, 0.4) !important;
+    outline: none !important;
     color: #ffffff !important;
 }
 
