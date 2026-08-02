@@ -1,29 +1,29 @@
 /* ==========================================================================
-   Linear Algebra Educational Suite - High Readability & Dark Theme UI
+   Linear Algebra Educational Suite - Pure White Text & High Contrast UI
    ========================================================================== */
 
 @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@500;600;700&family=Inter:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap');
 
 :root {
     --bg-main: #0b0f19;
-    --bg-card: rgba(22, 30, 49, 0.88);
-    --bg-card-hover: rgba(30, 41, 66, 0.95);
-    --glass-border: rgba(255, 255, 255, 0.12);
+    --bg-card: rgba(22, 30, 49, 0.92);
+    --bg-card-hover: rgba(30, 41, 66, 0.98);
+    --glass-border: rgba(255, 255, 255, 0.18);
 
-    /* High Contrast Palette */
+    /* Palette Accents */
     --primary: #6366f1;
     --primary-light: #818cf8;
-    --primary-glow: rgba(99, 102, 241, 0.4);
+    --primary-glow: rgba(99, 102, 241, 0.45);
     --accent-purple: #c084fc;
     --accent-pink: #f472b6;
     --accent-cyan: #38bdf8;
     --accent-emerald: #34d399;
     --accent-amber: #fbbf24;
 
-    /* High Contrast Typography Colors */
+    /* ALL TEXT WHITE */
     --text-primary: #ffffff;
-    --text-secondary: #cbd5e1;
-    --text-muted: #94a3b8;
+    --text-secondary: #ffffff;
+    --text-muted: #ffffff;
 
     --font-sans: 'Outfit', 'Inter', system-ui, -apple-system, sans-serif;
     --font-mono: 'Fira Code', monospace;
@@ -33,22 +33,33 @@
     --radius-lg: 20px;
 }
 
+/* Force All Elements to Pure White Text */
+*, *::before, *::after, body, p, span, div, h1, h2, h3, h4, h5, h6, label, td, th, input, button, select, a, small, code, pre {
+    color: #ffffff !important;
+}
+
 body {
     background-color: var(--bg-main);
     background-image: 
-        radial-gradient(at 0% 0%, rgba(99, 102, 241, 0.15) 0px, transparent 50%),
-        radial-gradient(at 100% 0%, rgba(192, 132, 252, 0.12) 0px, transparent 50%),
-        radial-gradient(at 50% 100%, rgba(56, 189, 248, 0.1) 0px, transparent 50%);
+        radial-gradient(at 0% 0%, rgba(99, 102, 241, 0.18) 0px, transparent 50%),
+        radial-gradient(at 100% 0%, rgba(192, 132, 252, 0.15) 0px, transparent 50%),
+        radial-gradient(at 50% 100%, rgba(56, 189, 248, 0.12) 0px, transparent 50%);
     background-attachment: fixed;
-    color: var(--text-primary);
+    color: #ffffff !important;
     font-family: var(--font-sans);
-    font-size: 1rem;
+    font-size: 1.02rem;
     line-height: 1.6;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+}
+
+/* Bootstrap Text Muted Override */
+.text-muted, .text-secondary, .small, small {
+    color: #ffffff !important;
+    opacity: 0.9;
 }
 
 /* Custom Scrollbar */
@@ -60,16 +71,16 @@ body {
     background: var(--bg-main);
 }
 ::-webkit-scrollbar-thumb {
-    background: #334155;
+    background: #475569;
     border-radius: 5px;
 }
 ::-webkit-scrollbar-thumb:hover {
-    background: #475569;
+    background: #64748b;
 }
 
 /* Navbar */
 .navbar-custom {
-    background: rgba(11, 15, 25, 0.92) !important;
+    background: rgba(11, 15, 25, 0.95) !important;
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
     border-bottom: 1px solid var(--glass-border);
@@ -83,7 +94,7 @@ body {
     width: 42px;
     height: 42px;
     background: linear-gradient(135deg, var(--primary), var(--accent-purple));
-    color: #ffffff;
+    color: #ffffff !important;
     border-radius: 12px;
     font-weight: 800;
     font-size: 1.35rem;
@@ -91,46 +102,46 @@ body {
 }
 
 .navbar-brand {
-    font-weight: 700;
-    font-size: 1.25rem;
+    font-weight: 800;
+    font-size: 1.3rem;
     color: #ffffff !important;
     letter-spacing: -0.2px;
 }
 
 .nav-link {
-    color: var(--text-secondary) !important;
+    color: #ffffff !important;
     font-weight: 600;
     font-size: 0.98rem;
     padding: 0.55rem 0.95rem !important;
     border-radius: var(--radius-sm);
     transition: all 0.2s ease;
+    opacity: 0.9;
 }
 
 .nav-link:hover {
     color: #ffffff !important;
-    background: rgba(255, 255, 255, 0.08);
+    background: rgba(255, 255, 255, 0.12);
+    opacity: 1;
 }
 
 .nav-link.active {
     color: #ffffff !important;
-    background: rgba(99, 102, 241, 0.25) !important;
-    border: 1px solid rgba(99, 102, 241, 0.4);
-    box-shadow: 0 0 12px rgba(99, 102, 241, 0.2);
+    background: rgba(99, 102, 241, 0.35) !important;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 0 14px rgba(99, 102, 241, 0.3);
+    opacity: 1;
 }
 
-/* Hero & Typography */
+/* Hero Titles */
 .text-gradient {
-    background: linear-gradient(135deg, #ffffff 40%, #cbd5e1 80%, var(--primary-light) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: #ffffff !important;
     font-weight: 800;
     letter-spacing: -0.5px;
 }
 
 .text-gradient-accent {
-    background: linear-gradient(135deg, var(--accent-purple), var(--primary-light), var(--accent-cyan));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: #ffffff !important;
+    font-weight: 700;
 }
 
 /* Glassmorphism Cards */
@@ -140,22 +151,22 @@ body {
     -webkit-backdrop-filter: blur(12px);
     border: 1px solid var(--glass-border);
     border-radius: var(--radius-md);
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.45);
     transition: all 0.25s ease;
 }
 
 .card-custom:hover {
-    border-color: rgba(255, 255, 255, 0.22);
-    box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.5);
+    border-color: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.55);
 }
 
 .card-header-custom {
     background: transparent;
     border-bottom: 1px solid var(--glass-border);
     padding: 1.2rem 1.5rem;
-    font-weight: 700;
-    font-size: 1.1rem;
-    color: #ffffff;
+    font-weight: 800;
+    font-size: 1.15rem;
+    color: #ffffff !important;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -174,7 +185,7 @@ body {
     position: absolute;
     top: 0; bottom: 0;
     width: 12px;
-    border: 2.5px solid var(--primary-light);
+    border: 2.5px solid #ffffff;
 }
 
 .matrix-bracket::before {
@@ -195,61 +206,61 @@ body {
 }
 
 .matrix-cell-input {
-    width: 76px;
-    height: 48px;
+    width: 78px;
+    height: 50px;
     text-align: center;
-    background-color: rgba(11, 15, 25, 0.95);
-    border: 1.5px solid #475569;
-    color: #ffffff;
+    background-color: rgba(11, 15, 25, 0.98);
+    border: 1.5px solid #64748b;
+    color: #ffffff !important;
     font-family: var(--font-mono);
-    font-size: 1.05rem;
+    font-size: 1.1rem;
     font-weight: 700;
     border-radius: var(--radius-sm);
     transition: all 0.2s ease;
 }
 
 .matrix-cell-input:focus {
-    border-color: var(--primary-light);
-    background-color: rgba(22, 30, 49, 1);
-    box-shadow: 0 0 14px var(--primary-glow);
+    border-color: #ffffff;
+    background-color: rgba(30, 41, 66, 1);
+    box-shadow: 0 0 16px rgba(255, 255, 255, 0.4);
     outline: none;
-    color: #ffffff;
+    color: #ffffff !important;
 }
 
 /* Operation Action Buttons */
 .btn-action {
     background: linear-gradient(135deg, var(--primary), var(--accent-purple));
-    color: #ffffff;
-    border: none;
+    color: #ffffff !important;
+    border: 1px solid rgba(255, 255, 255, 0.2);
     font-weight: 700;
-    font-size: 0.95rem;
-    padding: 0.7rem 1.4rem;
+    font-size: 0.98rem;
+    padding: 0.72rem 1.45rem;
     border-radius: 10px;
-    box-shadow: 0 4px 16px var(--primary-glow);
+    box-shadow: 0 4px 18px var(--primary-glow);
     transition: all 0.25s ease;
 }
 
 .btn-action:hover {
     transform: translateY(-2px);
-    box-shadow: 0 6px 22px rgba(192, 132, 252, 0.5);
-    color: #ffffff;
+    box-shadow: 0 6px 24px rgba(192, 132, 252, 0.55);
+    color: #ffffff !important;
 }
 
 .btn-preset {
-    background: rgba(255, 255, 255, 0.08);
-    border: 1px solid var(--glass-border);
-    color: #ffffff;
-    font-size: 0.88rem;
+    background: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    color: #ffffff !important;
+    font-size: 0.9rem;
     font-weight: 600;
-    padding: 0.4rem 0.85rem;
+    padding: 0.45rem 0.9rem;
     border-radius: 6px;
     transition: all 0.2s ease;
 }
 
 .btn-preset:hover {
-    background: rgba(99, 102, 241, 0.3);
-    border-color: var(--primary-light);
-    color: #ffffff;
+    background: rgba(99, 102, 241, 0.4);
+    border-color: #ffffff;
+    color: #ffffff !important;
 }
 
 /* Result Display Section & Readability */
@@ -258,11 +269,12 @@ body {
     opacity: 0;
     transform: translateY(15px);
     transition: opacity 0.35s ease, transform 0.35s ease;
-    background: rgba(15, 22, 36, 0.95);
-    border: 1.5px solid rgba(99, 102, 241, 0.4);
+    background: rgba(15, 22, 36, 0.98);
+    border: 1.5px solid rgba(255, 255, 255, 0.3);
     border-radius: var(--radius-md);
-    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.6);
-    padding: 1.5rem;
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.7);
+    padding: 1.6rem;
+    color: #ffffff !important;
 }
 
 .result-card.active {
@@ -274,35 +286,34 @@ body {
 /* Step Timeline Nodes */
 .step-card {
     position: relative;
-    background: rgba(22, 30, 49, 0.85);
+    background: rgba(26, 36, 59, 0.95);
     border: 1px solid var(--glass-border);
     border-radius: var(--radius-sm);
-    padding: 1.1rem 1.35rem;
-    margin-bottom: 0.9rem;
-    border-left: 4px solid var(--primary-light);
-    color: var(--text-secondary);
-    font-size: 1.02rem;
+    padding: 1.15rem 1.4rem;
+    margin-bottom: 0.95rem;
+    border-left: 4px solid #ffffff;
+    color: #ffffff !important;
+    font-size: 1.05rem;
     line-height: 1.65;
 }
 
-.step-card strong {
-    color: #ffffff;
+.step-card * {
+    color: #ffffff !important;
 }
 
 .step-card:hover {
     border-left-color: var(--accent-purple);
-    background: rgba(30, 41, 66, 0.95);
-    color: #ffffff;
+    background: rgba(36, 50, 80, 0.98);
 }
 
 /* Badges & Metrics */
 .badge-tech {
-    background: rgba(255, 255, 255, 0.08);
-    border: 1px solid var(--glass-border);
-    color: #ffffff;
-    font-weight: 600;
-    font-size: 0.85rem;
-    padding: 0.4rem 0.85rem;
+    background: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    color: #ffffff !important;
+    font-weight: 700;
+    font-size: 0.88rem;
+    padding: 0.45rem 0.9rem;
     border-radius: 20px;
 }
 
@@ -310,12 +321,12 @@ body {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    background: rgba(52, 211, 153, 0.15);
-    color: var(--accent-emerald);
-    border: 1px solid rgba(52, 211, 153, 0.3);
-    font-weight: 600;
-    font-size: 0.85rem;
-    padding: 0.35rem 0.85rem;
+    background: rgba(52, 211, 153, 0.2);
+    color: #ffffff !important;
+    border: 1px solid rgba(52, 211, 153, 0.4);
+    font-weight: 700;
+    font-size: 0.88rem;
+    padding: 0.4rem 0.9rem;
     border-radius: 20px;
 }
 
@@ -327,8 +338,8 @@ body {
     box-shadow: 0 0 10px var(--accent-emerald);
 }
 
-/* MathJax Output Styling High Readability */
-.mjx-chtml {
+/* MathJax Output Styling Pure White */
+.mjx-chtml, .mjx-math, .mjx-char {
     font-size: 125% !important;
     color: #ffffff !important;
     padding: 4px 0;
