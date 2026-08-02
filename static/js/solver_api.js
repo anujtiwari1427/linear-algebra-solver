@@ -41,6 +41,22 @@ function showErrorAlert(message) {
     }
 }
 
+function copyLatexToClipboard(latexText) {
+    if (!latexText) return;
+    navigator.clipboard.writeText(latexText).then(() => {
+        const btn = document.getElementById("copyLatexBtn");
+        if (btn) {
+            const originalText = btn.innerHTML;
+            btn.innerHTML = "✓ Copied!";
+            btn.classList.add("btn-success");
+            setTimeout(() => {
+                btn.innerHTML = originalText;
+                btn.classList.remove("btn-success");
+            }, 2000);
+        }
+    });
+}
+
 function renderResultCard(data, resultCardId = "resultCard") {
     const card = document.getElementById(resultCardId);
     if (!card) return;
@@ -52,18 +68,19 @@ function renderResultCard(data, resultCardId = "resultCard") {
 
     if (latexEl && data.latex_result) {
         latexEl.innerHTML = `$$${data.latex_result}$$`;
+        window.currentLatex = data.latex_result;
     }
 
     if (explanationEl && data.explanation) {
-        explanationEl.innerHTML = data.explanation;
+        explanationEl.innerHTML = `<strong>Context:</strong> ${data.explanation}`;
     }
 
     if (complexityEl && data.time_complexity) {
-        complexityEl.innerHTML = `Time Complexity: <code>${data.time_complexity}</code>`;
+        complexityEl.innerHTML = `<span class="badge-tech">Time Complexity: <code>${data.time_complexity}</code></span>`;
     }
 
     if (stepsContainer && data.steps) {
-        let html = '';
+        let html = '<h6 class="fw-bold mt-4 mb-3 text-gradient">Detailed Step-by-Step Breakdown:</h6>';
         data.steps.forEach((step, idx) => {
             html += `<div class="step-card">
                 <div>${step}</div>
