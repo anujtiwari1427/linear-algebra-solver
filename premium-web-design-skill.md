@@ -5,265 +5,315 @@ description: Niche-agnostic premium website design and implementation guidance. 
 
 # Premium Web Design System
 
-Use this skill to design and build a high-end website experience based on layout taste, typography, animation, polish, and product-quality execution. Do not bind the design to any fixed niche. Adapt the visual system to the user's business, audience, brand, and content.
+> **Goal**: Design and build high-end, editorial-product website experiences based on layout taste, refined typography, subtle animation, and commercial-grade polish. Adapt the visual system dynamically to any business, audience, or brand.
 
-## Intake Rules
+---
 
-If the user does not provide enough context, ask 4-5 concise questions before designing. Ask only what materially changes the result.
+## Quick Navigation
 
-Ask:
+- [1. Intake Rules](#1-intake-rules)
+- [2. Design DNA](#2-design-dna)
+- [3. Typography System](#3-typography-system)
+- [4. Layout System](#4-layout-system)
+- [5. Hero Direction & Overlay](#5-hero-direction--overlay)
+- [6. Glass UI Specifications](#6-glass-ui-specifications)
+- [7. Motion Taste & Timing](#7-motion-taste--timing)
+- [8. Component Guidelines](#8-component-guidelines)
+  - [Collaboration Logo Rail](#collaboration-logo-rail)
+  - [Testimonials Section](#testimonials-section)
+- [9. Color Direction](#9-color-direction)
+- [10. Responsive & Mobile Rules](#10-responsive--mobile-rules)
+- [11. Implementation Standards](#11-implementation-standards)
+- [12. Copywriting Taste](#12-copywriting-taste)
+- [13. Verification Checklist](#13-verification-checklist)
+- [14. Anti-Patterns](#14-anti-patterns)
+- [15. Default Build Plan](#15-default-build-plan)
 
-1. What is the niche or business type, and what should the website help visitors do?
-2. How many pages or sections do you need?
-3. What color direction should the brand use: light, dark, bold, minimal, luxury, playful, corporate, or custom colors?
-4. What is the company or product name, and do you have a logo or brand assets?
-5. Who is the target audience, and what is the main call to action?
+---
 
-If the user answers partially, make tasteful assumptions and continue. If the user says "just make it," choose a premium, clean, conversion-focused one-page site with a strong hero, partner/logo rail, feature section, proof section, testimonials, CTA, and footer.
+## 1. Intake Rules
 
-## Design DNA
+If the user does not provide sufficient context, ask **4-5 concise questions** before designing. Ask only what materially changes the result:
 
-Build with a premium editorial-product aesthetic:
+1. **Niche & Objective**: What is the niche or business type, and what should the website help visitors do?
+2. **Structure**: How many pages or sections do you need?
+3. **Color Direction**: What color direction should the brand use (*light, dark, bold, minimal, luxury, playful, corporate, or custom colors*)?
+4. **Brand Identity**: What is the company or product name, and do you have a logo or brand assets?
+5. **Audience & Goal**: Who is the target audience, and what is the primary call to action (CTA)?
 
-- Full-screen or near-full-screen first viewport with one dominant visual asset.
-- Large confident typography with tight but readable tracking.
-- One refined contrast typeface moment, such as an italic serif word inside a strong sans headline.
-- Clean navigation in a glass or soft floating pill.
-- Strong hierarchy: headline first, proof second, CTA third, decorative elements last.
-- Glass cards only where they add information, not as filler.
-- Use real images, video, or generated bitmap visuals instead of generic gradients.
-- Keep the interface calm, spacious, and designed. Avoid clutter and template-like sections.
-- Make the site look commercially approved, not like a generic AI-generated landing page.
+> [!TIP]
+> **Handling Partial Context**  
+> - **Partial Answers**: Make tasteful, high-grade assumptions and continue without delaying.  
+> - **"Just Make It" Request**: Default to a premium, clean, conversion-focused single-page architecture featuring a strong hero, partner/logo rail, feature section, visual proof section, testimonials, final CTA, and footer.
 
-## Typography
+---
 
-Use a premium font pairing:
+## 2. Design DNA
 
-- Primary sans: `Plus Jakarta Sans`, `Inter`, `Geist`, `Satoshi`, `Manrope`, or a similar modern geometric sans.
-- Accent serif: `Cormorant Garamond`, `Playfair Display`, `Fraunces`, or a tasteful editorial serif.
-- Use the accent serif sparingly: one word or phrase in the hero, one pull quote, or one high-impact section title.
-- Use bold or semi-bold for major headings, not everywhere.
-- Do not use negative letter spacing on small text. Use tighter tracking only on large display text.
-- Body copy should be readable, short, and useful. Avoid marketing fluff.
+Build with a **premium editorial-product aesthetic**:
 
-Hero headline pattern:
+- **First Viewport Impact**: Full-screen or near-full-screen first viewport anchored by one dominant visual asset.
+- **Confident Typography**: Large display headings with tight, refined tracking.
+- **Typographic Contrast**: Incorporate one elegant contrast typeface moment (e.g., an italic serif word inside a bold sans-serif headline).
+- **Floating Navigation**: Clean navigation housed inside a soft glass or floating pill container.
+- **Visual Hierarchy**: Headline first $\rightarrow$ Social Proof second $\rightarrow$ Actionable CTA third $\rightarrow$ Decorative accents last.
+- **Restrained Glassmorphism**: Use glass cards strictly where they present information layer, not as background filler.
+- **Rich Media**: Use real photos, video, or high-fidelity generated bitmap visuals instead of generic CSS color gradients.
+- **Calm & Spacious**: Keep layouts uncluttered, well-padded, and deliberately spaced. Avoid template-like rigid card grids.
+- **Commercial Polish**: Ensure the site looks like an approved enterprise or high-end startup product.
+
+---
+
+## 3. Typography System
+
+### Font Pairing Strategy
+
+| Role | Font Family Options | Style & Usage Notes |
+| :--- | :--- | :--- |
+| **Primary Sans** | `Plus Jakarta Sans`, `Inter`, `Geist`, `Satoshi`, `Manrope` | Modern geometric/humanist sans for main structural UI, subheadings, and body. |
+| **Accent Serif** | `Cormorant Garamond`, `Playfair Display`, `Fraunces` | Use sparingly for high-impact contrast (1 word in hero, pull quotes, section titles). |
+
+> [!NOTE]
+> **Typography Best Practices**
+> - **Weight Distribution**: Reserve `bold` or `extrabold` for major headings—do not apply bold weights everywhere.
+> - **Tracking & Letter Spacing**: Tighten letter spacing slightly on large display headings only. **Never** apply negative letter spacing to small body or UI text.
+> - **Body Copy Readability**: Keep copy concise, readable, and informative. Avoid marketing filler.
+
+### Hero Headline Pattern
 
 ```text
 Next-Generation [Category] [Offer] Solutions
 ```
 
-Treatment:
+**Styling Treatment**:
+- **Main Words**: Modern Sans-Serif, `font-bold` or `font-extrabold`, tight display tracking.
+- **Accent Word**: Italic Serif, slightly lighter weight (`font-normal` or `font-medium`).
+- **Supporting Paragraph**: Medium weight, 1–2 lines max, high visual contrast against background.
 
-- Main words: modern sans, `font-bold` or `font-extrabold`, tight display spacing.
-- Accent word: italic serif, slightly lighter weight.
-- Supporting paragraph: medium weight, 1-2 lines, high contrast.
+---
 
-## Layout System
+## 4. Layout System
 
-Use this page structure when the user has not specified a layout:
+Use this 8-stage section sequence when no explicit layout structure is specified:
 
-1. Hero: immersive image/video, nav overlay, proof pill, headline, short copy, CTA, optional glass metrics.
-2. Collaboration strip: continuously sliding logos or partner names.
-3. Core offer: 3-6 cards or panels explaining what the business does.
-4. Visual proof: gallery, case studies, product screenshots, or results.
-5. Process or technology: a sticky or scroll-reveal section if appropriate.
-6. Testimonials: refined cards with avatars, quote marks, and strong spacing.
-7. Final CTA: bold, simple, one action.
-8. Footer: useful links, brand mark, copyright.
-
-Keep sections visually distinct but connected. Use full-width bands, not stacks of nested cards.
-
-## Hero Direction
-
-The hero should feel cinematic and usable.
-
-Required hero qualities:
-
-- Use a strong real or generated visual as the background.
-- Video is preferred when provided. It must be `autoplay`, `muted`, `loop`, `playsInline`, and include a poster image.
-- Add a readable overlay using gradients, not a flat black sheet unless needed.
-- Place headline and CTA near the lower-left or lower-center, not dead-center by default.
-- Add proof elements such as avatar rating pills, metrics, or small glass cards.
-- If using glass cards, keep them restrained and readable.
-- On mobile, simplify the hero. Hide nonessential metric clusters that crowd the viewport.
-
-Hero overlay checklist:
-
-- Headline visible over image/video.
-- CTA visible without scrolling on common mobile heights.
-- No text collision with nav.
-- No horizontal overflow.
-- Motion fades or shifts on scroll only when smooth and purposeful.
-
-## Glass UI
-
-Use glassmorphism as an information layer:
-
-- Background: `rgba(255,255,255,0.14-0.24)` or dark equivalent.
-- Border: subtle white or neutral border at 15-30% opacity.
-- Backdrop blur: medium to strong.
-- Shadow: soft, large, low opacity.
-- Radius: usually 18-30px for hero cards, 10-16px for compact UI.
-
-Avoid making every card glass. Use normal solid cards for testimonials and content-heavy sections.
-
-## Motion Taste
-
-Motion should feel expensive and quiet:
-
-- Use scroll-reveal for section entry: opacity + 16-32px translate.
-- Use gentle hover lift on cards: 1-8px, not dramatic.
-- Use continuous marquees only for logos, testimonials, or subtle data rails.
-- Use sticky image transformations only when the section benefits from storytelling.
-- Respect `prefers-reduced-motion`.
-- Avoid noisy bouncing, spinning, overdone parallax, and animation that blocks reading.
-
-Recommended timing:
-
-- Reveal: 700-900ms, cubic-bezier `(0.22, 1, 0.36, 1)`.
-- Hover: 250-500ms ease-out.
-- Marquee: 24-40s linear infinite.
-- Hero scroll fade: opacity and translate tied to scroll progress.
-
-## Collaboration Logo Rail
-
-Add a partner or collaboration rail after the hero when trust matters.
-
-Rules:
-
-- Move continuously right-to-left.
-- Duplicate items for a seamless loop.
-- Add soft left/right gradient masks.
-- Use company names as typographic logos if no logo files are provided.
-- Keep the band clean and shallow. It should support the hero, not compete with it.
-
-## Testimonials
-
-Use testimonials that look designed, not like default cards.
-
-Preferred style:
-
-- White or very light section background.
-- Centered eyebrow and title.
-- 3-column grid on desktop, 1-2 columns on smaller screens.
-- Soft neutral cards with modest radius.
-- Large pale quote mark.
-- Short, punchy testimonial text.
-- Avatar/name chip overlapping the bottom of each card.
-- Add 3-6 testimonials when possible.
-
-Do not use long paragraphs unless the testimonial section is the main content.
-
-## Color Direction
-
-If the user has no colors, choose a professional palette based on the niche:
-
-- Clean tech: deep green/blue, white, electric accent.
-- Luxury: black/white, warm gray, restrained metallic accent.
-- SaaS: neutral background, dark text, one confident accent.
-- Creative: strong contrast, expressive accent, still controlled.
-- Health/wellness: soft neutrals, green/blue accents, high readability.
-
-Avoid one-note palettes. Do not flood the page with a single hue family. Accent colors should guide action and proof, not cover everything.
-
-## Responsive Rules
-
-Mobile is not a squeezed desktop.
-
-- Hide or simplify decorative hero clusters on mobile.
-- Keep CTA visible in the first viewport when possible.
-- Use `clamp()` for hero type, but do not scale normal UI text with viewport width.
-- Ensure buttons and nav are easy to tap.
-- Avoid horizontal scrolling except intentional carousels.
-- Check 390px, 768px, 1440px widths.
-- Ensure text never overlaps images, cards, or nav.
-
-## Implementation Standards
-
-Use the existing framework and project style. Prefer established components and tokens.
-
-For Next.js/React:
-
-- Use `next/image` for images.
-- Use `<video>` directly for local background videos.
-- Use semantic HTML.
-- Keep client components only where interactivity requires them.
-- Use CSS/Tailwind classes consistently.
-- Use local assets from `public/`.
-- Add `output: 'export'` only when a static export is required.
-
-For any stack:
-
-- Keep asset names clear.
-- Use real alt text for meaningful images.
-- Decorative media should be hidden from screen readers or have empty alt.
-- Keep performance in mind: compress media, lazy load noncritical assets, avoid massive JS.
-
-## Copywriting Taste
-
-Write like a professional brand team:
-
-- Be specific, direct, and confident.
-- Use short supporting copy.
-- Avoid phrases like "revolutionize your business" unless the brand truly calls for it.
-- Replace vague AI-sounding copy with concrete outcomes.
-
-Bad:
-
-```text
-We provide innovative solutions to transform your future.
+```
+┌─────────────────────────────────────────────────────────┐
+│ 1. HERO (Immersive Media, Pill Nav, Proof, Headline, CTA)│
+├─────────────────────────────────────────────────────────┤
+│ 2. COLLABORATION STRIP (Continuous Infinite Logo Rail) │
+├─────────────────────────────────────────────────────────┤
+│ 3. CORE OFFER (3–6 Content Panels / Value Props)        │
+├─────────────────────────────────────────────────────────┤
+│ 4. VISUAL PROOF (Product Shots, Gallery, Case Studies)  │
+├─────────────────────────────────────────────────────────┤
+│ 5. PROCESS / TECH (Sticky or Scroll-Reveal Feature)     │
+├─────────────────────────────────────────────────────────┤
+│ 6. TESTIMONIALS (Refined Avatar Quote Cards)           │
+├─────────────────────────────────────────────────────────┤
+│ 7. FINAL CTA (Bold, Single-Focus Call to Action)        │
+├─────────────────────────────────────────────────────────┤
+│ 8. FOOTER (Navigation Links, Brand Mark, Legal)        │
+└─────────────────────────────────────────────────────────┘
 ```
 
-Better:
+> [!IMPORTANT]
+> Keep sections visually distinct yet harmoniously connected. Prefer full-width structural bands over stacked nested card wrappers.
+
+---
+
+## 5. Hero Direction & Overlay
+
+The hero section must feel cinematic, immersive, and fully functional.
+
+### Required Hero Qualities
+- **Background Media**: Use a high-quality visual asset. Video is preferred when available.
+- **Video Standards**: `<video>` must include `autoplay`, `muted`, `loop`, `playsInline`, and a static `poster` fallback image.
+- **Background Overlay**: Use smooth CSS gradient masks rather than flat black overlays unless strictly required for contrast.
+- **Content Positioning**: Place the primary headline and main CTA near the lower-left or lower-center (avoid default dead-center positioning).
+- **Proof Elements**: Integrate avatar rating pills, key metric badges, or subtle glass cards.
+- **Mobile Simplification**: On small viewports, simplify the hero by hiding secondary metric clusters that clutter the screen.
+
+### Hero Overlay Checklist
+
+- [ ] Headline remains high-contrast and readable over background media.
+- [ ] Primary CTA is visible above the fold on standard mobile screens.
+- [ ] Zero text collision or overlapping with the top navigation bar.
+- [ ] No horizontal scrollbars or viewport overflow.
+- [ ] Scroll-driven motion effects are subtle, smooth, and non-distracting.
+
+---
+
+## 6. Glass UI Specifications
+
+Apply glassmorphism intentionally as an informational overlay layer:
+
+| Property | Value Range / Spec |
+| :--- | :--- |
+| **Background Fill** | `rgba(255, 255, 255, 0.14)` to `rgba(255, 255, 255, 0.24)` (or dark mode equivalent) |
+| **Border Stroke** | `1px solid rgba(255, 255, 255, 0.15–0.30)` |
+| **Backdrop Filter** | `backdrop-filter: blur(12px)` to `blur(24px)` |
+| **Box Shadow** | Soft, multi-layered, low-opacity shadow (`0 20px 40px rgba(0,0,0,0.08)`) |
+| **Border Radius** | `18px`–`30px` for hero cards & containers; `10px`–`16px` for compact UI components |
+
+> [!WARNING]
+> Do not make every card on the page glass. Use clean solid surfaces for testimonials, long-form content, and heavy data sections.
+
+---
+
+## 7. Motion Taste & Timing
+
+Motion must feel **expensive, purposeful, and quiet**:
+
+- **Scroll Reveal**: Entrance animations use opacity fade + 16–32px translation.
+- **Hover Micro-interactions**: Gentle card elevation (1–8px lift) with smooth shadows.
+- **Continuous Motion**: Reserve marquees strictly for logo rails, proof badges, or horizontal data feeds.
+- **Reduced Motion**: Always honor `prefers-reduced-motion: reduce` settings.
+- **Avoid**: Aggressive bouncing, rotating icons, intrusive parallax, or animations that block content reading.
+
+### Motion Specifications
+
+| Motion Type | Duration | Easing Function | Description |
+| :--- | :--- | :--- | :--- |
+| **Section Reveal** | `700ms`–`900ms` | `cubic-bezier(0.22, 1, 0.36, 1)` | Smooth fade & vertical slide up on scroll. |
+| **Card Hover** | `250ms`–`500ms` | `ease-out` | Subtle lift & shadow expansion. |
+| **Logo Marquee** | `24s`–`40s` | `linear infinite` | Continuous seamless horizontal scroll. |
+| **Hero Scroll Fade** | Tied to scroll | `linear` | Opacity and translation linked to scroll position. |
+
+---
+
+## 8. Component Guidelines
+
+### Collaboration Logo Rail
+Position directly after the hero section to establish immediate credibility.
+
+- **Loop Direction**: Smooth right-to-left continuous scroll.
+- **Seamless Loop**: Duplicate logo array elements to eliminate jumpiness.
+- **Edge Masks**: Apply CSS `mask-image` linear gradients on left and right edges for smooth fading.
+- **Typography Fallback**: Use stylized typographic brand names if SVG logo files are unavailable.
+- **Proportions**: Keep the band slim and clean so it complements the hero without drawing excess attention.
+
+### Testimonials Section
+Design testimonials as premium editorial callouts rather than generic cards.
+
+- **Background**: Light or neutral contrast background band.
+- **Header**: Centered section badge/eyebrow and title.
+- **Grid Layout**: 3 columns on desktop, 1–2 columns on tablet/mobile.
+- **Card Aesthetics**: Neutral card fills with soft borders and subtle shadow.
+- **Decorations**: Large pale background quotation marks (`"`).
+- **Author Chip**: Avatar photo, name, and title chip overlapping or anchoring the bottom of each card.
+- **Volume**: Include 3 to 6 distinct testimonials.
+
+---
+
+## 9. Color Direction
+
+If no brand color palette is specified, select a tailored scheme based on the industry:
+
+| Niche / Style | Base & Background | Primary Text & Surface | Accent & Polish |
+| :--- | :--- | :--- | :--- |
+| **Clean Tech** | Deep Slate / Dark Blue | Crisp White & Light Gray | Electric Cyan or Teal |
+| **Luxury / Fashion** | Deep Onyx / True Black | Warm White & Cream | Restrained Metallic / Champagne |
+| **SaaS / B2B** | Neutral Off-White / Off-Black | Dark Slate (`#0F172A`) | Confident Indigo / Blue Accent |
+| **Creative / Agency** | High Contrast Monochrome | Crisp Stark Typography | Vibrant Expressive Accent |
+| **Health / Wellness** | Soft Neutral Warm Cream | Deep Charcoal | Natural Sage Green or Ocean Blue |
+
+> [!NOTE]
+> Avoid single-hue monochrome palettes. Use primary accents intentionally to guide user action and highlight proof points rather than saturating every surface.
+
+---
+
+## 10. Responsive & Mobile Rules
+
+Mobile layouts must be specifically tailored, not squeezed desktop designs.
+
+- **Mobile First Viewport**: Keep the main CTA clearly visible above the fold on mobile screens.
+- **Typography Scaling**: Use `clamp()` for fluid display headlines; do not scale body text aggressively with viewport width.
+- **Simplified Hero**: Hide or streamline secondary decorative metric clusters on mobile viewports.
+- **Touch Ergonomics**: Ensure buttons and navigation items meet minimum tap target sizes ($\ge 44 \times 44\text{px}$).
+- **Overflow Prevention**: Prevent horizontal scrolling except for intentional swipeable carousels.
+- **Viewport Checks**: Always verify layouts across standard breakpoints: `390px` (Mobile), `768px` (Tablet), and `1440px` (Desktop).
+
+---
+
+## 11. Implementation Standards
+
+### Next.js & React Projects
+- **Images**: Use `next/image` with optimized dimensions and placeholder handling.
+- **Background Video**: Use native `<video>` elements directly for local hero media.
+- **Semantic HTML**: Structure pages using `<header>`, `<main>`, `<section>`, `<nav>`, and `<footer>`.
+- **Client Components**: Keep `use client` directives scoped tightly to interactive components.
+- **Static Export**: Include `output: 'export'` in `next.config.js` only when static output is explicitly required.
+
+### General Web Stack
+- **Asset Naming**: Use clean, descriptive slugified filenames (`hero-background-video.mp4`, `client-avatar-01.webp`).
+- **Accessibility**: Provide descriptive `alt` text for informational media; set `alt=""` or `aria-hidden="true"` on decorative elements.
+- **Performance Optimization**: Compress image/video assets, lazy-load offscreen media, and minimize bundle bloat.
+
+---
+
+## 12. Copywriting Taste
+
+Write with the clarity, confidence, and precision of a top-tier brand team.
+
+- **Tone**: Direct, specific, and authoritative.
+- **Conciseness**: Keep supporting paragraph text to 1–2 sharp sentences.
+- **Outcome Focus**: Replace generic buzzwords with concrete value metrics and clear benefits.
 
 ```text
-Build faster, cleaner workflows with systems your team can trust every day.
+❌ Avoid (Generic AI Cliché):
+"We provide innovative solutions to transform your business future and revolutionize workflow."
+
+✅ Prefer (Direct & Premium):
+"Build faster, cleaner workflows with reliable tools your team can trust every day."
 ```
 
-## Verification Checklist
+---
 
-Before finishing, verify:
+## 13. Verification Checklist
 
-- Page loads with no runtime overlay.
-- No console errors.
-- Hero text is readable over media.
-- Video loops, is muted, and plays inline.
-- Images render and are not broken.
-- Mobile has no horizontal overflow.
-- Nav menu opens and closes correctly.
-- CTA is visible and tappable.
-- Logo rail loops smoothly.
-- Testimonials align cleanly and do not overlap.
-- Build passes.
+Execute these verification checks prior to final submission:
 
-If tools are available, use browser verification and screenshots. If not, run the strongest local checks available and clearly report what could not be verified.
+### Visual & Layout Quality
+- [ ] Page loads cleanly without layout shift or missing assets.
+- [ ] Headline text maintains crisp contrast over background media.
+- [ ] Background video loops continuously, remains muted, and plays inline (`playsInline`).
+- [ ] Testimonials and content cards align cleanly without overlapping text.
+- [ ] Hero nav overlay operates without blocking headline content.
 
-## Anti-Patterns
+### Functionality & Mobile Polish
+- [ ] Zero console warnings or runtime errors.
+- [ ] Mobile viewports (390px) display zero horizontal overflow.
+- [ ] Mobile navigation drawer opens and closes smoothly.
+- [ ] Primary CTA buttons are visible, accessible, and tap-friendly.
+- [ ] Logo rail loops infinitely without visual jumps or stutters.
+- [ ] Production build (`npm run build` or equivalent) succeeds cleanly.
 
-Avoid:
+---
 
-- Generic AI-looking gradient hero sections.
-- Decorative blobs, random orbs, or bokeh backgrounds.
-- Too many cards in the first viewport.
-- Text inside tiny pills when an icon or simple label works better.
-- Over-rounded every element.
-- Dense copy blocks.
-- Multiple competing CTAs.
-- Unverified responsive layouts.
-- Using stock-like images that do not show the actual subject.
-- Leaving placeholder brand names, template copy, or dead links.
+## 14. Anti-Patterns
 
-## Default Build Plan
+| Anti-Pattern | Recommended Alternative |
+| :--- | :--- |
+| ❌ Generic AI-looking gradient hero backgrounds | ✅ High-quality cinematic photo/video asset with gradient overlays |
+| ❌ Floating glowing decorative orbs & random bokeh blobs | ✅ Clean, structured layout background with professional depth |
+| ❌ Cluttered viewport with excessive cards & competing CTAs | ✅ Single primary headline, clear proof point, and one focused CTA |
+| ❌ Applying glassmorphic styling to every container | ✅ Selective glass overlay reserved for float cards; solid cards elsewhere |
+| ❌ Over-rounding every UI container with extreme radii | ✅ Balanced radius system (`18-30px` for hero/cards, `8-12px` for buttons) |
+| ❌ Generic AI marketing filler copy | ✅ Punchy, concrete outcome-focused copywriting |
 
-When asked to create or redesign a site:
+---
 
-1. Ask intake questions if required.
-2. Inspect the existing project and assets.
-3. Establish typography, color, spacing, and motion direction.
-4. Build the hero first.
-5. Add trust/proof sections.
-6. Build the content sections.
-7. Add testimonials and final CTA.
-8. Polish mobile.
-9. Run build and browser verification.
-10. Report changed files, verification results, and the local URL or output folder.
+## 15. Default Build Plan
+
+When commissioned to build or redesign a website, execute this systematic plan:
+
+1. **Intake & Discovery**: Gather requirements or execute the 5 intake questions.
+2. **Asset & Codebase Audit**: Inspect existing code, brand assets, images, and project structure.
+3. **Design System Setup**: Define font pairings, color tokens, CSS variables, and motion timing.
+4. **Hero Construction**: Build the cinematic hero section, overlay mask, floating navigation, and CTA.
+5. **Trust & Proof Layers**: Implement the continuous collaboration logo rail and key metric badges.
+6. **Core Offer & Content Sections**: Build high-impact value proposition panels and product visual showcases.
+7. **Social Proof & Final Call**: Implement the testimonial grid and bold final conversion CTA section.
+8. **Mobile & Responsive Optimization**: Refine mobile viewports (390px, 768px), touch targets, and stack order.
+9. **Build & Quality Verification**: Run local build checks, verify zero console errors, and check responsiveness.
+10. **Delivery & Report**: Provide a concise summary of modified files, verification outcomes, and preview links.

@@ -475,12 +475,12 @@ label, .form-label {
 .card-custom:hover {
     background: var(--bg-card-hover);
     border-color: var(--glass-border-hover);
-    transform: translateY(-4px);
+    transform: translateY(-3px);
     box-shadow: 0 16px 40px rgba(0, 0, 0, 0.55);
 }
 
 .card-header-custom {
-    background: transparent;
+    background: rgba(255, 255, 255, 0.03);
     border-bottom: 1px solid var(--glass-border);
     padding: 1.2rem 1.5rem;
     font-weight: 700;
@@ -495,33 +495,37 @@ label, .form-label {
 .matrix-bracket {
     display: inline-block;
     position: relative;
-    padding: 8px 16px;
+    padding: 10px 18px;
     margin: 10px 0;
+    background: rgba(15, 23, 42, 0.4);
+    border-radius: 14px;
 }
 
 .matrix-bracket::before, .matrix-bracket::after {
     content: "";
     position: absolute;
-    top: 0; bottom: 0;
-    width: 12px;
-    border: 2.5px solid rgba(255, 255, 255, 0.85);
+    top: 4px; bottom: 4px;
+    width: 14px;
+    border: 3px solid var(--primary-light);
+    box-shadow: 0 0 12px var(--primary-glow);
 }
 
 .matrix-bracket::before {
     left: 0;
     border-right: none;
-    border-radius: 10px 0 0 10px;
+    border-radius: 12px 0 0 12px;
 }
 
 .matrix-bracket::after {
     right: 0;
     border-left: none;
-    border-radius: 0 10px 10px 0;
+    border-radius: 0 12px 12px 0;
 }
 
 .matrix-input-table {
     border-collapse: separate;
     border-spacing: 8px;
+    margin: 0 auto;
 }
 
 .matrix-cell-input {
@@ -543,6 +547,7 @@ label, .form-label {
     background-color: rgba(23, 33, 58, 0.95) !important;
     box-shadow: 0 0 16px var(--primary-glow) !important;
     outline: none !important;
+    transform: scale(1.04);
 }
 
 /* Nav Pills Custom Tabs */
@@ -563,7 +568,7 @@ label, .form-label {
     box-shadow: 0 4px 16px var(--primary-glow);
 }
 
-/* Results & Steps */
+/* Results & Step Cards */
 .result-card {
     display: none;
     opacity: 0;
@@ -573,7 +578,7 @@ label, .form-label {
     border: 1.5px solid var(--glass-border-hover);
     border-radius: var(--radius-md);
     box-shadow: 0 12px 40px rgba(0, 0, 0, 0.65);
-    padding: 1.6rem;
+    padding: 1.8rem;
     color: var(--text-primary);
 }
 
@@ -585,18 +590,57 @@ label, .form-label {
 
 .step-card {
     position: relative;
-    background: rgba(23, 33, 58, 0.9);
+    background: rgba(23, 33, 58, 0.85);
+    backdrop-filter: blur(12px);
     border: 1px solid var(--glass-border);
     border-radius: var(--radius-sm);
-    padding: 1.15rem 1.4rem;
-    margin-bottom: 0.95rem;
+    padding: 1.25rem 1.5rem;
+    margin-bottom: 1rem;
     border-left: 4px solid var(--primary-light);
     color: var(--text-primary);
     font-size: 1rem;
     line-height: 1.65;
+    transition: transform 0.2s ease, border-color 0.2s ease;
 }
 
-/* Tech Badges */
+.step-card:hover {
+    transform: translateX(4px);
+    border-left-color: var(--accent-purple);
+    background: rgba(30, 41, 69, 0.9);
+}
+
+.step-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding: 0.25rem 0.65rem;
+    border-radius: 6px;
+    background: rgba(99, 102, 241, 0.2);
+    color: var(--primary-light);
+    border: 1px solid rgba(129, 140, 248, 0.3);
+    margin-bottom: 0.6rem;
+}
+
+/* Loading Spinner Overlay */
+.spinner-container {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 2rem;
+    color: var(--primary-light);
+    font-weight: 600;
+}
+
+.spinner-container.active {
+    display: flex;
+}
+
+/* Tech Badges & Status */
 .badge-tech {
     background: rgba(255, 255, 255, 0.08);
     border: 1px solid rgba(255, 255, 255, 0.18);
@@ -626,11 +670,33 @@ label, .form-label {
     background-color: var(--accent-emerald);
     border-radius: 50%;
     box-shadow: 0 0 10px var(--accent-emerald);
+    animation: pulseGlow 2s infinite ease-in-out;
+}
+
+@keyframes pulseGlow {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.3); opacity: 0.6; }
 }
 
 /* MathJax Output Styling */
 .mjx-chtml, .mjx-math, .mjx-char {
-    font-size: 120% !important;
+    font-size: 115% !important;
     color: #ffffff !important;
     padding: 4px 0;
 }
+
+/* Responsive Touch Optimizations */
+@media (max-width: 576px) {
+    .matrix-cell-input {
+        width: 58px;
+        height: 42px;
+        font-size: 0.95rem !important;
+    }
+    .hero-glow-container {
+        padding: 2.2rem 1.25rem 1.75rem;
+    }
+    .result-card {
+        padding: 1.25rem;
+    }
+}
+
