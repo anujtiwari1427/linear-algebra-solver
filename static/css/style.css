@@ -594,6 +594,47 @@ label, .form-label {
     box-shadow: 0 0 14px rgba(52, 211, 153, 0.2);
 }
 
+.sidebar-promo-card {
+    background: radial-gradient(circle at 50% 0%, rgba(52, 211, 153, 0.15), transparent 70%), rgba(11, 15, 30, 0.9);
+    border: 1px solid rgba(52, 211, 153, 0.35);
+    border-radius: var(--radius-sm);
+    padding: 1.25rem 1rem;
+    margin-bottom: 1rem;
+    text-align: center;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.4);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: visible;
+}
+
+.sidebar-promo-card .badge-rupee {
+    font-size: 0.7rem;
+    padding: 0.25rem 0.6rem;
+    margin-bottom: 0.6rem;
+    white-space: nowrap;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+}
+
+.sidebar-promo-card .promo-title {
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 0.88rem;
+    margin-bottom: 0.25rem;
+    line-height: 1.2;
+}
+
+.sidebar-promo-card .promo-desc {
+    color: var(--text-secondary);
+    font-size: 0.74rem;
+    line-height: 1.35;
+    margin-bottom: 0.75rem;
+}
+
 .payment-method-card {
     background: rgba(255, 255, 255, 0.04);
     border: 1px solid var(--glass-border);
