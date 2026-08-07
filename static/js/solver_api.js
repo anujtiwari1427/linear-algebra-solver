@@ -2,6 +2,9 @@
  * REST API Client & Result Renderer with MathJax Support
  * Premium Web Design System Engine
  */
+
+window.isSolutionUnlocked = false;
+
 async function submitCalculation(endpoint, payload, resultCardId = "resultCard", spinnerId = "loadingSpinner") {
     const resultCard = document.getElementById(resultCardId);
 
@@ -142,6 +145,9 @@ function renderResultCard(data, resultCardId = "resultCard") {
 
     card.classList.add("active");
 
+    // Apply Freemium Solution Blur & Lock Overlay logic
+    applySolutionLockState(card, prefix);
+
     // Safe MathJax typesetting with type checking
     try {
         if (window.MathJax && typeof window.MathJax.typesetPromise === 'function') {
@@ -155,4 +161,69 @@ function renderResultCard(data, resultCardId = "resultCard") {
 
     // Smooth scroll to result
     card.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+
+function applySolutionLockState(card, prefix) {
+    // Wrap contents in relative container if not already wrapped
+    let relativeContainer = card.querySelector('.solution-container-relative');
+    if (!relativeContainer) {
+        relativeContainer = document.createElement('div');
+        relativeContainer.className = 'solution-container-relative';
+
+        // Create blur wrapper
+        const blurWrapper = document.createElement('div');
+        blurWrapper.className = 'solution-blur-wrapper';
+
+        // Move children inside blur wrapper
+        const children = Array.from(card.children);
+        children.forEach(child => {
+            if (!child.classList.contains('solution-lock-overlay') && child.tagName !== 'H5') {
+                blurWrapper.appendChild(child);
+            }
+        });
+
+        relativeContainer.appendChild(blurWrapper);
+        card.appendChild(relativeContainer);
+    }
+
+    const blurWrapper = relativeContainer.querySelector('.solution-blur-wrapper');
+    let overlay = relativeContainer.querySelector('.solution-lock-overlay');
+
+    if (window.isSolutionUnlocked) {
+        if (blurWrapper) blurWrapper.classList.add('unlocked');
+        if (overlay) overlay.classList.add('hidden-overlay');
+    } else {
+        if (blurWrapper) blurWrapper.classList.remove('unlocked');
+
+        if (!overlay) {
+            overlay = document.createElement('div');
+            overlay.className = 'solution-lock-overlay';
+            overlay.innerHTML = `
+                <div class="badge-rupee mb-2">🔒 PREMIUM SOLUTION LOCKED</div>
+                <h5 class="fw-bold text-white mb-1" style="font-size: 1.15rem;">Full Derivation &amp; Step Breakdown</h5>
+                <p class="small text-secondary mb-3" style="font-size: 0.82rem;">Pay ₹5,000 to unblur and unlock the full mathematical result set &amp; PDF report.</p>
+                <div class="d-flex flex-wrap justify-content-center gap-2">
+                    <button class="btn btn-emerald-pay py-2 px-3 fs-7" data-bs-toggle="modal" data-bs-target="#buySolutionModal">
+                        <span>💎 Pay ₹5,000 &amp; Unlock Result &rarr;</span>
+                    </button>
+                    <button class="btn btn-premium py-2 px-3 fs-7" data-bs-toggle="modal" data-bs-target="#premiumModal">
+                        <span>⭐ Pro Pass (₹9,999/mo)</span>
+                    </button>
+                </div>
+            `;
+            relativeContainer.appendChild(overlay);
+        } else {
+            overlay.classList.remove('hidden-overlay');
+        }
+    }
+}
+
+function unlockAllSolutions() {
+    window.isSolutionUnlocked = true;
+    document.querySelectorAll('.solution-blur-wrapper').forEach(wrapper => {
+        wrapper.classList.add('unlocked');
+    });
+    document.querySelectorAll('.solution-lock-overlay').forEach(overlay => {
+        overlay.classList.add('hidden-overlay');
+    });
 }

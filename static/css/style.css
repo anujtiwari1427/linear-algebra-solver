@@ -677,6 +677,55 @@ label, .form-label {
     color: #ffffff !important;
 }
 
+/* ==========================================================================
+   Blurred Solution & Lock Overlay System (Freemium Paywall)
+   ========================================================================== */
+.solution-container-relative {
+    position: relative;
+    min-height: 180px;
+    width: 100%;
+}
+
+.solution-blur-wrapper {
+    filter: blur(8px);
+    opacity: 0.5;
+    user-select: none;
+    pointer-events: none;
+    transition: filter 0.6s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.solution-blur-wrapper.unlocked {
+    filter: blur(0px) !important;
+    opacity: 1 !important;
+    user-select: auto !important;
+    pointer-events: auto !important;
+}
+
+.solution-lock-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 20;
+    width: calc(100% - 2rem);
+    max-width: 460px;
+    background: rgba(8, 11, 23, 0.94);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1.5px solid rgba(52, 211, 153, 0.45);
+    border-radius: var(--radius-md);
+    padding: 1.6rem 1.4rem;
+    text-align: center;
+    box-shadow: 0 16px 50px rgba(0, 0, 0, 0.85);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.solution-lock-overlay.hidden-overlay {
+    opacity: 0;
+    pointer-events: none;
+    transform: translate(-50%, -60%) scale(0.95);
+}
+
 .btn-check:checked + .btn-preset {
     background: linear-gradient(135deg, var(--primary), var(--accent-purple)) !important;
     border-color: rgba(255, 255, 255, 0.4) !important;

@@ -459,6 +459,7 @@
                     btn.innerHTML = "✓ Payment Approved! Solution Unlocked";
                     btn.classList.remove("btn-emerald-pay");
                     btn.classList.add("btn-success");
+                    if (typeof unlockAllSolutions === 'function') unlockAllSolutions();
                     setTimeout(() => {
                         const modalEl = document.getElementById('buySolutionModal');
                         const modal = bootstrap.Modal.getInstance(modalEl);
@@ -478,6 +479,7 @@
                 btn.innerHTML = "✓ Pro Membership Activated!";
                 btn.classList.remove("btn-premium");
                 btn.classList.add("btn-success");
+                if (typeof unlockAllSolutions === 'function') unlockAllSolutions();
                 setTimeout(() => {
                     const modalEl = document.getElementById('premiumModal');
                     const modal = bootstrap.Modal.getInstance(modalEl);
