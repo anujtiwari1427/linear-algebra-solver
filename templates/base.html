@@ -38,6 +38,9 @@
                 <span class="fw-bold text-white fs-5 tracking-tight">Linear Suite</span>
             </a>
             <div class="d-flex align-items-center gap-2">
+                <button class="btn btn-emerald-pay px-3 py-1 fs-7" data-bs-toggle="modal" data-bs-target="#buySolutionModal">
+                    <span>💎 ₹5,000 Solution</span>
+                </button>
                 <button class="btn btn-premium px-3 py-1 fs-7" data-bs-toggle="modal" data-bs-target="#premiumModal">
                     <span>👑 Pro</span>
                 </button>
@@ -58,14 +61,19 @@
                 </div>
             </a>
 
-            <!-- Premium Membership Banner Card in Sidebar -->
-            <div class="p-3 mb-3 text-center rounded-3 position-relative overflow-hidden" style="background: radial-gradient(circle at 50% 0%, rgba(251, 191, 36, 0.22), transparent 70%), rgba(11, 15, 30, 0.85); border: 1px solid rgba(251, 191, 36, 0.38); box-shadow: 0 4px 18px rgba(251, 191, 36, 0.15);">
-                <div class="badge-premium mb-2">👑 PRO MEMBERSHIP</div>
-                <div class="fw-bold text-white fs-6 mb-1">Upgrade to Premium</div>
-                <p class="small text-secondary mb-3" style="font-size: 0.76rem; line-height: 1.4;">Unlock 100x100 Matrices, PDF Step Export &amp; SciPy GPU Solvers.</p>
-                <button class="btn btn-premium w-100 py-2 fs-7" data-bs-toggle="modal" data-bs-target="#premiumModal">
-                    <span>⭐ Get Premium Membership</span>
-                </button>
+            <!-- Buy Premium Solution & Pro Card -->
+            <div class="p-3 mb-3 text-center rounded-3 position-relative overflow-hidden" style="background: radial-gradient(circle at 50% 0%, rgba(52, 211, 153, 0.22), transparent 70%), rgba(11, 15, 30, 0.85); border: 1px solid rgba(52, 211, 153, 0.38); box-shadow: 0 4px 18px rgba(52, 211, 153, 0.15);">
+                <div class="badge-rupee mb-2">💎 INSTANT SOLUTION PASS</div>
+                <div class="fw-bold text-white fs-6 mb-1">Buy Premium Result Pass</div>
+                <p class="small text-secondary mb-3" style="font-size: 0.76rem; line-height: 1.4;">Get PDF Step Export &amp; Full Result Set for <strong>₹5,000 / solution</strong>.</p>
+                <div class="d-flex flex-column gap-2">
+                    <button class="btn btn-emerald-pay w-100 py-2 fs-7" data-bs-toggle="modal" data-bs-target="#buySolutionModal">
+                        <span>💎 Buy Solution (₹5,000)</span>
+                    </button>
+                    <button class="btn btn-premium w-100 py-2 fs-7" data-bs-toggle="modal" data-bs-target="#premiumModal">
+                        <span>⭐ Pro Pass (₹9,999/mo)</span>
+                    </button>
+                </div>
             </div>
 
             <!-- Calculation System Links -->
@@ -163,12 +171,15 @@
             </div>
             <div class="offcanvas-body d-flex flex-column px-0">
                 <!-- Premium Card Mobile -->
-                <div class="p-3 mb-3 text-center rounded-3 position-relative overflow-hidden" style="background: radial-gradient(circle at 50% 0%, rgba(251, 191, 36, 0.22), transparent 70%), rgba(11, 15, 30, 0.85); border: 1px solid rgba(251, 191, 36, 0.38);">
-                    <div class="badge-premium mb-2">👑 PRO MEMBERSHIP</div>
-                    <div class="fw-bold text-white fs-6 mb-1">Upgrade to Premium</div>
-                    <p class="small text-secondary mb-3" style="font-size: 0.76rem;">Unlock 100x100 Matrices &amp; GPU Solvers.</p>
+                <div class="p-3 mb-3 text-center rounded-3 position-relative overflow-hidden" style="background: radial-gradient(circle at 50% 0%, rgba(52, 211, 153, 0.22), transparent 70%), rgba(11, 15, 30, 0.85); border: 1px solid rgba(52, 211, 153, 0.38);">
+                    <div class="badge-rupee mb-2">💎 PER SOLUTION PASS</div>
+                    <div class="fw-bold text-white fs-6 mb-1">Buy Solution (₹5,000)</div>
+                    <p class="small text-secondary mb-3" style="font-size: 0.76rem;">Get full step PDF report &amp; 100x100 matrix pass.</p>
+                    <button class="btn btn-emerald-pay w-100 py-2 fs-7 mb-2" data-bs-toggle="modal" data-bs-target="#buySolutionModal" data-bs-dismiss="offcanvas">
+                        <span>💎 Buy Solution (₹5,000)</span>
+                    </button>
                     <button class="btn btn-premium w-100 py-2 fs-7" data-bs-toggle="modal" data-bs-target="#premiumModal" data-bs-dismiss="offcanvas">
-                        <span>⭐ Get Premium Membership</span>
+                        <span>⭐ Pro Pass (₹9,999/mo)</span>
                     </button>
                 </div>
 
@@ -261,6 +272,7 @@
                         <span class="small text-muted">&copy; 2026 Linear Algebra Educational Suite &bull; Engineered for Academic &amp; Portfolio Excellence</span>
                     </div>
                     <div class="d-flex flex-wrap gap-2 align-items-center">
+                        <button class="btn btn-emerald-pay py-1 px-3 fs-7" data-bs-toggle="modal" data-bs-target="#buySolutionModal">💎 Buy Solution (₹5,000)</button>
                         <button class="btn btn-premium py-1 px-3 fs-7" data-bs-toggle="modal" data-bs-target="#premiumModal">👑 Join Pro</button>
                         <span class="badge-tech">Python 3.12</span>
                         <span class="badge-tech">Flask WSGI</span>
@@ -273,7 +285,92 @@
         </div>
     </div>
 
-    <!-- Premium Membership Modal -->
+    <!-- Buy Premium Solution Modal (₹5,000 per Solution) -->
+    <div class="modal fade modal-glass-premium" id="buySolutionModal" tabindex="-1" aria-labelledby="buySolutionModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-header d-flex align-items-center justify-content-between">
+                    <div class="d-flex align-items-center gap-3">
+                        <span class="brand-icon-glow" style="background: linear-gradient(135deg, #10b981, #38bdf8); width: 44px; height: 44px; font-size: 1.3rem;">💎</span>
+                        <div>
+                            <h4 class="modal-title fw-bold text-white mb-0" id="buySolutionModalLabel">Instant Solution Premium Pass</h4>
+                            <span class="small text-secondary">High-Precision Full Derivation &amp; PDF Report Engine</span>
+                        </div>
+                    </div>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-4">
+                    <div class="row g-4 align-items-center mb-4">
+                        <div class="col-md-5">
+                            <div class="p-4 rounded-4 text-center" style="background: radial-gradient(circle at 50% 0%, rgba(52, 211, 153, 0.25), transparent 70%), rgba(11, 15, 30, 0.9); border: 1.5px solid rgba(52, 211, 153, 0.5);">
+                                <div class="badge-rupee mb-2">💎 PER SOLUTION PASS</div>
+                                <h2 class="fw-bold text-white mb-1" style="font-size: 2.4rem;">₹5,000</h2>
+                                <span class="small text-secondary">per detailed result set</span>
+                                <hr class="my-3 border-secondary-subtle">
+                                <div class="small text-white text-start d-flex flex-column gap-2">
+                                    <div>✓ Complete LaTeX Step-by-Step Proof</div>
+                                    <div>✓ Printable PDF Solution Export</div>
+                                    <div>✓ SymPy Exact Symbolic Breakdown</div>
+                                    <div>✓ Instant Processing &amp; Verification</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-7">
+                            <h6 class="fw-bold text-white mb-3">Select Payment Method (INR ₹5,000)</h6>
+                            <div class="d-flex flex-column gap-2 mb-3">
+                                <div class="payment-method-card active" onclick="selectPaymentMethod(this, 'UPI')">
+                                    <div class="d-flex align-items-center gap-3">
+                                        <span class="fs-4">📱</span>
+                                        <div>
+                                            <div class="fw-bold text-white fs-6">UPI Instant Pay</div>
+                                            <div class="small text-secondary">Google Pay, PhonePe, Paytm, BHIM</div>
+                                        </div>
+                                    </div>
+                                    <span class="badge-tech">Popular</span>
+                                </div>
+                                <div class="payment-method-card" onclick="selectPaymentMethod(this, 'Card')">
+                                    <div class="d-flex align-items-center gap-3">
+                                        <span class="fs-4">💳</span>
+                                        <div>
+                                            <div class="fw-bold text-white fs-6">Credit / Debit Card</div>
+                                            <div class="small text-secondary">Visa, Mastercard, RuPay, Amex</div>
+                                        </div>
+                                    </div>
+                                    <span class="badge-tech">Secure 256-bit</span>
+                                </div>
+                                <div class="payment-method-card" onclick="selectPaymentMethod(this, 'QR')">
+                                    <div class="d-flex align-items-center gap-3">
+                                        <span class="fs-4">📷</span>
+                                        <div>
+                                            <div class="fw-bold text-white fs-6">QR Code Scan &amp; Pay</div>
+                                            <div class="small text-secondary">Scan with any Indian Banking App</div>
+                                        </div>
+                                    </div>
+                                    <span class="badge-tech">Instant</span>
+                                </div>
+                            </div>
+
+                            <div class="p-3 rounded-3" style="background: rgba(16, 185, 129, 0.12); border: 1px solid rgba(52, 211, 153, 0.3);">
+                                <div class="d-flex align-items-center justify-content-between">
+                                    <span class="small text-secondary">Total Payable Amount:</span>
+                                    <span class="fw-bold text-emerald fs-5" style="color: #34d399;">₹5,000.00 INR</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer d-flex justify-content-between align-items-center">
+                    <button type="button" class="btn btn-preset" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-emerald-pay px-4" id="paySolutionBtn" onclick="processSolutionPayment()">
+                        <span>💳 Pay ₹5,000 &amp; Unlock Result</span>
+                        <span>&rarr;</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Premium Pro Membership Modal -->
     <div class="modal fade modal-glass-premium" id="premiumModal" tabindex="-1" aria-labelledby="premiumModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-lg">
             <div class="modal-content">
@@ -291,27 +388,33 @@
                     <div class="row g-4 mb-4">
                         <div class="col-md-6">
                             <div class="p-4 rounded-4 h-100" style="background: rgba(255, 255, 255, 0.03); border: 1px solid var(--glass-border);">
-                                <div class="badge-tech mb-2">Free Plan</div>
-                                <h3 class="fw-bold text-white mb-3">$0 <span class="fs-6 text-muted">/ forever</span></h3>
-                                <ul class="list-unstyled mb-0 small text-secondary d-flex flex-column gap-2">
-                                    <li>✓ Standard 6x6 Matrix Operations</li>
-                                    <li>✓ 2D &amp; 3D Vector Geometry Canvas</li>
-                                    <li>✓ Basic Gaussian &amp; LU Elimination</li>
-                                    <li>✓ Standard Floating Point Accuracy</li>
+                                <div class="badge-rupee mb-2">💎 SINGLE SOLUTION PASS</div>
+                                <h3 class="fw-bold text-white mb-3">₹5,000 <span class="fs-6 text-muted">/ solution</span></h3>
+                                <ul class="list-unstyled mb-4 small text-secondary d-flex flex-column gap-2">
+                                    <li>✓ Pay only for what you calculate</li>
+                                    <li>✓ Printable PDF Solution Export</li>
+                                    <li>✓ Full LaTeX Step-by-Step Proof</li>
+                                    <li>✓ SymPy Exact Symbolic Kernel</li>
                                 </ul>
+                                <button class="btn btn-emerald-pay w-100 py-2 fs-7" data-bs-toggle="modal" data-bs-target="#buySolutionModal" data-bs-dismiss="modal">
+                                    <span>Buy Single Pass (₹5,000)</span>
+                                </button>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="p-4 rounded-4 h-100 position-relative overflow-hidden" style="background: radial-gradient(circle at 100% 0%, rgba(251, 191, 36, 0.25), transparent 70%), rgba(20, 28, 52, 0.95); border: 1.5px solid rgba(251, 191, 36, 0.55); box-shadow: 0 8px 30px rgba(251, 191, 36, 0.2);">
-                                <div class="badge-premium mb-2">⭐ MOST POPULAR</div>
-                                <h3 class="fw-bold text-white mb-3">$9 <span class="fs-6 text-muted">/ month</span></h3>
-                                <ul class="list-unstyled mb-0 small text-white d-flex flex-column gap-2">
+                                <div class="badge-premium mb-2">⭐ UNLIMITED PRO PASS</div>
+                                <h3 class="fw-bold text-white mb-3">₹9,999 <span class="fs-6 text-muted">/ month</span></h3>
+                                <ul class="list-unstyled mb-3 small text-white d-flex flex-column gap-2">
                                     <li>⚡ <strong>Unlimited Matrix Size ($100 \times 100$)</strong></li>
-                                    <li>📄 <strong>PDF &amp; LaTeX Source Step Export</strong></li>
+                                    <li>📄 <strong>Unlimited PDF &amp; LaTeX Step Exports</strong></li>
                                     <li>🚀 <strong>SciPy CUDA/GPU Acceleration</strong></li>
                                     <li>🎓 <strong>Jordan Form &amp; Tensor Products</strong></li>
                                     <li>💬 <strong>24/7 Priority Academic Support</strong></li>
                                 </ul>
+                                <button class="btn btn-premium w-100 py-2 fs-7" id="activateTrialBtn" onclick="activatePremiumTrial()">
+                                    <span>👑 Join Pro (₹9,999/mo)</span>
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -323,7 +426,7 @@
                 </div>
                 <div class="modal-footer d-flex justify-content-between align-items-center">
                     <button type="button" class="btn btn-preset" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-premium px-4" id="activateTrialBtn" onclick="activatePremiumTrial()">
+                    <button type="button" class="btn btn-premium px-4" onclick="activatePremiumTrial()">
                         <span>👑 Start 7-Day Free Trial</span>
                         <span>&rarr;</span>
                     </button>
@@ -340,6 +443,33 @@
     <script src="{{ url_for('static', filename='js/solver_api.js') }}"></script>
     <script src="{{ url_for('static', filename='js/visualizer.js') }}"></script>
     <script>
+        function selectPaymentMethod(element, type) {
+            document.querySelectorAll('.payment-method-card').forEach(el => el.classList.remove('active'));
+            element.classList.add('active');
+        }
+
+        function processSolutionPayment() {
+            const btn = document.getElementById("paySolutionBtn");
+            if (btn) {
+                btn.innerHTML = "⏳ Authorizing ₹5,000 Payment...";
+                btn.disabled = true;
+                setTimeout(() => {
+                    btn.innerHTML = "✓ Payment Approved! Solution Unlocked";
+                    btn.classList.remove("btn-emerald-pay");
+                    btn.classList.add("btn-success");
+                    setTimeout(() => {
+                        const modalEl = document.getElementById('buySolutionModal');
+                        const modal = bootstrap.Modal.getInstance(modalEl);
+                        if (modal) modal.hide();
+                        btn.disabled = false;
+                        btn.classList.remove("btn-success");
+                        btn.classList.add("btn-emerald-pay");
+                        btn.innerHTML = "<span>💳 Pay ₹5,000 &amp; Unlock Result</span> <span>&rarr;</span>";
+                    }, 1400);
+                }, 1200);
+            }
+        }
+
         function activatePremiumTrial() {
             const btn = document.getElementById("activateTrialBtn");
             if (btn) {

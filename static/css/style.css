@@ -580,6 +580,62 @@ label, .form-label {
     border-color: rgba(129, 140, 248, 0.35);
 }
 
+.badge-rupee {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: linear-gradient(135deg, rgba(52, 211, 153, 0.22), rgba(56, 189, 248, 0.22));
+    border: 1px solid rgba(52, 211, 153, 0.45);
+    color: var(--accent-emerald);
+    font-weight: 700;
+    font-size: 0.85rem;
+    padding: 0.4rem 0.95rem;
+    border-radius: var(--radius-pill);
+    box-shadow: 0 0 14px rgba(52, 211, 153, 0.2);
+}
+
+.payment-method-card {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-sm);
+    padding: 0.85rem 1.1rem;
+    cursor: pointer;
+    transition: var(--transition-fast);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.payment-method-card:hover, .payment-method-card.active {
+    background: rgba(99, 102, 241, 0.18);
+    border-color: var(--primary-light);
+    box-shadow: 0 0 16px var(--primary-glow);
+}
+
+.btn-emerald-pay {
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    color: #ffffff !important;
+    border: 1px solid rgba(52, 211, 153, 0.4);
+    font-weight: 700;
+    font-size: 0.95rem;
+    padding: 0.68rem 1.4rem;
+    border-radius: var(--radius-sm);
+    box-shadow: 0 4px 20px rgba(16, 185, 129, 0.4);
+    transition: var(--transition-smooth);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    cursor: pointer;
+    min-height: 44px;
+}
+
+.btn-emerald-pay:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 28px rgba(16, 185, 129, 0.6);
+    color: #ffffff !important;
+}
+
 .btn-check:checked + .btn-preset {
     background: linear-gradient(135deg, var(--primary), var(--accent-purple)) !important;
     border-color: rgba(255, 255, 255, 0.4) !important;
