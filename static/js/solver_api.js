@@ -5,9 +5,10 @@
 async function submitCalculation(endpoint, payload, resultCardId = "resultCard", spinnerId = "loadingSpinner") {
     const resultCard = document.getElementById(resultCardId);
     const spinner = document.getElementById(spinnerId);
-    const errorAlert = document.getElementById("errorAlert");
 
-    if (errorAlert) errorAlert.classList.add("d-none");
+    // Hide any active error alerts
+    document.querySelectorAll('.alert-danger').forEach(alert => alert.classList.add('d-none'));
+
     if (spinner) spinner.classList.add("active");
     if (resultCard) resultCard.classList.remove("active");
 
@@ -23,19 +24,24 @@ async function submitCalculation(endpoint, payload, resultCardId = "resultCard",
         if (spinner) spinner.classList.remove("active");
 
         if (!data.success) {
-            showErrorAlert(data.error || "An unexpected calculation error occurred.");
+            showErrorAlert(data.error || "An unexpected calculation error occurred.", resultCardId);
             return;
         }
 
         renderResultCard(data, resultCardId);
     } catch (err) {
         if (spinner) spinner.classList.remove("active");
-        showErrorAlert("Server communication failed: " + err.message);
+        showErrorAlert("Server communication failed: " + err.message, resultCardId);
     }
 }
 
-function showErrorAlert(message) {
-    const errorAlert = document.getElementById("errorAlert");
+function showErrorAlert(message, resultCardId = "resultCard") {
+    const prefix = resultCardId.endsWith("Card") ? resultCardId.slice(0, -4) : resultCardId;
+    let errorAlert = document.getElementById(prefix.replace(/Result$/, "") + "Error") ||
+                     document.getElementById("singleError") ||
+                     document.getElementById("dualError") ||
+                     document.getElementById("errorAlert");
+
     if (errorAlert) {
         errorAlert.innerHTML = `<strong>⚠️ Validation Error:</strong> ${message}`;
         errorAlert.classList.remove("d-none");
@@ -64,10 +70,20 @@ function renderResultCard(data, resultCardId = "resultCard") {
     const card = document.getElementById(resultCardId);
     if (!card) return;
 
-    const latexEl = document.getElementById("resultLatex");
-    const stepsContainer = document.getElementById("resultSteps");
-    const explanationEl = document.getElementById("resultExplanation");
-    const complexityEl = document.getElementById("resultComplexity");
+    // Helper to resolve child elements dynamically by suffix (Latex, Steps, Explanation, Complexity)
+    const findEl = (suffix) => {
+        const prefix = resultCardId.endsWith("Card") ? resultCardId.slice(0, -4) : resultCardId;
+        const targetId = prefix + suffix;
+        return document.getElementById(targetId) ||
+               document.getElementById("result" + suffix) ||
+               card.querySelector(`[id$="${suffix}"]`) ||
+               card.querySelector(`[id*="${suffix}"]`);
+    };
+
+    const latexEl = findEl("Latex");
+    const stepsContainer = findEl("Steps");
+    const explanationEl = findEl("Explanation");
+    const complexityEl = findEl("Complexity");
 
     if (latexEl && data.latex_result) {
         latexEl.innerHTML = `$$${data.latex_result}$$`;
