@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<!-- Hero Section -->
+<!-- Stage 1: Immersive Hero Section -->
 <div class="row mb-5">
     <div class="col-12">
         <div class="hero-glow-container text-center">
@@ -19,8 +19,13 @@
             </p>
 
             <div class="d-flex flex-wrap justify-content-center gap-3 mb-4">
-                <a href="/matrix" class="btn btn-action px-4 py-3 fs-6">Launch Matrix Suite &rarr;</a>
-                <a href="/system" class="btn btn-preset px-4 py-3 fs-6">Solve Linear Systems</a>
+                <a href="/matrix" class="btn btn-action px-4 py-3 fs-6">
+                    <span>Launch Matrix Suite</span>
+                    <span class="fs-5">&rarr;</span>
+                </a>
+                <a href="/system" class="btn btn-preset px-4 py-3 fs-6">
+                    <span>Solve Linear Systems</span>
+                </a>
             </div>
 
             <!-- Stats Strip -->
@@ -28,26 +33,26 @@
                 <div class="row g-3 justify-content-center align-items-center">
                     <div class="col-6 col-md-3 border-end border-secondary-subtle">
                         <div class="stat-item">
-                            <div class="stat-number">100%</div>
+                            <div class="stat-number text-gradient-primary">100%</div>
                             <div class="stat-label">Symbolic Precision</div>
                         </div>
                     </div>
                     <div class="col-6 col-md-3 border-end border-secondary-subtle">
                         <div class="stat-item">
-                            <div class="stat-number">NumPy</div>
+                            <div class="stat-number text-gradient-purple">NumPy</div>
                             <div class="stat-label">SciPy Accelerated</div>
                         </div>
                     </div>
                     <div class="col-6 col-md-3 border-end border-secondary-subtle">
                         <div class="stat-item">
-                            <div class="stat-number">SymPy</div>
+                            <div class="stat-number text-gradient-primary">SymPy</div>
                             <div class="stat-label">Symbolic Engine</div>
                         </div>
                     </div>
                     <div class="col-6 col-md-3">
                         <div class="stat-item">
-                            <div class="stat-number">15+</div>
-                            <div class="stat-label">Advanced Modules</div>
+                            <div class="stat-number text-gradient-purple">15+</div>
+                            <div class="stat-label">Advanced Solvers</div>
                         </div>
                     </div>
                 </div>
@@ -56,7 +61,7 @@
     </div>
 </div>
 
-<!-- Technology & Engine Marquee Rail -->
+<!-- Stage 2: Continuous Tech Stack Marquee Rail (With Edge Linear Gradient Fading) -->
 <div class="marquee-container mb-5">
     <div class="marquee-track">
         <div class="marquee-badge"><span>⚡</span> NumPy 2.0 Fast Array Operations</div>
@@ -66,7 +71,7 @@
         <div class="marquee-badge"><span>📝</span> MathJax 3 LaTeX Step Rendering</div>
         <div class="marquee-badge"><span>🐍</span> Python 3.12 SciPy Architecture</div>
         <div class="marquee-badge"><span>🎓</span> College Coursework &amp; Portfolio Suite</div>
-        <!-- Duplicate for infinite seamless marquee loop -->
+        <!-- Duplicate Array for Infinite Seamless Loop -->
         <div class="marquee-badge"><span>⚡</span> NumPy 2.0 Fast Array Operations</div>
         <div class="marquee-badge"><span>🔬</span> SciPy Linear Algebra Engine</div>
         <div class="marquee-badge"><span>📐</span> SymPy 1.13 Symbolic Engine</div>
@@ -77,37 +82,39 @@
     </div>
 </div>
 
-<!-- Section Header -->
+<!-- Stage 3: Core Offer / Computational Solvers Grid -->
 <div class="d-flex align-items-center justify-content-between mb-4">
     <div>
-        <h2 class="fw-bold mb-1" style="font-size: 1.8rem;">Explore Solvers &amp; Calculators</h2>
+        <h2 class="fw-bold mb-1" style="font-size: 1.85rem;">Explore Solvers &amp; Calculators</h2>
         <p class="text-secondary small mb-0">Select a computational module to begin step-by-step matrix analysis.</p>
     </div>
     <span class="badge-tech">6 Interactive Solvers</span>
 </div>
 
-<!-- Module Cards Section -->
-<div class="row g-4 mb-4">
+<div class="row g-4 mb-5">
     <!-- Matrix Operations Card -->
     <div class="col-md-6 col-lg-4">
         <div class="card card-custom h-100 p-2">
             <div class="card-body d-flex flex-column">
                 <div class="d-flex align-items-center gap-3 mb-3">
-                    <div class="fs-2 p-2 rounded-3" style="background: rgba(99, 102, 241, 0.18); color: var(--primary-light);">🧮</div>
+                    <div class="feature-icon-box" style="background: rgba(99, 102, 241, 0.18); color: var(--primary-light);">🧮</div>
                     <div>
                         <h4 class="card-title fw-bold mb-0" style="font-size: 1.25rem;">Matrix Module</h4>
                         <span class="small text-secondary">Arithmetic &amp; Properties</span>
                     </div>
                 </div>
-                <p class="card-text flex-grow-1 small text-secondary" style="line-height: 1.6;">
+                <p class="card-text flex-grow-1 small text-secondary" style="line-height: 1.65;">
                     Addition, Subtraction, Multiplication ($A \times B$), Scalar scaling, Transpose ($A^T$), Trace, Rank with linear dependency analysis, Determinants, and Inverses ($A^{-1}$).
                 </p>
-                <div class="d-flex flex-column gap-1 mb-3 small text-secondary">
-                    <div><span class="text-success me-1">✓</span> Step-by-step element arithmetic</div>
-                    <div><span class="text-success me-1">✓</span> Square matrix validation &amp; Trace</div>
-                    <div><span class="text-success me-1">✓</span> Rank linear dependence reasoning</div>
+                <div class="d-flex flex-column gap-2 mb-4 small text-secondary">
+                    <div><span class="text-success me-2">✓</span> Step-by-step element arithmetic</div>
+                    <div><span class="text-success me-2">✓</span> Square matrix validation &amp; Trace</div>
+                    <div><span class="text-success me-2">✓</span> Rank linear dependence reasoning</div>
                 </div>
-                <a href="/matrix" class="btn btn-action w-100">Open Matrix Module &rarr;</a>
+                <a href="/matrix" class="btn btn-action w-100">
+                    <span>Open Matrix Module</span>
+                    <span>&rarr;</span>
+                </a>
             </div>
         </div>
     </div>
@@ -117,21 +124,24 @@
         <div class="card card-custom h-100 p-2">
             <div class="card-body d-flex flex-column">
                 <div class="d-flex align-items-center gap-3 mb-3">
-                    <div class="fs-2 p-2 rounded-3" style="background: rgba(244, 114, 182, 0.18); color: var(--accent-pink);">🏹</div>
+                    <div class="feature-icon-box" style="background: rgba(244, 114, 182, 0.18); color: var(--accent-pink);">🏹</div>
                     <div>
                         <h4 class="card-title fw-bold mb-0" style="font-size: 1.25rem;">Vector Module</h4>
                         <span class="small text-secondary">Geometric &amp; Metric Space</span>
                     </div>
                 </div>
-                <p class="card-text flex-grow-1 small text-secondary" style="line-height: 1.6;">
+                <p class="card-text flex-grow-1 small text-secondary" style="line-height: 1.65;">
                     Dot Product ($\vec{u} \cdot \vec{v}$), 3D Cross Product ($\vec{u} \times \vec{v}$), Euclidean Norm $\|\vec{v}\|$, Unit Vector normalization, Vector Projection ($\text{proj}_{\vec{v}}\vec{u}$), Angles, and Distances.
                 </p>
-                <div class="d-flex flex-column gap-1 mb-3 small text-secondary">
-                    <div><span class="text-success me-1">✓</span> Interactive 2D &amp; 3D Plotly Canvas</div>
-                    <div><span class="text-success me-1">✓</span> Angle calculation (Degrees &amp; Radians)</div>
-                    <div><span class="text-success me-1">✓</span> Zero-vector projection safety checks</div>
+                <div class="d-flex flex-column gap-2 mb-4 small text-secondary">
+                    <div><span class="text-success me-2">✓</span> Interactive 2D &amp; 3D Plotly Canvas</div>
+                    <div><span class="text-success me-2">✓</span> Angle calculation (Degrees &amp; Radians)</div>
+                    <div><span class="text-success me-2">✓</span> Zero-vector projection safety checks</div>
                 </div>
-                <a href="/vector" class="btn btn-action w-100">Open Vector Module &rarr;</a>
+                <a href="/vector" class="btn btn-action w-100">
+                    <span>Open Vector Module</span>
+                    <span>&rarr;</span>
+                </a>
             </div>
         </div>
     </div>
@@ -141,21 +151,24 @@
         <div class="card card-custom h-100 p-2">
             <div class="card-body d-flex flex-column">
                 <div class="d-flex align-items-center gap-3 mb-3">
-                    <div class="fs-2 p-2 rounded-3" style="background: rgba(52, 211, 153, 0.18); color: var(--accent-emerald);">⚖️</div>
+                    <div class="feature-icon-box" style="background: rgba(52, 211, 153, 0.18); color: var(--accent-emerald);">⚖️</div>
                     <div>
                         <h4 class="card-title fw-bold mb-0" style="font-size: 1.25rem;">Linear Systems</h4>
                         <span class="small text-secondary">Ax = b Elimination</span>
                     </div>
                 </div>
-                <p class="card-text flex-grow-1 small text-secondary" style="line-height: 1.6;">
+                <p class="card-text flex-grow-1 small text-secondary" style="line-height: 1.65;">
                     Gaussian Elimination with partial pivoting, Gauss-Jordan RREF, LU System Solver, and Cramer's Rule with complete step-by-step row operation logs and consistency checks.
                 </p>
-                <div class="d-flex flex-column gap-1 mb-3 small text-secondary">
-                    <div><span class="text-success me-1">✓</span> Intermediate matrix step logs</div>
-                    <div><span class="text-success me-1">✓</span> Rouché–Capelli rank consistency check</div>
-                    <div><span class="text-success me-1">✓</span> Cramer's determinant ratio method</div>
+                <div class="d-flex flex-column gap-2 mb-4 small text-secondary">
+                    <div><span class="text-success me-2">✓</span> Intermediate matrix step logs</div>
+                    <div><span class="text-success me-2">✓</span> Rouché–Capelli rank consistency check</div>
+                    <div><span class="text-success me-2">✓</span> Cramer's determinant ratio method</div>
                 </div>
-                <a href="/system" class="btn btn-action w-100">Open Systems Solver &rarr;</a>
+                <a href="/system" class="btn btn-action w-100">
+                    <span>Open Systems Solver</span>
+                    <span>&rarr;</span>
+                </a>
             </div>
         </div>
     </div>
@@ -165,21 +178,24 @@
         <div class="card card-custom h-100 p-2">
             <div class="card-body d-flex flex-column">
                 <div class="d-flex align-items-center gap-3 mb-3">
-                    <div class="fs-2 p-2 rounded-3" style="background: rgba(251, 191, 36, 0.18); color: var(--accent-amber);">⚡</div>
+                    <div class="feature-icon-box" style="background: rgba(251, 191, 36, 0.18); color: var(--accent-amber);">⚡</div>
                     <div>
                         <h4 class="card-title fw-bold mb-0" style="font-size: 1.25rem;">Eigenvalues</h4>
                         <span class="small text-secondary">Spectral &amp; Diagonalization</span>
                     </div>
                 </div>
-                <p class="card-text flex-grow-1 small text-secondary" style="line-height: 1.6;">
+                <p class="card-text flex-grow-1 small text-secondary" style="line-height: 1.65;">
                     Characteristic Polynomial $\det(A - \lambda I) = 0$, Eigenspaces, Modal Matrix $P$ and Diagonal Matrix $D$ ($A = PDP^{-1}$), Matrix Powers ($A^k$), and Cayley-Hamilton proof.
                 </p>
-                <div class="d-flex flex-column gap-1 mb-3 small text-secondary">
-                    <div><span class="text-success me-1">✓</span> Symbolic characteristic equation</div>
-                    <div><span class="text-success me-1">✓</span> Diagonalization check &amp; matrix powers</div>
-                    <div><span class="text-success me-1">✓</span> Cayley-Hamilton P(A) = 0 proof</div>
+                <div class="d-flex flex-column gap-2 mb-4 small text-secondary">
+                    <div><span class="text-success me-2">✓</span> Symbolic characteristic equation</div>
+                    <div><span class="text-success me-2">✓</span> Diagonalization check &amp; matrix powers</div>
+                    <div><span class="text-success me-2">✓</span> Cayley-Hamilton P(A) = 0 proof</div>
                 </div>
-                <a href="/eigen" class="btn btn-action w-100">Open Eigen Module &rarr;</a>
+                <a href="/eigen" class="btn btn-action w-100">
+                    <span>Open Eigen Module</span>
+                    <span>&rarr;</span>
+                </a>
             </div>
         </div>
     </div>
@@ -189,21 +205,24 @@
         <div class="card card-custom h-100 p-2">
             <div class="card-body d-flex flex-column">
                 <div class="d-flex align-items-center gap-3 mb-3">
-                    <div class="fs-2 p-2 rounded-3" style="background: rgba(56, 189, 248, 0.18); color: var(--accent-cyan);">🧱</div>
+                    <div class="feature-icon-box" style="background: rgba(56, 189, 248, 0.18); color: var(--accent-cyan);">🧱</div>
                     <div>
                         <h4 class="card-title fw-bold mb-0" style="font-size: 1.25rem;">Decompositions</h4>
                         <span class="small text-secondary">Factorization Canonical Forms</span>
                     </div>
                 </div>
-                <p class="card-text flex-grow-1 small text-secondary" style="line-height: 1.6;">
+                <p class="card-text flex-grow-1 small text-secondary" style="line-height: 1.65;">
                     LU Factorization ($PLU = A$), QR Orthogonal Factorization ($QR = A$), Singular Value Decomposition (SVD: $U\Sigma V^T$), and Cholesky Factorization ($LL^T = A$).
                 </p>
-                <div class="d-flex flex-column gap-1 mb-3 small text-secondary">
-                    <div><span class="text-success me-1">✓</span> scipy.linalg.lu verification</div>
-                    <div><span class="text-success me-1">✓</span> SVD singular values spectrum</div>
-                    <div><span class="text-success me-1">✓</span> Cholesky positive-definite check</div>
+                <div class="d-flex flex-column gap-2 mb-4 small text-secondary">
+                    <div><span class="text-success me-2">✓</span> scipy.linalg.lu verification</div>
+                    <div><span class="text-success me-2">✓</span> SVD singular values spectrum</div>
+                    <div><span class="text-success me-2">✓</span> Cholesky positive-definite check</div>
                 </div>
-                <a href="/decomposition" class="btn btn-action w-100">Open Decompositions &rarr;</a>
+                <a href="/decomposition" class="btn btn-action w-100">
+                    <span>Open Decompositions</span>
+                    <span>&rarr;</span>
+                </a>
             </div>
         </div>
     </div>
@@ -213,21 +232,193 @@
         <div class="card card-custom h-100 p-2">
             <div class="card-body d-flex flex-column">
                 <div class="d-flex align-items-center gap-3 mb-3">
-                    <div class="fs-2 p-2 rounded-3" style="background: rgba(192, 132, 252, 0.18); color: var(--accent-purple);">🎓</div>
+                    <div class="feature-icon-box" style="background: rgba(192, 132, 252, 0.18); color: var(--accent-purple);">🎓</div>
                     <div>
                         <h4 class="card-title fw-bold mb-0" style="font-size: 1.25rem;">Advanced Solvers</h4>
                         <span class="small text-secondary">Syllabus &amp; Special Topics</span>
                     </div>
                 </div>
-                <p class="card-text flex-grow-1 small text-secondary" style="line-height: 1.6;">
+                <p class="card-text flex-grow-1 small text-secondary" style="line-height: 1.65;">
                     Galois Field GF(2) binary arithmetic mod 2, Change of Basis transition matrices ($P_{B \to B'}$), and Weighted Inner Product Spaces ($\langle u, v \rangle_W$).
                 </p>
-                <div class="d-flex flex-column gap-1 mb-3 small text-secondary">
-                    <div><span class="text-success me-1">✓</span> GF(2) XOR/AND binary matrix rank</div>
-                    <div><span class="text-success me-1">✓</span> Transition matrix P_{B->B'} solver</div>
-                    <div><span class="text-success me-1">✓</span> Weighted norm &amp; inner product</div>
+                <div class="d-flex flex-column gap-2 mb-4 small text-secondary">
+                    <div><span class="text-success me-2">✓</span> GF(2) XOR/AND binary matrix rank</div>
+                    <div><span class="text-success me-2">✓</span> Transition matrix P_{B->B'} solver</div>
+                    <div><span class="text-success me-2">✓</span> Weighted norm &amp; inner product</div>
                 </div>
-                <a href="/advanced" class="btn btn-action w-100">Open Advanced Solvers &rarr;</a>
+                <a href="/advanced" class="btn btn-action w-100">
+                    <span>Open Advanced Solvers</span>
+                    <span>&rarr;</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Stage 4: Visual & Interactive Showcase Section -->
+<div class="card card-custom mb-5 overflow-hidden p-4">
+    <div class="row align-items-center g-4">
+        <div class="col-lg-6">
+            <div class="hero-pill-badge mb-3">
+                <span>🌐 Interactive 3D &amp; LaTeX Breakdown</span>
+            </div>
+            <h2 class="fw-bold mb-3" style="font-size: 2rem;">
+                Visualizing Space &amp; <span class="serif-accent">Symbolic Steps</span>
+            </h2>
+            <p class="text-secondary mb-4" style="line-height: 1.7;">
+                Every solver in the suite produces high-fidelity MathJax formulas alongside step-by-step mathematical reasoning. In vector mode, view real-time 3D rotations, orthogonal normals, and projection rays.
+            </p>
+            <div class="d-flex flex-column gap-3 mb-4">
+                <div class="d-flex align-items-start gap-3">
+                    <span class="feature-icon-box" style="width: 38px; height: 38px; font-size: 1.1rem; background: rgba(99,102,241,0.2); color: var(--primary-light);">1</span>
+                    <div>
+                        <h6 class="fw-bold text-white mb-1">Exact Matrix Derivations</h6>
+                        <p class="small text-secondary mb-0">Rouché-Capelli rank theorems, LU pivot step breakdown, and modal matrix computations.</p>
+                    </div>
+                </div>
+                <div class="d-flex align-items-start gap-3">
+                    <span class="feature-icon-box" style="width: 38px; height: 38px; font-size: 1.1rem; background: rgba(56,189,248,0.2); color: var(--accent-cyan);">2</span>
+                    <div>
+                        <h6 class="fw-bold text-white mb-1">Plotly 3D Graphic Canvas</h6>
+                        <p class="small text-secondary mb-0">Dynamic vector rendering with cross-product normals, angles, and unit vectors.</p>
+                    </div>
+                </div>
+            </div>
+            <a href="/vector" class="btn btn-action px-4 py-3">Try 3D Vector Visualizer &rarr;</a>
+        </div>
+        <div class="col-lg-6 text-center">
+            <div class="p-4 rounded-4" style="background: rgba(6, 8, 18, 0.8); border: 1px solid var(--glass-border);">
+                <div class="d-flex justify-content-between align-items-center mb-3 pb-2 border-bottom border-secondary-subtle">
+                    <span class="badge-tech">Sample LaTeX Output</span>
+                    <span class="small text-success">✓ Formatted via MathJax 3</span>
+                </div>
+                <div class="fs-5 py-3 text-white overflow-auto">
+                    $$\det(A - \lambda I) = \lambda^2 - 5\lambda + 6 = 0$$
+                </div>
+                <div class="step-card text-start mt-3 mb-0">
+                    <span class="step-badge">Step 1: Characteristic Equation</span>
+                    <div class="small text-secondary">Factoring roots yields eigenvalues $\lambda_1 = 2, \lambda_2 = 3$. Eigenspaces constructed via nullspace kernel.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Stage 5: Educational Process / Engine Pipeline -->
+<div class="text-center mb-4">
+    <div class="hero-pill-badge mb-2">
+        <span>🔬 Computational Pipeline</span>
+    </div>
+    <h2 class="fw-bold" style="font-size: 2.1rem;">How the Solvers Work</h2>
+    <p class="text-secondary max-w-2xl mx-auto">From user matrix input to validated numerical and symbolic derivations.</p>
+</div>
+
+<div class="row g-4 mb-5">
+    <div class="col-md-3">
+        <div class="card card-custom h-100 p-3 text-center">
+            <div class="feature-icon-box mx-auto mb-3" style="background: rgba(99, 102, 241, 0.18); color: var(--primary-light);">1</div>
+            <h5 class="fw-bold mb-2">Input Grid Setup</h5>
+            <p class="small text-secondary mb-0">Dynamic matrix table sizing ($n \times m$), fraction inputs, and vector space selection.</p>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card card-custom h-100 p-3 text-center">
+            <div class="feature-icon-box mx-auto mb-3" style="background: rgba(192, 132, 252, 0.18); color: var(--accent-purple);">2</div>
+            <h5 class="fw-bold mb-2">Dimension Checking</h5>
+            <p class="small text-secondary mb-0">Strict inner product validation, square matrix constraints, and zero-determinant alerts.</p>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card card-custom h-100 p-3 text-center">
+            <div class="feature-icon-box mx-auto mb-3" style="background: rgba(56, 189, 248, 0.18); color: var(--accent-cyan);">3</div>
+            <h5 class="fw-bold mb-2">Dual Computation</h5>
+            <p class="small text-secondary mb-0">Fast floating point NumPy/SciPy operations coupled with SymPy symbolic exact forms.</p>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card card-custom h-100 p-3 text-center">
+            <div class="feature-icon-box mx-auto mb-3" style="background: rgba(52, 211, 153, 0.18); color: var(--accent-emerald);">4</div>
+            <h5 class="fw-bold mb-2">Step Log Generation</h5>
+            <p class="small text-secondary mb-0">Generates LaTeX step-by-step proofs, row operation breakdown, and Plotly geometry.</p>
+        </div>
+    </div>
+</div>
+
+<!-- Stage 6: Testimonials & Academic Endorsements -->
+<div class="text-center mb-4">
+    <div class="hero-pill-badge mb-2">
+        <span>⭐ Academic Endorsements</span>
+    </div>
+    <h2 class="fw-bold" style="font-size: 2.1rem;">Trusted by Students &amp; Researchers</h2>
+    <p class="text-secondary max-w-2xl mx-auto">Built for linear algebra coursework, exams, and portfolio demonstrations.</p>
+</div>
+
+<div class="row g-4 mb-5">
+    <div class="col-md-4">
+        <div class="testimonial-card h-100 d-flex flex-column">
+            <span class="testimonial-quote-mark">“</span>
+            <p class="text-secondary small mb-4 flex-grow-1" style="line-height: 1.7;">
+                "The step-by-step Gaussian elimination breakdown helped me understand row swaps and pivot scaling far better than standard textbook answers."
+            </p>
+            <div class="author-chip">
+                <div class="author-avatar">AK</div>
+                <div>
+                    <h6 class="fw-bold text-white mb-0" style="font-size: 0.95rem;">Anuj K.</h6>
+                    <span class="small text-secondary">Computer Science Undergrad</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="testimonial-card h-100 d-flex flex-column">
+            <span class="testimonial-quote-mark">“</span>
+            <p class="text-secondary small mb-4 flex-grow-1" style="line-height: 1.7;">
+                "Having SVD, QR, and LU factorizations with SymPy exact symbolic representations in one unified place is fantastic for checking homework."
+            </p>
+            <div class="author-chip">
+                <div class="author-avatar" style="background: linear-gradient(135deg, var(--accent-cyan), var(--primary));">RM</div>
+                <div>
+                    <h6 class="fw-bold text-white mb-0" style="font-size: 0.95rem;">Prof. R. Mehta</h6>
+                    <span class="small text-secondary">Applied Mathematics Department</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="testimonial-card h-100 d-flex flex-column">
+            <span class="testimonial-quote-mark">“</span>
+            <p class="text-secondary small mb-4 flex-grow-1" style="line-height: 1.7;">
+                "The 3D vector visualizer with Plotly makes cross-product orthogonality and projections intuitive to explain during lab sessions."
+            </p>
+            <div class="author-chip">
+                <div class="author-avatar" style="background: linear-gradient(135deg, var(--accent-purple), var(--accent-pink));">SL</div>
+                <div>
+                    <h6 class="fw-bold text-white mb-0" style="font-size: 0.95rem;">Sarah L.</h6>
+                    <span class="small text-secondary">Data Science Researcher</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Stage 7: Final Conversion Call to Action -->
+<div class="row mb-4">
+    <div class="col-12">
+        <div class="hero-glow-container text-center py-5">
+            <h2 class="fw-bold text-white mb-3" style="font-size: 2.2rem;">
+                Ready to Solve <span class="serif-accent">Linear Algebra</span> Operations?
+            </h2>
+            <p class="hero-subtitle mb-4">
+                Explore the matrix suite, test vector space geometry, solve linear systems, or compute SVD factorizations instantly.
+            </p>
+            <div class="d-flex flex-wrap justify-content-center gap-3">
+                <a href="/matrix" class="btn btn-action px-5 py-3 fs-6">
+                    <span>Open Matrix Suite</span>
+                    <span>&rarr;</span>
+                </a>
+                <a href="/system" class="btn btn-preset px-5 py-3 fs-6">
+                    <span>Solve Ax = b</span>
+                </a>
             </div>
         </div>
     </div>

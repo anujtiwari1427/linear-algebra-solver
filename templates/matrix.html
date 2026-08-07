@@ -1,20 +1,26 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<!-- Module Header Banner -->
 <div class="row mb-4">
-    <div class="col-12 d-flex flex-wrap align-items-center justify-content-between gap-3">
-        <div>
-            <h2 class="fw-bold mb-1" style="font-size: 2rem;">🧮 Matrix Operations Module</h2>
-            <p class="text-secondary mb-0">Perform element-wise arithmetic, scalar scaling, linear property evaluations, determinants, inverses, and rank analysis.</p>
+    <div class="col-12">
+        <div class="module-header-banner d-flex flex-wrap align-items-center justify-content-between gap-3">
+            <div>
+                <div class="d-flex align-items-center gap-3 mb-2">
+                    <span class="brand-icon-glow" style="width: 40px; height: 40px; font-size: 1.25rem;">🧮</span>
+                    <h2 class="fw-bold text-white mb-0" style="font-size: 2rem;">Matrix Operations Module</h2>
+                </div>
+                <p class="text-secondary mb-0">Perform element-wise arithmetic, scalar scaling, linear property evaluations, determinants, inverses, and rank analysis.</p>
+            </div>
+            <span class="badge-online">
+                <span class="dot-pulse"></span>
+                Linear Engine Ready
+            </span>
         </div>
-        <span class="badge-online">
-            <span class="dot-pulse"></span>
-            Linear Engine Ready
-        </span>
     </div>
 </div>
 
-<!-- Step by step toggle & mode selector -->
+<!-- Step by Step toggle & mode selector -->
 <div class="card card-custom mb-4">
     <div class="card-body d-flex flex-wrap align-items-center justify-content-between gap-3 py-3">
         <div class="form-check form-switch mb-0">
@@ -41,7 +47,7 @@
 <div class="tab-content" id="matrixTabContent">
     <!-- Single Matrix Pane -->
     <div class="tab-pane fade show active" id="single-pane" role="tabpanel">
-        <div class="row g-4">
+        <div class="row g-4 mb-4">
             <div class="col-lg-5">
                 <div class="card card-custom h-100">
                     <div class="card-header card-header-custom">
@@ -60,15 +66,13 @@
                             </div>
                         </div>
 
-                        <!-- Matrix Grid Container -->
-                        <div id="singleMatrixContainer" class="my-3 overflow-auto"></div>
+                        <div id="singleMatrixGrid" class="matrix-bracket overflow-auto mb-3"></div>
 
-                        <!-- Presets -->
-                        <div class="d-flex flex-wrap justify-content-center gap-2 mt-3">
-                            <button class="btn btn-preset" onclick="fillSinglePreset('random')">🎲 Random</button>
-                            <button class="btn btn-preset" onclick="fillSinglePreset('identity')">🆔 Identity</button>
-                            <button class="btn btn-preset" onclick="fillSinglePreset('symmetric')">🔄 Symmetric</button>
-                            <button class="btn btn-preset" onclick="fillSinglePreset('zero')">0️⃣ Zero</button>
+                        <div class="d-flex justify-content-center gap-2">
+                            <button class="btn btn-preset btn-sm" onclick="fillMatrixPreset('singleMatrixGrid', 'identity')">Identity</button>
+                            <button class="btn btn-preset btn-sm" onclick="fillMatrixPreset('singleMatrixGrid', 'zeros')">Zeros</button>
+                            <button class="btn btn-preset btn-sm" onclick="fillMatrixPreset('singleMatrixGrid', 'ones')">Ones</button>
+                            <button class="btn btn-preset btn-sm" onclick="fillMatrixPreset('singleMatrixGrid', 'random')">Random</button>
                         </div>
                     </div>
                 </div>
@@ -77,33 +81,32 @@
             <div class="col-lg-7">
                 <div class="card card-custom h-100">
                     <div class="card-header card-header-custom">
-                        <span>Select Operation</span>
-                        <span class="badge-tech">API Action</span>
+                        <span>Single Matrix Actions</span>
+                        <span class="badge-tech">API Solvers</span>
                     </div>
                     <div class="card-body">
                         <div class="mb-3">
-                            <label class="form-label mb-1">Scalar Multiplier Constant (c)</label>
-                            <input type="number" step="any" id="scalarConstant" value="2.5" class="form-control" style="max-width: 180px;">
+                            <label class="form-label mb-1">Scalar Multiplier (c)</label>
+                            <input type="number" id="scalarInput" value="2" class="form-control" style="max-width: 150px;">
                         </div>
 
-                        <div class="d-flex flex-wrap gap-2 mb-4">
+                        <div class="d-flex flex-wrap gap-2 mb-3">
+                            <button class="btn btn-action" onclick="runSingleOp('/api/matrix/scalar')">Scalar Scale (c · A)</button>
                             <button class="btn btn-action" onclick="runSingleOp('/api/matrix/transpose')">Transpose (Aᵀ)</button>
-                            <button class="btn btn-action" onclick="runSingleOp('/api/matrix/scalar')">Scalar (c · A)</button>
-                            <button class="btn btn-action" onclick="runSingleOp('/api/matrix/trace')">Trace</button>
-                            <button class="btn btn-action" onclick="runSingleOp('/api/matrix/rank')">Rank</button>
-                            <button class="btn btn-action" onclick="runSingleOp('/api/matrix/determinant')">Determinant</button>
+                            <button class="btn btn-action" onclick="runSingleOp('/api/matrix/trace')">Trace tr(A)</button>
+                            <button class="btn btn-action" onclick="runSingleOp('/api/matrix/rank')">Rank &amp; Dependency</button>
+                            <button class="btn btn-action" onclick="runSingleOp('/api/matrix/determinant')">Determinant det(A)</button>
                             <button class="btn btn-action" onclick="runSingleOp('/api/matrix/inverse')">Inverse (A⁻¹)</button>
                         </div>
 
-                        <div id="errorAlert" class="alert alert-danger d-none" role="alert"></div>
+                        <div id="singleError" class="alert alert-danger d-none" role="alert"></div>
 
-                        <!-- Result Section -->
-                        <div id="resultCard" class="result-card p-4 mt-3">
-                            <h5 class="fw-bold mb-3">Computation Result</h5>
-                            <div id="resultLatex" class="fs-4 text-center my-3 overflow-auto"></div>
-                            <div id="resultExplanation" class="text-secondary small mb-3"></div>
-                            <div id="resultComplexity" class="mb-3"></div>
-                            <div id="resultSteps"></div>
+                        <div id="singleResultCard" class="result-card p-4 mt-3">
+                            <h5 class="fw-bold mb-3">Calculation Output</h5>
+                            <div id="singleResultLatex" class="fs-4 text-center my-3 overflow-auto"></div>
+                            <div id="singleResultExplanation" class="text-secondary small mb-3"></div>
+                            <div id="singleResultComplexity" class="mb-3"></div>
+                            <div id="singleResultSteps"></div>
                         </div>
                     </div>
                 </div>
@@ -113,59 +116,76 @@
 
     <!-- Dual Matrix Pane -->
     <div class="tab-pane fade" id="dual-pane" role="tabpanel">
-        <div class="row g-4">
-            <div class="col-lg-6">
-                <div class="card card-custom">
-                    <div class="card-header card-header-custom">Matrix A Setup</div>
+        <div class="row g-4 mb-4">
+            <div class="col-md-6">
+                <div class="card card-custom h-100">
+                    <div class="card-header card-header-custom">
+                        <span>Matrix A Configuration</span>
+                        <span class="badge-tech">First Operand</span>
+                    </div>
                     <div class="card-body text-center">
                         <div class="row g-2 mb-3 justify-content-center">
                             <div class="col-5">
                                 <label class="form-label mb-1">Rows</label>
-                                <input type="number" id="d_rows_a" min="1" max="6" value="3" class="form-control text-center" onchange="initDualMatrices()">
+                                <input type="number" id="d_rows_a" min="1" max="6" value="2" class="form-control text-center" onchange="initDualMatrix()">
                             </div>
                             <div class="col-5">
-                                <label class="form-label mb-1">Columns</label>
-                                <input type="number" id="d_cols_a" min="1" max="6" value="3" class="form-control text-center" onchange="initDualMatrices()">
+                                <label class="form-label mb-1">Cols</label>
+                                <input type="number" id="d_cols_a" min="1" max="6" value="2" class="form-control text-center" onchange="initDualMatrix()">
                             </div>
                         </div>
-                        <div id="dualMatrixAContainer" class="my-3 overflow-auto"></div>
+                        <div id="dualMatrixAGrid" class="matrix-bracket overflow-auto mb-3"></div>
+                        <div class="d-flex justify-content-center gap-2">
+                            <button class="btn btn-preset btn-sm" onclick="fillMatrixPreset('dualMatrixAGrid', 'random')">Random A</button>
+                            <button class="btn btn-preset btn-sm" onclick="fillMatrixPreset('dualMatrixAGrid', 'identity')">Identity A</button>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <div class="col-lg-6">
-                <div class="card card-custom">
-                    <div class="card-header card-header-custom">Matrix B Setup</div>
+            <div class="col-md-6">
+                <div class="card card-custom h-100">
+                    <div class="card-header card-header-custom">
+                        <span>Matrix B Configuration</span>
+                        <span class="badge-tech">Second Operand</span>
+                    </div>
                     <div class="card-body text-center">
                         <div class="row g-2 mb-3 justify-content-center">
                             <div class="col-5">
                                 <label class="form-label mb-1">Rows</label>
-                                <input type="number" id="d_rows_b" min="1" max="6" value="3" class="form-control text-center" onchange="initDualMatrices()">
+                                <input type="number" id="d_rows_b" min="1" max="6" value="2" class="form-control text-center" onchange="initDualMatrix()">
                             </div>
                             <div class="col-5">
-                                <label class="form-label mb-1">Columns</label>
-                                <input type="number" id="d_cols_b" min="1" max="6" value="3" class="form-control text-center" onchange="initDualMatrices()">
+                                <label class="form-label mb-1">Cols</label>
+                                <input type="number" id="d_cols_b" min="1" max="6" value="2" class="form-control text-center" onchange="initDualMatrix()">
                             </div>
                         </div>
-                        <div id="dualMatrixBContainer" class="my-3 overflow-auto"></div>
+                        <div id="dualMatrixBGrid" class="matrix-bracket overflow-auto mb-3"></div>
+                        <div class="d-flex justify-content-center gap-2">
+                            <button class="btn btn-preset btn-sm" onclick="fillMatrixPreset('dualMatrixBGrid', 'random')">Random B</button>
+                            <button class="btn btn-preset btn-sm" onclick="fillMatrixPreset('dualMatrixBGrid', 'identity')">Identity B</button>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class="card card-custom mt-4">
-            <div class="card-header card-header-custom">Dual Operation Action</div>
+        <div class="card card-custom mb-4">
+            <div class="card-header card-header-custom">
+                <span>Dual Matrix Operations</span>
+                <span class="badge-tech">API Action</span>
+            </div>
             <div class="card-body">
                 <div class="d-flex flex-wrap gap-2 mb-3">
-                    <button class="btn btn-action" onclick="runDualOp('/api/matrix/addition')">Addition (A + B)</button>
-                    <button class="btn btn-action" onclick="runDualOp('/api/matrix/subtraction')">Subtraction (A - B)</button>
-                    <button class="btn btn-action" onclick="runDualOp('/api/matrix/multiplication')">Multiplication (A × B)</button>
+                    <button class="btn btn-action" onclick="runDualOp('/api/matrix/add')">Addition (A + B)</button>
+                    <button class="btn btn-action" onclick="runDualOp('/api/matrix/subtract')">Subtraction (A - B)</button>
+                    <button class="btn btn-action" onclick="runDualOp('/api/matrix/multiply')">Multiplication (A × B)</button>
                 </div>
 
-                <div id="dualErrorAlert" class="alert alert-danger d-none" role="alert"></div>
+                <div id="dualError" class="alert alert-danger d-none" role="alert"></div>
 
                 <div id="dualResultCard" class="result-card p-4 mt-3">
-                    <h5 class="fw-bold mb-3">Computation Result</h5>
+                    <h5 class="fw-bold mb-3">Operation Output</h5>
                     <div id="dualResultLatex" class="fs-4 text-center my-3 overflow-auto"></div>
                     <div id="dualResultExplanation" class="text-secondary small mb-3"></div>
                     <div id="dualResultComplexity" class="mb-3"></div>
@@ -182,46 +202,40 @@
     function initSingleMatrix() {
         const r = parseInt(document.getElementById('s_rows_a').value) || 3;
         const c = parseInt(document.getElementById('s_cols_a').value) || 3;
-        generateMatrixGrid('singleMatrixContainer', r, c, 'sa');
+        generateMatrixGrid('singleMatrixGrid', r, c, 'sa');
     }
 
-    function fillSinglePreset(type) {
-        const r = parseInt(document.getElementById('s_rows_a').value) || 3;
-        const c = parseInt(document.getElementById('s_cols_a').value) || 3;
-        fillMatrixPreset('singleMatrixContainer', r, c, type, 'sa');
+    function initDualMatrix() {
+        const rA = parseInt(document.getElementById('d_rows_a').value) || 2;
+        const cA = parseInt(document.getElementById('d_cols_a').value) || 2;
+        const rB = parseInt(document.getElementById('d_rows_b').value) || 2;
+        const cB = parseInt(document.getElementById('d_cols_b').value) || 2;
+        generateMatrixGrid('dualMatrixAGrid', rA, cA, 'da');
+        generateMatrixGrid('dualMatrixBGrid', rB, cB, 'db');
     }
 
     function runSingleOp(endpoint) {
         const r = parseInt(document.getElementById('s_rows_a').value) || 3;
         const c = parseInt(document.getElementById('s_cols_a').value) || 3;
-        const matA = getMatrixValues('singleMatrixContainer', r, c, 'sa');
+        const matA = getMatrixValues('singleMatrixGrid', r, c, 'sa');
         const showSteps = document.getElementById('showStepsToggle').checked;
-        const scalarVal = parseFloat(document.getElementById('scalarConstant').value) || 1.0;
+        const scalar = parseFloat(document.getElementById('scalarInput').value) || 1.0;
 
         submitCalculation(endpoint, {
             matrix_a: matA,
-            scalar: scalarVal,
+            scalar: scalar,
             show_steps: showSteps
-        }, 'resultCard');
-    }
-
-    function initDualMatrices() {
-        const ra = parseInt(document.getElementById('d_rows_a').value) || 3;
-        const ca = parseInt(document.getElementById('d_cols_a').value) || 3;
-        const rb = parseInt(document.getElementById('d_rows_b').value) || 3;
-        const cb = parseInt(document.getElementById('d_cols_b').value) || 3;
-        generateMatrixGrid('dualMatrixAContainer', ra, ca, 'da');
-        generateMatrixGrid('dualMatrixBContainer', rb, cb, 'db');
+        }, 'singleResultCard');
     }
 
     function runDualOp(endpoint) {
-        const ra = parseInt(document.getElementById('d_rows_a').value) || 3;
-        const ca = parseInt(document.getElementById('d_cols_a').value) || 3;
-        const rb = parseInt(document.getElementById('d_rows_b').value) || 3;
-        const cb = parseInt(document.getElementById('d_cols_b').value) || 3;
+        const rA = parseInt(document.getElementById('d_rows_a').value) || 2;
+        const cA = parseInt(document.getElementById('d_cols_a').value) || 2;
+        const rB = parseInt(document.getElementById('d_rows_b').value) || 2;
+        const cB = parseInt(document.getElementById('d_cols_b').value) || 2;
 
-        const matA = getMatrixValues('dualMatrixAContainer', ra, ca, 'da');
-        const matB = getMatrixValues('dualMatrixBContainer', rb, cb, 'db');
+        const matA = getMatrixValues('dualMatrixAGrid', rA, cA, 'da');
+        const matB = getMatrixValues('dualMatrixBGrid', rB, cB, 'db');
         const showSteps = document.getElementById('showStepsToggle').checked;
 
         submitCalculation(endpoint, {
@@ -233,7 +247,7 @@
 
     document.addEventListener('DOMContentLoaded', () => {
         initSingleMatrix();
-        initDualMatrices();
+        initDualMatrix();
     });
 </script>
 {% endblock %}
