@@ -68,26 +68,36 @@ function copyLatexToClipboard(latexText) {
 
 function renderResultCard(data, resultCardId = "resultCard") {
     const card = document.getElementById(resultCardId);
-    if (!card) return;
+    if (!card) {
+        console.error("Target result card container not found:", resultCardId);
+        return;
+    }
 
-    // Helper to resolve child elements dynamically by suffix (Latex, Steps, Explanation, Complexity)
-    const findEl = (suffix) => {
-        const prefix = resultCardId.endsWith("Card") ? resultCardId.slice(0, -4) : resultCardId;
-        const targetId = prefix + suffix;
-        return document.getElementById(targetId) ||
-               document.getElementById("result" + suffix) ||
-               card.querySelector(`[id$="${suffix}"]`) ||
-               card.querySelector(`[id*="${suffix}"]`);
-    };
+    const prefix = resultCardId.endsWith("Card") ? resultCardId.slice(0, -4) : resultCardId;
 
-    const latexEl = findEl("Latex");
-    const stepsContainer = findEl("Steps");
-    const explanationEl = findEl("Explanation");
-    const complexityEl = findEl("Complexity");
+    const latexEl = document.getElementById(prefix + "Latex") ||
+                    document.getElementById("resultLatex") ||
+                    card.querySelector('[id$="Latex"]');
 
-    if (latexEl && data.latex_result) {
-        latexEl.innerHTML = `$$${data.latex_result}$$`;
-        window.currentLatex = data.latex_result;
+    const stepsContainer = document.getElementById(prefix + "Steps") ||
+                           document.getElementById("resultSteps") ||
+                           card.querySelector('[id$="Steps"]');
+
+    const explanationEl = document.getElementById(prefix + "Explanation") ||
+                          document.getElementById("resultExplanation") ||
+                          card.querySelector('[id$="Explanation"]');
+
+    const complexityEl = document.getElementById(prefix + "Complexity") ||
+                         document.getElementById("resultComplexity") ||
+                         card.querySelector('[id$="Complexity"]');
+
+    if (latexEl) {
+        if (data.latex_result) {
+            latexEl.innerHTML = `$$${data.latex_result}$$`;
+            window.currentLatex = data.latex_result;
+        } else if (data.result !== undefined) {
+            latexEl.innerHTML = `$$\\text{Result} = ${typeof data.result === 'object' ? JSON.stringify(data.result) : data.result}$$`;
+        }
     }
 
     if (explanationEl && data.explanation) {
@@ -98,24 +108,33 @@ function renderResultCard(data, resultCardId = "resultCard") {
         complexityEl.innerHTML = `<span class="badge-tech">⚡ Time Complexity: <code>${data.time_complexity}</code></span>`;
     }
 
-    if (stepsContainer && data.steps && data.steps.length > 0) {
-        let html = '<h6 class="fw-bold mt-4 mb-3 text-gradient-primary">Step-by-Step Breakdown:</h6>';
-        data.steps.forEach((step, idx) => {
-            html += `<div class="step-card">
-                <div class="step-badge">Step ${idx + 1}</div>
-                <div>${step}</div>
-            </div>`;
-        });
-        stepsContainer.innerHTML = html;
-    } else if (stepsContainer) {
-        stepsContainer.innerHTML = '';
+    if (stepsContainer) {
+        if (data.steps && data.steps.length > 0) {
+            let html = '<h6 class="fw-bold mt-4 mb-3 text-gradient-primary">Step-by-Step Breakdown:</h6>';
+            data.steps.forEach((step, idx) => {
+                const cleanStep = typeof step === 'string' ? step.replace(/^#+\s*/, '') : step;
+                html += `<div class="step-card">
+                    <div class="step-badge">Step ${idx + 1}</div>
+                    <div>${cleanStep}</div>
+                </div>`;
+            });
+            stepsContainer.innerHTML = html;
+        } else {
+            stepsContainer.innerHTML = '';
+        }
     }
 
     card.classList.add("active");
 
-    // Trigger MathJax re-render
-    if (window.MathJax) {
-        MathJax.typesetPromise();
+    // Safe MathJax typesetting with type checking
+    try {
+        if (window.MathJax && typeof window.MathJax.typesetPromise === 'function') {
+            window.MathJax.typesetPromise([card]);
+        } else if (window.MathJax && typeof window.MathJax.typeset === 'function') {
+            window.MathJax.typeset([card]);
+        }
+    } catch (e) {
+        console.warn("MathJax typesetting notice:", e);
     }
 
     // Smooth scroll to result

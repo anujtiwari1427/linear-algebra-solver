@@ -5,6 +5,7 @@ from services import matrix_service
 matrix_api = Blueprint('api_matrix', __name__, url_prefix='/api/matrix')
 
 @matrix_api.route('/addition', methods=['POST'])
+@matrix_api.route('/add', methods=['POST'])
 def addition():
     data = request.get_json() or {}
     show_steps = data.get('show_steps', True)
@@ -23,6 +24,7 @@ def addition():
 
 
 @matrix_api.route('/subtraction', methods=['POST'])
+@matrix_api.route('/subtract', methods=['POST'])
 def subtraction():
     data = request.get_json() or {}
     show_steps = data.get('show_steps', True)
@@ -41,6 +43,7 @@ def subtraction():
 
 
 @matrix_api.route('/multiplication', methods=['POST'])
+@matrix_api.route('/multiply', methods=['POST'])
 def multiplication():
     data = request.get_json() or {}
     show_steps = data.get('show_steps', True)
