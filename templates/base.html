@@ -37,21 +37,36 @@
                 <span class="brand-icon-glow" style="width: 38px; height: 38px; font-size: 1.15rem;">∑</span>
                 <span class="fw-bold text-white fs-5 tracking-tight">Linear Suite</span>
             </a>
-            <button class="btn btn-outline-light border-0 px-2 py-1" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebarOffcanvas" aria-controls="sidebarOffcanvas" aria-label="Toggle navigation">
-                <span class="fs-3">☰</span>
-            </button>
+            <div class="d-flex align-items-center gap-2">
+                <button class="btn btn-premium px-3 py-1 fs-7" data-bs-toggle="modal" data-bs-target="#premiumModal">
+                    <span>👑 Pro</span>
+                </button>
+                <button class="btn btn-outline-light border-0 px-2 py-1" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebarOffcanvas" aria-controls="sidebarOffcanvas" aria-label="Toggle navigation">
+                    <span class="fs-3">☰</span>
+                </button>
+            </div>
         </header>
 
         <!-- Persistent Left Glass Sidebar (>= 992px Desktop Viewports) -->
         <aside class="app-sidebar" id="desktopSidebar">
             <!-- Brand Mark Header -->
-            <a class="d-flex align-items-center gap-3 text-decoration-none mb-4 pb-3 border-bottom border-secondary-subtle" href="/" style="border-color: rgba(255,255,255,0.08) !important;">
+            <a class="d-flex align-items-center gap-3 text-decoration-none mb-3 pb-3 border-bottom border-secondary-subtle" href="/" style="border-color: rgba(255,255,255,0.08) !important;">
                 <span class="brand-icon-glow">∑</span>
                 <div>
                     <div class="fw-bold text-white fs-5 leading-tight">Linear Suite</div>
                     <div class="small text-secondary" style="font-size: 0.73rem; font-weight: 500;">Mathematical Intelligence Engine</div>
                 </div>
             </a>
+
+            <!-- Premium Membership Banner Card in Sidebar -->
+            <div class="p-3 mb-3 text-center rounded-3 position-relative overflow-hidden" style="background: radial-gradient(circle at 50% 0%, rgba(251, 191, 36, 0.22), transparent 70%), rgba(11, 15, 30, 0.85); border: 1px solid rgba(251, 191, 36, 0.38); box-shadow: 0 4px 18px rgba(251, 191, 36, 0.15);">
+                <div class="badge-premium mb-2">👑 PRO MEMBERSHIP</div>
+                <div class="fw-bold text-white fs-6 mb-1">Upgrade to Premium</div>
+                <p class="small text-secondary mb-3" style="font-size: 0.76rem; line-height: 1.4;">Unlock 100x100 Matrices, PDF Step Export &amp; SciPy GPU Solvers.</p>
+                <button class="btn btn-premium w-100 py-2 fs-7" data-bs-toggle="modal" data-bs-target="#premiumModal">
+                    <span>⭐ Get Premium Membership</span>
+                </button>
+            </div>
 
             <!-- Calculation System Links -->
             <div class="sidebar-section-title">CALCULATION MODULES</div>
@@ -147,6 +162,16 @@
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
             </div>
             <div class="offcanvas-body d-flex flex-column px-0">
+                <!-- Premium Card Mobile -->
+                <div class="p-3 mb-3 text-center rounded-3 position-relative overflow-hidden" style="background: radial-gradient(circle at 50% 0%, rgba(251, 191, 36, 0.22), transparent 70%), rgba(11, 15, 30, 0.85); border: 1px solid rgba(251, 191, 36, 0.38);">
+                    <div class="badge-premium mb-2">👑 PRO MEMBERSHIP</div>
+                    <div class="fw-bold text-white fs-6 mb-1">Upgrade to Premium</div>
+                    <p class="small text-secondary mb-3" style="font-size: 0.76rem;">Unlock 100x100 Matrices &amp; GPU Solvers.</p>
+                    <button class="btn btn-premium w-100 py-2 fs-7" data-bs-toggle="modal" data-bs-target="#premiumModal" data-bs-dismiss="offcanvas">
+                        <span>⭐ Get Premium Membership</span>
+                    </button>
+                </div>
+
                 <div class="sidebar-section-title">CALCULATION MODULES</div>
                 <ul class="sidebar-nav mb-4">
                     <li>
@@ -235,7 +260,8 @@
                         <span class="brand-icon-glow" style="width: 28px; height: 28px; font-size: 0.85rem;">∑</span>
                         <span class="small text-muted">&copy; 2026 Linear Algebra Educational Suite &bull; Engineered for Academic &amp; Portfolio Excellence</span>
                     </div>
-                    <div class="d-flex flex-wrap gap-2">
+                    <div class="d-flex flex-wrap gap-2 align-items-center">
+                        <button class="btn btn-premium py-1 px-3 fs-7" data-bs-toggle="modal" data-bs-target="#premiumModal">👑 Join Pro</button>
                         <span class="badge-tech">Python 3.12</span>
                         <span class="badge-tech">Flask WSGI</span>
                         <span class="badge-tech">SciPy &amp; SymPy</span>
@@ -247,6 +273,65 @@
         </div>
     </div>
 
+    <!-- Premium Membership Modal -->
+    <div class="modal fade modal-glass-premium" id="premiumModal" tabindex="-1" aria-labelledby="premiumModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-header d-flex align-items-center justify-content-between">
+                    <div class="d-flex align-items-center gap-3">
+                        <span class="brand-icon-glow" style="background: linear-gradient(135deg, #fbbf24, #f472b6); width: 44px; height: 44px; font-size: 1.3rem;">👑</span>
+                        <div>
+                            <h4 class="modal-title fw-bold text-white mb-0" id="premiumModalLabel">Linear Suite Pro Membership</h4>
+                            <span class="small text-secondary">Academic &amp; Professional Computational Power</span>
+                        </div>
+                    </div>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-4">
+                    <div class="row g-4 mb-4">
+                        <div class="col-md-6">
+                            <div class="p-4 rounded-4 h-100" style="background: rgba(255, 255, 255, 0.03); border: 1px solid var(--glass-border);">
+                                <div class="badge-tech mb-2">Free Plan</div>
+                                <h3 class="fw-bold text-white mb-3">$0 <span class="fs-6 text-muted">/ forever</span></h3>
+                                <ul class="list-unstyled mb-0 small text-secondary d-flex flex-column gap-2">
+                                    <li>✓ Standard 6x6 Matrix Operations</li>
+                                    <li>✓ 2D &amp; 3D Vector Geometry Canvas</li>
+                                    <li>✓ Basic Gaussian &amp; LU Elimination</li>
+                                    <li>✓ Standard Floating Point Accuracy</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="p-4 rounded-4 h-100 position-relative overflow-hidden" style="background: radial-gradient(circle at 100% 0%, rgba(251, 191, 36, 0.25), transparent 70%), rgba(20, 28, 52, 0.95); border: 1.5px solid rgba(251, 191, 36, 0.55); box-shadow: 0 8px 30px rgba(251, 191, 36, 0.2);">
+                                <div class="badge-premium mb-2">⭐ MOST POPULAR</div>
+                                <h3 class="fw-bold text-white mb-3">$9 <span class="fs-6 text-muted">/ month</span></h3>
+                                <ul class="list-unstyled mb-0 small text-white d-flex flex-column gap-2">
+                                    <li>⚡ <strong>Unlimited Matrix Size ($100 \times 100$)</strong></li>
+                                    <li>📄 <strong>PDF &amp; LaTeX Source Step Export</strong></li>
+                                    <li>🚀 <strong>SciPy CUDA/GPU Acceleration</strong></li>
+                                    <li>🎓 <strong>Jordan Form &amp; Tensor Products</strong></li>
+                                    <li>💬 <strong>24/7 Priority Academic Support</strong></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="p-3 rounded-3 text-center" style="background: rgba(99, 102, 241, 0.14); border: 1px solid rgba(129, 140, 248, 0.35);">
+                        <div class="fw-bold text-white small">🎉 Special Student Offer: 7-Day Risk-Free Trial</div>
+                        <div class="small text-secondary">Cancel anytime with 1-click. No hidden fees.</div>
+                    </div>
+                </div>
+                <div class="modal-footer d-flex justify-content-between align-items-center">
+                    <button type="button" class="btn btn-preset" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-premium px-4" id="activateTrialBtn" onclick="activatePremiumTrial()">
+                        <span>👑 Start 7-Day Free Trial</span>
+                        <span>&rarr;</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Bootstrap 5 JS Bundle -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Application Interactive Scripts -->
@@ -254,6 +339,21 @@
     <script src="{{ url_for('static', filename='js/vector_builder.js') }}"></script>
     <script src="{{ url_for('static', filename='js/solver_api.js') }}"></script>
     <script src="{{ url_for('static', filename='js/visualizer.js') }}"></script>
+    <script>
+        function activatePremiumTrial() {
+            const btn = document.getElementById("activateTrialBtn");
+            if (btn) {
+                btn.innerHTML = "✓ Pro Membership Activated!";
+                btn.classList.remove("btn-premium");
+                btn.classList.add("btn-success");
+                setTimeout(() => {
+                    const modalEl = document.getElementById('premiumModal');
+                    const modal = bootstrap.Modal.getInstance(modalEl);
+                    if (modal) modal.hide();
+                }, 1200);
+            }
+        }
+    </script>
     {% block scripts %}{% endblock %}
 </body>
 </html>
