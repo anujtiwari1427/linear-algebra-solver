@@ -4,13 +4,30 @@
  */
 async function submitCalculation(endpoint, payload, resultCardId = "resultCard", spinnerId = "loadingSpinner") {
     const resultCard = document.getElementById(resultCardId);
-    const spinner = document.getElementById(spinnerId);
 
     // Hide any active error alerts
     document.querySelectorAll('.alert-danger').forEach(alert => alert.classList.add('d-none'));
 
-    if (spinner) spinner.classList.add("active");
-    if (resultCard) resultCard.classList.remove("active");
+    // Dynamically locate elements inside resultCard for instant loading state feedback
+    const prefix = resultCardId.endsWith("Card") ? resultCardId.slice(0, -4) : resultCardId;
+    const latexEl = document.getElementById(prefix + "Latex") || (resultCard ? resultCard.querySelector('[id$="Latex"]') : null);
+    const stepsContainer = document.getElementById(prefix + "Steps") || (resultCard ? resultCard.querySelector('[id$="Steps"]') : null);
+    const explanationEl = document.getElementById(prefix + "Explanation") || (resultCard ? resultCard.querySelector('[id$="Explanation"]') : null);
+    const complexityEl = document.getElementById(prefix + "Complexity") || (resultCard ? resultCard.querySelector('[id$="Complexity"]') : null);
+
+    if (resultCard) {
+        resultCard.classList.add("active");
+        if (latexEl) {
+            latexEl.innerHTML = `<div class="d-flex align-items-center justify-content-center gap-2 py-4 text-primary">
+                <div class="spinner-border spinner-border-sm text-primary" role="status"></div>
+                <span class="fw-semibold">Computing Derivation...</span>
+            </div>`;
+        }
+        if (stepsContainer) stepsContainer.innerHTML = '';
+        if (explanationEl) explanationEl.innerHTML = '';
+        if (complexityEl) complexityEl.innerHTML = '';
+        resultCard.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
 
     try {
         const response = await fetch(endpoint, {
@@ -21,16 +38,15 @@ async function submitCalculation(endpoint, payload, resultCardId = "resultCard",
 
         const data = await response.json();
 
-        if (spinner) spinner.classList.remove("active");
-
         if (!data.success) {
+            if (latexEl) latexEl.innerHTML = '';
             showErrorAlert(data.error || "An unexpected calculation error occurred.", resultCardId);
             return;
         }
 
         renderResultCard(data, resultCardId);
     } catch (err) {
-        if (spinner) spinner.classList.remove("active");
+        if (latexEl) latexEl.innerHTML = '';
         showErrorAlert("Server communication failed: " + err.message, resultCardId);
     }
 }
